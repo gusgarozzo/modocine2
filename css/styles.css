@@ -1,0 +1,616 @@
+/******* ESTILOS GENERALES - MOBILE FIRST ********/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f2f2f2;
+    font-family: "Poppins", sans-serif;
+    color: black;
+}
+
+.contenedor {
+    display: grid;
+    padding: 10px;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr, 3fr, 1fr;
+    grid-template-areas:
+                        "header"
+                        "main"
+                        "aside"
+                        "footer";
+    gap: 15px;
+}
+
+/* CABECERA */
+header {
+    width: 100%;
+    grid-area: header;
+    background: yellow;
+}
+
+header p {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+    text-shadow: 1px 1px 2px orange;
+    color: #000;
+}
+
+header nav {
+    margin: 0;
+    z-index: 0;
+}
+
+header nav ul li {
+    list-style: none;
+    padding: 5px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+}
+
+header nav .fa-bars {
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+header nav .fa-times {
+    display: flex;
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 20px;
+    justify-content: flex-end;
+}
+
+.menu{
+    display: none
+}
+
+.visible{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    position: absolute;
+    z-index: 1;
+    background: gold;
+    width: 200px;
+}
+
+.visible li{
+    margin: 10px 0;
+}
+
+.visible a{
+    color: inherit;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+/*ESTILO PARA EL FILTRO DE LA TABLA DINAMICA*/
+.filtro-oculto{
+    display: none;
+}
+
+.filtrado{
+    font-weight: bold;
+}
+
+/* ESTILOS MAIN */
+main {
+    width: 100%;
+    grid-area: main;
+    border-top: 1px solid lightgrey;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+main section {
+    padding: 10px;
+}
+
+/* MAIN INDEX */
+main section h1 {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+main section article h2 {
+    font-size: 20px;
+    text-align: justify;
+}
+
+main section article img {
+    width: 100%;
+}
+
+main section article p {
+    text-align: justify;
+    font-size: 15px;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 5px;
+}
+
+/* ESTILOS MAIN ESTRENOS */
+.mainEstrenos h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.mainEstrenos section h2{
+    text-decoration: underline;
+    text-align: center;
+}
+
+.mainEstrenos article{
+    margin-bottom: 20px;
+}
+
+.mainEstrenos section article h3{
+    text-align: center;
+}
+
+.mainEstrenos section article p{
+    text-align: center;
+}
+
+.mainEstrenos section article iframe{
+    display: none;
+}
+
+/*ESTILOS CONTACTO*/
+.main-contacto h1{
+    text-align: center;
+}
+
+.main-contacto p{
+    text-align: justify;
+}
+
+.main-contacto .formulario{
+    display: block;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.377);
+    padding: 10px;
+}
+
+.main-contacto .formulario input{
+    width: 100%;
+    padding: 5px
+}
+
+.main-contacto .formulario .titulo-genero, .titulo-captcha{
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+.main-contacto .formulario .genero{
+    display: block;
+}
+
+.main-contacto .formulario .genero p{
+    text-align: center;
+}
+
+.main-contacto .formulario .titulo-textarea{
+    margin-top: 5px;
+}
+
+.main-contacto .formulario textarea{
+    width: 100%;
+}
+
+.main-contacto .formulario .captcha input{
+    margin: 10px 0;
+    text-align: center;
+}
+
+.main-contacto .formulario .captcha p{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-contacto .formulario input[type=submit]{
+    font-size: 15px;
+    background: lightgray;
+    border: 1px solid grey;
+}
+
+/* ASIDE INDEX */ 
+/* ESTILOS GENERALES AL ASIDE */
+aside {
+    grid-area: aside;
+    display: block;
+    padding: 10px;
+    border-left: 1px solid lightgrey;
+}
+
+aside p{
+    color: #000;
+}
+
+aside p span{
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* ESTILOS ASIDE INDEX */
+aside h2 {
+    text-align: center;
+}
+
+aside ol li {
+    margin-left: 15px;
+}
+
+aside ol li a {
+    color: black;
+}
+
+/* ASIDE ESTRENOS--> TABLA ESTATICA */
+.asideEstrenos section table{
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
+}
+
+.asideEstrenos section table thead{
+    background: grey;
+    font-weight: bold;
+}
+
+.asideEstrenos section table tbody{
+    background: lightgray;
+}
+
+  /* ASIDE ESTRENOS ----> BOLETERIA ONLINE */
+.asideEstrenos .tablaDinamica{
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+.asideEstrenos .tablaDinamica  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.asideEstrenos .tablaDinamica .submit{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.asideEstrenos .tablaDinamica input[type=number]{
+    text-align: center;
+}
+
+.asideEstrenos .tablaDinamica h2{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.asideEstrenos .tablaDinamica p{
+    margin-bottom: 10px;
+}
+
+.asideEstrenos .tablaDinamica table{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.asideEstrenos .tablaDinamica input[type=submit], .submit button{
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.asideEstrenos .tablaDinamica input[type=submit]{
+    margin-top: 20px;
+}
+
+#tabla_total{
+    width: 50%;
+}
+
+#total{
+    background-color: lightgrey;
+}
+
+footer {
+    grid-area: footer;
+    background: #000;
+    color: white;
+    text-align: center;
+}
+
+footer .social {
+    padding: 5px 0;
+}
+
+footer .social i {
+    text-shadow: 1px 2px 2px lightgray;
+}
+
+.oferta {
+    background: yellow;
+}
+
+/******* TABLET *******/
+@media only screen and (min-width: 500px) {
+.contenedor {
+    width: auto;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 3fr, 3fr, 1fr;
+    grid-template-areas:
+            "header header header"
+            "main main main"
+            "aside aside aside"
+            "footer footer footer";
+    gap: 5px;
+}
+
+/* ESTILOS AL ENCABEZADO Y AL MENU */
+header {
+    grid-area: header;
+}
+
+header nav ul li {
+    list-style: none;
+    padding: 5px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+}
+
+/* ESTILOS GENERALES AL MAIN */
+main {
+    grid-area: main;
+}
+
+main p{
+    color: #000;
+}
+
+/* ESTILOS MAIN - ESTRNEOS */
+.mainEstrenos section article p{
+    display: none;
+}
+
+.mainEstrenos section article iframe{
+    display: block;
+    margin: auto;
+    width: 400px;
+    height: 250px;
+}
+
+/* ESTILOS MAIN - CONTACTO*/
+.main-contacto{
+    background-image: url(../images/fondo-contacto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.main-contacto h1{
+    color: #f2f2f2;
+}
+
+.main-contacto p{
+    color: #f2f2f2;
+    text-align: center;
+}
+
+.main-contacto .formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.377);
+    width: 80%;
+}
+
+.main-contacto .formulario input[type="text"]{
+    width: 50%;
+}
+
+.main-contacto .formulario input[type="email"], .titulo-genero{
+    width: 50%;
+}
+
+.main-contacto .formulario .titulo-genero, .titulo-captcha{
+    margin-top: 20px;
+    color: #f2f2f2;
+    border-bottom: 1px solid white;
+    width: 50%;
+}
+
+.main-contacto .formulario .genero{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-contacto .formulario label{
+    color: #f2f2f2;
+}
+
+.main-contacto .formulario .textarea{
+    width: 50%;
+}
+
+.main-contacto .formulario .captcha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.main-contacto .formulario .captcha p{
+    color: #f2f2f2;
+}
+
+.main-contacto .formulario input[type="submit"]{
+    width: 100px;
+}
+
+/* ESTILOS GENERALES AL ASIDE */
+aside {
+    grid-area: aside;
+}
+
+/* ESTILOS GENERALES AL FOOTER */
+footer {
+    grid-area: footer;
+}
+}
+
+/******* ESCRITORIO *******/
+@media only screen and (min-width: 900px){
+.contenedor {
+        width: auto;
+        gap: 15px;
+        grid-template-columns: 4fr, 1fr;
+        grid-template-rows: 1fr, 4fr, 3fr, 1fr;
+        grid-template-areas:
+            "header  header"
+            "main  aside"
+            "main  aside"
+            "footer  footer";
+}
+
+header{
+    grid: header;
+}
+
+header nav .fa-bars{
+    display: none;
+}
+
+header nav ul .fa-times{
+    display: none;
+}
+
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: gold;
+}
+
+header nav .menu{
+    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: inherit;
+}
+
+header nav .menu li a {
+    padding: 0 5px;
+    color: inherit;
+    text-decoration: none;
+}
+
+header nav .menu li a:hover {
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    text-shadow: 1px 2px 2px goldenrod;
+}
+
+/* ESTILOS GENERALES AL MAIN*/
+main{
+    grid-area: main;
+}
+
+/* ESTILOS MAIN - ESTRENOS */
+.mainEstrenos{
+    display: block;
+    margin: auto;
+}
+
+.mainEstrenos section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainEstrenos section article h3{
+    text-align: center;
+}
+
+.mainEstrenos section article p{
+    display: none;
+}
+
+.mainEstrenos section article iframe{
+    width: 500px;
+    height: 300px;
+}
+
+/* ESTILOS GENERALES ASIDE */
+aside{
+    grid-area: aside;
+}
+
+/* ESTILOS ASIDE INDEX */
+aside ol li:hover{
+    background: black;
+}
+
+aside ol li:hover a{
+    color: #f2f2f2;
+}
+
+/* ESTILOS ASIDE ESTRENOS */
+.asideEstrenos section{
+    padding: 10px;
+    display: block;
+    margin: auto;
+}
+
+.asideEstrenos h2{
+    text-align: center;
+}
+
+.asideEstrenos p{
+    text-align: justify;
+}
+
+.asideEstrenos section table{
+    border: 1px solid black;
+    text-align: center;
+    width: 90%;
+}
+
+.asideEstrenos section table thead{
+    background: grey;
+    font-weight: bold;
+}
+
+.asideEstrenos section table tbody{
+    background: lightgray;
+}
+
+footer{
+    grid-area: footer;
+}
+
+footer i:hover{
+    text-shadow: 2px 4px 4px lightgrey;
+}
+}
+
