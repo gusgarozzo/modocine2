@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-09-2020 a las 22:38:51
+-- Tiempo de generación: 22-09-2020 a las 19:35:52
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_cinema`
+-- Base de datos: `tpe`
 --
 
 -- --------------------------------------------------------
@@ -34,6 +34,18 @@ CREATE TABLE `pelicula` (
   `id_sala` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `pelicula`
+--
+
+INSERT INTO `pelicula` (`id`, `nombre`, `genero`, `id_sala`) VALUES
+(1, 'The Batman', 'Accion', 1),
+(2, 'Tenet', 'Suspenso', 2),
+(3, 'Wonder Woman 1984', 'Aventura', 3),
+(4, 'Ford vs Ferrari', 'Drama', 1),
+(5, 'Annabelle 3', 'Terror', 2),
+(6, 'Joker', 'Drama', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +56,15 @@ CREATE TABLE `sala` (
   `id` int(11) NOT NULL,
   `numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `sala`
+--
+
+INSERT INTO `sala` (`id`, `numero`) VALUES
+(1, 1),
+(2, 2),
+(3, 3);
 
 --
 -- Índices para tablas volcadas
@@ -70,13 +91,13 @@ ALTER TABLE `sala`
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
