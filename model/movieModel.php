@@ -5,7 +5,7 @@
         private $db;
 
         function __constructor(){
-            $this->db = new PDO('mysql:host=localhost;'.'dbname=db_cinema;charset=utf8', 'root', '');
+            $this->db = new PDO('mysql:host=localhost;'.'dbname=tpe;charset=utf8', 'root', '');
         }
 
         //traigo todos los elementos de la tabla pelicula
@@ -25,11 +25,5 @@
         }
 
     }
-
-
-
-
-
-
 
 ?>
