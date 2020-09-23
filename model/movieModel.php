@@ -1,6 +1,6 @@
 <?php 
 
-    class model{
+    class MovieModel{
 
         private $db;
 
@@ -9,7 +9,7 @@
         }
 
         //traigo todos los elementos de la tabla pelicula
-        function getMovies(){
+        function getAllMovies(){
             $query = $this->db->prepare('SELECT * FROM pelicula');
             $query->execute();
             $movies = $query->fetchAll(PDO::FETCH_OBJ);
@@ -30,6 +30,7 @@
         $query->execute([$genre]);
         $movieByGenre = $query->fetchAll(PDO::FETCH_OBJ);
         return $movieByGenre;
+        }
 
         //traigo pelicula por sala
         function getMoviesByRoom($room){
@@ -40,6 +41,5 @@
         }
     }
 
-    }
 
 ?>

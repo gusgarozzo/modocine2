@@ -1,6 +1,6 @@
 <?php 
 
-    class view{
+    class MovieView{
 
         function renderHome(){
 
@@ -58,7 +58,7 @@
                                     podamos volver en serio a la normalidad?.</p>
                             </article>
                             <article>
-                                <h2 class="titulo">Es mejor para tu salud mental que veas 'Contagio' a que pongas los informativos,
+                                <h2 class="titulo">Es mejor para tu salud mental que veas "Contagio" a que pongas los informativos,
                                     según una
                                     psicóloga
                                 </h2>
@@ -71,7 +71,7 @@
                                     de ella) pueden afectar mucho a nuestro estado de ánimo y a nuestra cabeza. ¿Qué medidas podemos
                                     tomar para reducir esa carga negativa hacia el cerebro? Sorprendentemente, ponernos
                                     <a href="https://www.youtube.com/watch?v=s5mwBJRFAA4" class="enlace" target="_blank">
-                                        'Contagio'</a>. La doctora <span>Pamela Rutledge</span>, directora del Media Psychology
+                                        "Contagio"</a>. La doctora <span>Pamela Rutledge</span>, directora del Media Psychology
                                     Research Center, ha explicado a Insider que las películas sobre pandemias en realidad pueden
                                     hacer
                                     bastante bien a nuestra salud mental, sobre todo porque ofrecen una cosa muy importante que la
@@ -79,7 +79,7 @@
                                     hay
                                     una resolución para estas historias así que podemos expresar nuestra ansiedad de esa manera. Ya
                                     sea
-                                    con películas zombies o con 'Contagio', cualquier thriller aumenta mucho la ansiedad y el miedo
+                                    con películas zombies o con "Contagio", cualquier thriller aumenta mucho la ansiedad y el miedo
                                     que
                                     luego son resueltos al final", explica la psicóloga.</p>
                             </article>
@@ -95,7 +95,7 @@
                                         Christopher Nolan</span> que también se estrenaría ese dia.</p>
                             </article>
                             <article>
-                                <h2 class="titulo"> 'Doctor Strange 2', 'Thor: Love and Thunder' y las secuelas de 'Spider-Man' ya
+                                <h2 class="titulo"> "Doctor Strange 2", "Thor: Love and Thunder" y las secuelas de "Spider-Man" ya
                                     tienen nuevas
                                     fechas
                                     de estreno</h2>
@@ -138,17 +138,17 @@
                         </ol>
                         <h2>Buscar pelicula por genero</h2>
                         <ul>
-                            <li><a href="router.php?genero=Accion">Comedias</a></li>
-                            <li><a href="router.php?genero=Suspenso">Drama</a></li>
-                            <li><a href="router.php?genero=Aventura">Románticas</a></li>
-                            <li><a href="router.php?genero=Drama">Animación</a></li>
-                            <li><a href="router.php?genero=Terror">Acción</a></li>
+                            <li><a href="accion">Comedias</a></li>
+                            <li><a href="suspenso">Drama</a></li>
+                            <li><a href="aventura">Románticas</a></li>
+                            <li><a href="drama">Animación</a></li>
+                            <li><a href="terror">Acción</a></li>
                         </ul>
                         <h2>Buscar pelicula por sala</h2>
                         <ul>
-                            <li><a href="router.php?id_sala=1">Sala 1</a></li>
-                            <li><a href="router.php?id_sala=2">Sala 2</a></li>
-                            <li><a href="router.php?id_sala=3">Sala 3</a></li>
+                            <li><a href="id_sala=1">Sala 1</a></li>
+                            <li><a href="id_sala=2">Sala 2</a></li>
+                            <li><a href="id_sala=3">Sala 3</a></li>
                         </ul>
                     </aside>
                     <footer>
@@ -164,6 +164,7 @@
             </html>';
             echo $html;
         }
+        
     }
 
 
