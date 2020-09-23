@@ -144,6 +144,12 @@
                             <li><a href="router.php?genero=Drama">Animación</a></li>
                             <li><a href="router.php?genero=Terror">Acción</a></li>
                         </ul>
+                        <h2>Buscar pelicula por sala</h2>
+                        <ul>
+                            <li><a href="router.php?id_sala=1">Sala 1</a></li>
+                            <li><a href="router.php?id_sala=2">Sala 2</a></li>
+                            <li><a href="router.php?id_sala=3">Sala 3</a></li>
+                        </ul>
                     </aside>
                     <footer>
                         <div class="social">
