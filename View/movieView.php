@@ -125,32 +125,25 @@
                     <aside class="asideIndex">
                         <h2>Top 10: Lo más visto en Argentina</h2>
                         <ol>
-                            <li><a href="https://www.youtube.com/watch?v=2S5QZck_lyE" target="_blank"> El
-                                    Silencio
-                                    del Pantano</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=UqWH487bpmc" target="_blank"> Elite</a>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=Oyuomep8Ac4" target="_blank"> El
-                                    Hoyo</a>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=-DNFVYcrY5M" target="_blank"> Freud</a>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=Nh-mJ_5jqLA" target="_blank"> Madame C.J
-                                    Walker: Una mujer que se hizo asi misma</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=NvwNCuLt7u8" target="_blank"> Al Final
-                                    del
-                                    Paraiso</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=wPqcNPDc0z0" target="_blank"> Los
-                                    Asesinatos
-                                    del Valhalla</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=LvTfjCsQZQ0" target="_blank"> Virus</a>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=DjmbrDogI0o" target="_blank">
-                                    Pandemia</a>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=To_kVMMu-Ls" target="_blank"> La Casa de
-                                    Papel</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=2S5QZck_lyE" target="_blank"> El Silencio del Pantano</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=UqWH487bpmc" target="_blank"> Elite</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=Oyuomep8Ac4" target="_blank"> El Hoyo</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=-DNFVYcrY5M" target="_blank"> Freud</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=Nh-mJ_5jqLA" target="_blank"> Madame C.J Walker: Una mujer que se hizo asi misma</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=NvwNCuLt7u8" target="_blank"> Al Final del Paraiso</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=wPqcNPDc0z0" target="_blank"> Los Asesinatos del Valhalla</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=LvTfjCsQZQ0" target="_blank"> Virus</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=DjmbrDogI0o" target="_blank"> Pandemia</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=To_kVMMu-Ls" target="_blank"> La Casa de Papel</a></li>
                         </ol>
+                        <h2>Buscar pelicula por genero</h2>
+                        <ul>
+                            <li><a href="router.php?genero=Accion">Comedias</a></li>
+                            <li><a href="router.php?genero=Suspenso">Drama</a></li>
+                            <li><a href="router.php?genero=Aventura">Románticas</a></li>
+                            <li><a href="router.php?genero=Drama">Animación</a></li>
+                            <li><a href="router.php?genero=Terror">Acción</a></li>
+                        </ul>
                     </aside>
                     <footer>
                         <div class="social">

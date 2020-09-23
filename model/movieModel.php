@@ -24,6 +24,22 @@
             return $room;
         }
 
+        //traigo pelicula por genero
+        function getMoviesByGenre($genre){
+        $query = $this->db->prepare('SELECT * FROM movies WHERE genero = ?');
+        $query->execute([$genre]);
+        $movieByGenre = $query->fetchAll(PDO::FETCH_OBJ);
+        return $movieByGenre;
+
+        //traigo pelicula por sala
+        function getMoviesByRoom($room){
+            $query = $this->db->prepare('SELECT * FROM movies WHERE id_sala = ?');
+            $query->execute([$room]);
+            $movieByRoom = $query->fetchAll(PDO::FETCH_OBJ);
+            return $movieByRoom;
+        }
+    }
+
     }
 
 ?>
