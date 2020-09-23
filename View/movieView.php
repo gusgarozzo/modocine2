@@ -16,6 +16,7 @@
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
                     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">   
                 <script src="js/menu.js"></script>
+                <base href="' . BASE_URL . '">
             </head>
             
             <body>
@@ -25,9 +26,9 @@
                         <nav>
                             <i class="fas fa-bars" id="btn-abrir"></i>
                                 <ul class="menu" id="menu">
-                                    <li><a href="index.html">INICIO</a></li>
-                                    <li><a href="estrenos.html">ESTRENOS</a></li>
-                                    <li><a href="contacto.html">CONTACTO</a></li>
+                                    <li><a href="home">INICIO</a></li>
+                                    <li><a href="estrenos">ESTRENOS</a></li>
+                                    <li><a href="contacto">CONTACTO</a></li>
                                 </ul>
                         </nav>
                     </header>
@@ -150,6 +151,7 @@
                             <li><a href="id_sala=2">Sala 2</a></li>
                             <li><a href="id_sala=3">Sala 3</a></li>
                         </ul>
+                        <a href="salas>Ver Salas</a>
                     </aside>
                     <footer>
                         <div class="social">
