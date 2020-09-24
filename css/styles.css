@@ -261,6 +261,7 @@ aside ol li a {
 }
 
 /* ASIDE ESTRENOS--> TABLA ESTATICA */
+
 .asideEstrenos section table{
     border: 1px solid black;
     text-align: center;
@@ -569,6 +570,7 @@ main{
 /* ESTILOS GENERALES ASIDE */
 aside{
     grid-area: aside;
+    width: 500px;
 }
 
 /* ESTILOS ASIDE INDEX */
