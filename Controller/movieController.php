@@ -11,27 +11,31 @@ class movieController{
         $this->view = new MovieView();
     }
 
+    function homeController(){
+        $this->view->renderHome();
+    }
+
     function movieController(){
         $this->model->getAllMovies();
         //$this->view->tableAllMovies();
     }
 
     function roomController(){
-        $this->model->getRoom();
-        //$this->view->showRoom();
+        $room = $this->model->getRoom();
+        $this->view->showRoom($room);
     }
 
     function genreController(){
         $genre = $_REQUEST['genre'];
+        var_dump($genre);
         $movies = $this->model->getMoviesByGenre($genre);
-        //$this->view->showMoviesByGenre($movies);
+        $this->view->showMoviesByGenre($movies);
 
     }
 
     function moviesByRoomController(){
         $room = $_REQUEST['room'];
         $movies = $this->model->getMoviesByRoom($room);
-
         //$this->view->showMoviesByRoom($movies);
     }
     

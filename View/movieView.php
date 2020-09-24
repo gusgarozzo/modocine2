@@ -139,11 +139,11 @@
                         </ol>
                         <h2>Buscar pelicula por genero</h2>
                         <ul>
-                            <li><a href="accion">Comedias</a></li>
-                            <li><a href="suspenso">Drama</a></li>
-                            <li><a href="aventura">Románticas</a></li>
-                            <li><a href="drama">Animación</a></li>
-                            <li><a href="terror">Acción</a></li>
+                            <li><a href="Accion">Acción</a></li>
+                            <li><a href="Suspenso">Suspenso</a></li>
+                            <li><a href="Aventura">Aventura</a></li>
+                            <li><a href="Drama">Drama</a></li>
+                            <li><a href="Terror">Terror</a></li>
                         </ul>
                         <h2>Buscar pelicula por sala</h2>
                         <ul>
@@ -167,7 +167,16 @@
             echo $html;
         }
         
-    }
+        function showMoviesByGenre($movies){
+            var_dump($movies);
+            foreach ($movies as $movie) {
+               echo "<li>$movie->nombre</li>";
+            }
+        }
 
+        function showRoom($room){
+            var_dump($room);
+        }
+    }
 
 ?>
