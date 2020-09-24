@@ -8,7 +8,6 @@
 
         public function __construct(){
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_modocine;charset=utf8', 'root', '');
-    
         }
 
         //traigo todos los elementos de la tabla pelicula
@@ -20,7 +19,7 @@
         }
 
         //traigo todos los elementos de la tabla sala
-        function getRoom(){
+        function getAllRooms(){
             $query = $this->db->prepare('SELECT * FROM sala');
             $query->execute();
             $room = $query->fetchAll(PDO::FETCH_OBJ);
@@ -43,6 +42,5 @@
             return $movieByRoom;
         }
     }
-
 
 ?>
