@@ -21,6 +21,9 @@ switch($params[0]){
     case 'home':
         $controller->homeController();
     break;
+    case 'estrenos':
+        $controller->estrenosController();
+    break;
     case 'Genero':
         $controller->genreController();
     break;
