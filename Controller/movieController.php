@@ -15,28 +15,35 @@ class movieController{
         $this->view->renderHome();
     }
 
+    function contactoController(){
+        $this->view->renderContacto();
+    }
+
+    function estrenosController(){
+        $this->view->renderEstrenos();
+    }
+
     function movieController(){
         $this->model->getAllMovies();
         //$this->view->tableAllMovies();
     }
 
     function roomController(){
-        $room = $this->model->getRoom();
-        $this->view->showRoom($room);
+        $room = $this->model->getAllRooms();
+        $this->view->renderRooms($room);
     }
 
     function genreController(){
         $genre = $_REQUEST['genre'];
-        var_dump($genre);
         $movies = $this->model->getMoviesByGenre($genre);
-        $this->view->showMoviesByGenre($movies);
+        $this->view->renderMoviesByGenre($movies);
 
     }
 
     function moviesByRoomController(){
         $room = $_REQUEST['room'];
         $movies = $this->model->getMoviesByRoom($room);
-        //$this->view->showMoviesByRoom($movies);
+        $this->view->renderMoviesByRoom($movies);
     }
     
 }
