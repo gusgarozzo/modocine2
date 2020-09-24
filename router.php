@@ -24,6 +24,9 @@ switch($params[0]){
     case 'estrenos':
         $controller->estrenosController();
     break;
+    case 'contacto':
+        $controller->contactoController();
+    break;
     case 'Genero':
         $controller->genreController();
     break;
