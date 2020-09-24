@@ -137,25 +137,6 @@
                             <li><a href="https://www.youtube.com/watch?v=DjmbrDogI0o" target="_blank"> Pandemia</a></li>
                             <li><a href="https://www.youtube.com/watch?v=To_kVMMu-Ls" target="_blank"> La Casa de Papel</a></li>
                         </ol>
-
-                        <h2> Cartelera de Cine</h2>
-                        <p> Busque por género o por sala y encuentre la película que desea ver </p>
-                        <h3 class="asideTitle">Buscar pelicula por genero</h3>
-                        <ol>
-                            <li><a href="Genero?genre=Accion">Acción</a></li>
-                            <li><a href="Genero?genre=Suspenso">Suspenso</a></li>
-                            <li><a href="Genero?genre=Aventura">Aventura</a></li>
-                            <li><a href="Genero?genre=Drama">Drama</a></li>
-                            <li><a href="Genero?genre=Terror">Terror</a></li>
-                        </ol>
-                        <h3 class="asideTitle">Buscar pelicula por sala</h3>
-                        <ol>
-                            <li><a href="Salas?room=1">Sala 1</a></li>
-                            <li><a href="Salas?id_sala=2">Sala 2</a></li>
-                            <li><a href="Salas?id_sala=3">Sala 3</a></li>
-                            <li><a href="VerSalas">Ver todas las salas</a></li>                            
-                        </ol>
-                       
                     </aside>
                     <footer>
                         <div class="social">
@@ -256,7 +237,7 @@
             echo $html;
         }
         
-        function renderEstrenos(){
+        function renderEstrenos($movies){
             $html='<!DOCTYPE html>
             <html lang="es">
             
@@ -376,98 +357,43 @@
                         </section>
                     </main>
                     <aside class="asideEstrenos">
-                        <h2>Cartelera</h2>
-                        <p>Las siguientes películas corresponden al mes de Marzo de 2020. Se hace saber que, en virtud de la
-                            normativa vigente dispuesta por el Gobierno Nacional todas las salas del país permanecerán cerradas
-                            hasta nuevo aviso.</p>
-                        <section>
+                        <h2>Cartelera</h2>            
+                        <section class="tablaDinamica">
                             <table>
                                 <thead>
                                     <tr>
                                         <th>Pelicula</th>
-                                        <th>Duración</th>
-                                        <th>Clasificación</th>
-                                        <th>Calificación (IMDB)</th>
+                                        <th>Genero</th>
+                                        <th>Sala</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Grandes Espías</td>
-                                        <td>99 Min</td>
-                                        <td>Apta Todo Público</td>
-                                        <td>5.2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bloodshot</td>
-                                        <td>109 Min</td>
-                                        <td>Mayores de 16 años</td>
-                                        <td>5.6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>El Precio de la Verdad</td>
-                                        <td>127 Min</td>
-                                        <td>Mayores de 13 años</td>
-                                        <td>7.6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ni Heroe, ni Traidor</td>
-                                        <td>74 Min</td>
-                                        <td>Mayores de 13 años</td>
-                                        <td>5.4</td>
-                                    </tr>
-                                </tbody>
+                                </thead>';
+            
+                                        foreach ($movies as $movie) {
+                                            $html.="<tr>
+                                                    <td>$movie->nombre</td>
+                                                    <td>$movie->genero</td>
+                                                    <td>$movie->id_sala</td>
+                                                </tr>";
+            }
+                                $html.='</tbody>
                             </table>
-                        </section>
-            
-                        <section class="tablaDinamica">
-                            <h2>Boleteria Online</h2>
-                            <p>Adquirí tus entradas</p>
-                            <p><span>Con la compra de 3 o más entradas obtenes un 20% de descuento</span></p>
-            
-                            <label for="filtro">Filtrar por salas</label>
-                            <input type="text" name="filtro" id="filtro">
-                            <p id="mensaje" class="filtro-oculto">No se encontraron coincidencias</p>
-                            <button id="buscar">Filtrar</button>
-                            <button id="reset">Restablecer</button>
-                            <table id="boleteria">
-                                <thead>
-                                    <tr>
-                                        <th>Pelicula</th>
-                                        <th>Cantidad</th>
-                                        <th>Complejo</th>
-                                        <th>Precio</th>
-                                        <th>Subtotal</th>
-                                        <th>Editar/Borrar</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                            <table id="tabla_total">
-                                <thead>
-                                    <tr>
-                                        <th>Total</th>
-                                        <th id="total">0</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                            <div id="use-ajax"></div>
-                            <form action="">
-                                <label for="pelicula">Pelicula</label>
-                                <input type="text" id="pelicula">
-                                <label for="asientos">Asientos</label>
-                                <input type="number" min="1" max="10" id="asientos">
-                                <label for="complejo">Complejo</label>
-                                <input type="text" id="complejo">
-                                <label for="complejo">Valor</label>
-                                <input type="text" id="valor">
-                                <input type="text" hidden id="id">
-                                <input type="text" hidden id="operacion">
-            
-                            </form>
-                            <div class="submit">
-                                <button id="btn-agregar">Agregar</button>
-                                <button id="btn-random">Agregar Varios</button>
-                            </div>
-            
+                            <h2> Cartelera de Cine</h2>
+                        <p> Busque por género o por sala y encuentre la película que desea ver </p>
+                        <h3 class="asideTitle">Buscar pelicula por genero</h3>
+                        <ol>
+                            <li><a href="Genero?genre=Accion">Acción</a></li>
+                            <li><a href="Genero?genre=Suspenso">Suspenso</a></li>
+                            <li><a href="Genero?genre=Aventura">Aventura</a></li>
+                            <li><a href="Genero?genre=Drama">Drama</a></li>
+                            <li><a href="Genero?genre=Terror">Terror</a></li>
+                        </ol>
+                        <h3 class="asideTitle">Buscar pelicula por sala</h3>
+                        <ol>
+                            <li><a href="Salas?room=1">Sala 1</a></li>
+                            <li><a href="Salas?room=2">Sala 2</a></li>
+                            <li><a href="Salas?room=3">Sala 3</a></li>
+                            <li><a href="VerSalas">Ver todas las salas</a></li>                            
+                        </ol>
                         </section>
                     </aside>
                     <footer>
@@ -484,38 +410,19 @@
             echo $html;
         }
 
-        function renderTableAllMovies($movies){
-
-           echo '<table>
-            <th>Nombre</th>
-            <th>Genero</th>
-            <th>Sala</th>';
-            foreach ($movies as $movie) {
-                echo "<tr>
-                        <td>$movie->nombre</td>
-                        <td>$movie->genero</td>
-                        <td>$movie->id_sala</td>
-                    </tr>";
-            }echo '</table>';
-        }
 
         function renderMoviesByGenre($movies){
-            foreach ($movies as $movie) {
-                echo "<li>$movie->nombre</li>";
-            }
+            $this->renderEstrenos($movies);
         }
 
         function renderMoviesByRoom($movies){
-            foreach ($movies as $movie) {
-                echo "<li>$movie->nombre</li>";
-            }
+            $this->renderEstrenos($movies);
         }
 
         function renderRooms($rooms){
-            foreach ($rooms as $room) {
-                echo "<li>$room->numero</li>";
-            }
+            $this->renderEstrenos($rooms);
         }
+
     }
 
 ?>
