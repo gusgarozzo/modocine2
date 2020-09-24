@@ -137,21 +137,22 @@
                             <li><a href="https://www.youtube.com/watch?v=DjmbrDogI0o" target="_blank"> Pandemia</a></li>
                             <li><a href="https://www.youtube.com/watch?v=To_kVMMu-Ls" target="_blank"> La Casa de Papel</a></li>
                         </ol>
-                        <h2>Buscar pelicula por genero</h2>
-                        <ul>
-                            <li><a href="Accion">Acción</a></li>
-                            <li><a href="Suspenso">Suspenso</a></li>
-                            <li><a href="Aventura">Aventura</a></li>
-                            <li><a href="Drama">Drama</a></li>
-                            <li><a href="Terror">Terror</a></li>
-                        </ul>
-                        <h2>Buscar pelicula por sala</h2>
-                        <ul>
-                            <li><a href="id_sala=1">Sala 1</a></li>
-                            <li><a href="id_sala=2">Sala 2</a></li>
-                            <li><a href="id_sala=3">Sala 3</a></li>
-                        </ul>
-                        <a href="salas>Ver Salas</a>
+                        <h2 class="asideTitle">Buscar pelicula por genero</h2>
+                        <ol>
+                            <li><a href="Genero?genre=Accion">Acción</a></li>
+                            <li><a href="Genero?genre=Suspenso">Suspenso</a></li>
+                            <li><a href="Genero?genre=Aventura">Aventura</a></li>
+                            <li><a href="Genero?genre=Drama">Drama</a></li>
+                            <li><a href="Genero?genre=Terror">Terror</a></li>
+                        </ol>
+                        <h2 class="asideTitle">Buscar pelicula por sala</h2>
+                        <ol>
+                            <li><a href="Salas?room=1">Sala 1</a></li>
+                            <li><a href="Salas?id_sala=2">Sala 2</a></li>
+                            <li><a href="Salas?id_sala=3">Sala 3</a></li>
+                            <li><a href="VerSalas">Ver todas las salas</a></li>                            
+                        </ol>
+                       
                     </aside>
                     <footer>
                         <div class="social">
@@ -168,9 +169,8 @@
         }
         
         function showMoviesByGenre($movies){
-            var_dump($movies);
             foreach ($movies as $movie) {
-               echo "<li>$movie->nombre</li>";
+                echo "<li>$movie->nombre</li>";
             }
         }
 
