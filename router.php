@@ -21,14 +21,13 @@ switch($params[0]){
     case 'home':
         $controller->homeController();
     break;
-    case 'Accion': case 'Suspenso': case 'Aventura':
-        case 'Drama':case 'Terror':
+    case 'Genero':
         $controller->genreController();
     break;
-    /*case 'id_sala': // Chequear
+    case 'Salas': // Chequear
         $controller->moviesByRoomController();
     break;
-    case 'salas':
+    case 'VerSalas':
         $controller->roomController();
-    break;*/
+    break;
 }
