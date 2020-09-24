@@ -24,8 +24,8 @@ class movieController{
     }
 
     function movieController(){
-        $this->model->getAllMovies();
-        //$this->view->tableAllMovies();
+        $movies = $this->model->getAllMovies();
+        $this->view->renderTableAllMovies($movies);
     }
 
     function roomController(){
