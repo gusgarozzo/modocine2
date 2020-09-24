@@ -484,6 +484,21 @@
             echo $html;
         }
 
+        function renderTableAllMovies($movies){
+
+           echo '<table>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th>Sala</th>';
+            foreach ($movies as $movie) {
+                echo "<tr>
+                        <td>$movie->nombre</td>
+                        <td>$movie->genero</td>
+                        <td>$movie->id_sala</td>
+                    </tr>";
+            }echo '</table>';
+        }
+
         function renderMoviesByGenre($movies){
             foreach ($movies as $movie) {
                 echo "<li>$movie->nombre</li>";
