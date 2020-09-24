@@ -247,6 +247,11 @@ aside h2 {
     text-align: center;
 }
 
+aside .asideTitle{
+    margin: 20px 0px 0px 0px;
+    border-top: 1px solid grey;
+}
+
 aside ol li {
     margin-left: 15px;
 }
