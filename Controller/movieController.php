@@ -20,13 +20,10 @@ class movieController{
     }
 
     function estrenosController(){
-        $this->view->renderEstrenos();
+        $movies=$this->model->getAllMovies();
+        $this->view->renderEstrenos($movies);
     }
 
-    function movieController(){
-        $movies = $this->model->getAllMovies();
-        $this->view->renderTableAllMovies($movies);
-    }
 
     function roomController(){
         $room = $this->model->getAllRooms();
