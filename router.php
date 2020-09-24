@@ -30,9 +30,13 @@ switch($params[0]){
     case 'Genero':
         $controller->genreController();
     break;
-    case 'Salas': // Chequear
+    case 'Salas':
         $controller->moviesByRoomController();
     break;
+    case 'lista':
+        $controller->movieController();
+    break;
+
     case 'VerSalas':
         $controller->roomController();
     break;
