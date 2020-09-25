@@ -41,6 +41,11 @@
             $movieByRoom = $query->fetchAll(PDO::FETCH_OBJ);
             return $movieByRoom;
         }
+
+        function InsertMovie($title,$genre,$studio){
+            $query = $this->db->prepare("INSERT INTO pelicula(nombre, genero, id_sala) VALUES(?,?,?)");
+            $query->execute(array($title,$genre,$studio));
+        }
     }
 
 ?>

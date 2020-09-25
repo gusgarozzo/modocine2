@@ -24,7 +24,6 @@ class movieController{
         $this->view->renderEstrenos($movies);
     }
 
-
     function roomController(){
         $room = $this->model->getAllRooms();
         $this->view->renderRooms($room);
@@ -41,6 +40,12 @@ class movieController{
         $room = $_REQUEST['room'];
         $movies = $this->model->getMoviesByRoom($room);
         $this->view->renderMoviesByRoom($movies);
+    }
+
+    function insertNewMovie(){
+        $this->model->InsertMovie($_POST['input_nombre'],$_POST['input_genero'],$_POST['input_id_sala']);
+
+        $this->estrenosController();
     }
     
 }

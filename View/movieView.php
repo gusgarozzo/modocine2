@@ -394,6 +394,13 @@
                             <li><a href="Salas?room=3">Sala 3</a></li>
                             <li><a href="VerSalas">Ver todas las salas</a></li>                            
                         </ol>
+                        <h3 class="asideTitle">Agregar peliculas</h3>
+                        <form action="insert" method="POST">
+                            <input type="text" placeholder="Titulo" name="input_nombre">
+                            <input type="text" placeholder="Genero" name="input_genero">
+                            <input type="text" placeholder="Sala" name="input_id_sala">
+                            <button type="submit">Agregar</button>
+                        </form>
                         </section>
                     </aside>
                     <footer>
@@ -422,7 +429,7 @@
         function renderRooms($rooms){
             $this->renderEstrenos($rooms);
         }
-
+   
     }
 
 ?>

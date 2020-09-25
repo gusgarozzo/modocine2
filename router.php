@@ -36,7 +36,8 @@ switch($params[0]){
     case 'lista':
         $controller->movieController();
     break;
-
+    case 'insert':
+        $controller->insertNewMovie();
     case 'VerSalas':
         $controller->roomController();
     break;
