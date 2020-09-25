@@ -1,13 +1,16 @@
 <?php
 require_once ('./Model/movieModel.php');
 require_once ('./View/movieView.php');
+require_once ('./Model/roomModel.php');
 
 class movieController{
-    private $model;
+    private $movieModel;
     private $view;
+    private $roomModel;
 
     public function __construct(){
-        $this->model = new MovieModel();
+        $this->movieModel = new MovieModel();
+        $this->roomModel = new RoomModel();
         $this->view = new MovieView();
     }
 
@@ -20,30 +23,30 @@ class movieController{
     }
 
     function estrenosController(){
-        $movies=$this->model->getAllMovies();
+        $movies=$this->movieModel->getAllMovies();
         $this->view->renderEstrenos($movies);
     }
 
     function roomController(){
-        $room = $this->model->getAllRooms();
+        $room = $this->roomModel->getAllRooms();
         $this->view->renderRooms($room);
     }
 
     function genreController(){
         $genre = $_REQUEST['genre'];
-        $movies = $this->model->getMoviesByGenre($genre);
+        $movies = $this->movieModel->getMoviesByGenre($genre);
         $this->view->renderMoviesByGenre($movies);
 
     }
 
     function moviesByRoomController(){
         $room = $_REQUEST['room'];
-        $movies = $this->model->getMoviesByRoom($room);
+        $movies = $this->movieModel->getMoviesByRoom($room);
         $this->view->renderMoviesByRoom($movies);
     }
 
     function insertNewMovie(){
-        $this->model->InsertMovie($_POST['input_nombre'],$_POST['input_genero'],$_POST['input_id_sala']);
+        $this->movieModel->InsertMovie($_POST['input_nombre'],$_POST['input_genero'],$_POST['input_id_sala']);
 
         $this->estrenosController();
     }

@@ -18,14 +18,6 @@
             return $movies;
         }
 
-        //traigo todos los elementos de la tabla sala
-        function getAllRooms(){
-            $query = $this->db->prepare('SELECT * FROM sala');
-            $query->execute();
-            $room = $query->fetchAll(PDO::FETCH_OBJ);
-            return $room;
-        }
-
         //traigo pelicula por genero
         function getMoviesByGenre($genre){
             $query = $this->db->prepare('SELECT * FROM pelicula WHERE genero =?');
@@ -46,6 +38,8 @@
             $query = $this->db->prepare("INSERT INTO pelicula(nombre, genero, id_sala) VALUES(?,?,?)");
             $query->execute(array($title,$genre,$studio));
         }
+
+        /* SELECT producto.nombre AS nombreProd, tipo.nombre AS nombreTipo FROM producto INNER JOIN tipo on producto.id_tipo = tipo.id */
     }
 
 ?>

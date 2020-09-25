@@ -365,14 +365,17 @@
                                         <th>Pelicula</th>
                                         <th>Genero</th>
                                         <th>Sala</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>';
-            
                                         foreach ($movies as $movie) {
                                             $html.="<tr>
                                                     <td>$movie->nombre</td>
                                                     <td>$movie->genero</td>
                                                     <td>$movie->id_sala</td>
+                                                    <td><button>X</button></td>
+                                                    <td><button>Edit</button></td>
                                                 </tr>";
             }
                                 $html.='</tbody>
@@ -416,7 +419,6 @@
             </html>';
             echo $html;
         }
-
 
         function renderMoviesByGenre($movies){
             $this->renderEstrenos($movies);
