@@ -10,9 +10,18 @@
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_modocine;charset=utf8', 'root', '');
         }
 
+        function getMovieById($id){
+            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.puntaje_imdb, pelicula.id_sala, sala.letra,
+                                         pelicula.sinopsis FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.id=?');
+            $query->execute(array($id));
+            $movie = $query->fetchAll(PDO::FETCH_OBJ);                                      //NUEVO--------------------------------------------------------------
+            return $movie;
+        }
+
         //traigo todos los elementos de la tabla pelicula
-        function getAllMovies(){
-            $query = $this->db->prepare('SELECT * FROM pelicula');
+        function getAllMoviesAndRooms(){
+            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.id, pelicula.id_sala, sala.letra 
+                                        FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id');
             $query->execute();
             $movies = $query->fetchAll(PDO::FETCH_OBJ);
             return $movies;
@@ -20,8 +29,8 @@
 
         //traigo pelicula por genero
         function getMoviesByGenre($genre){
-            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.id_sala, sala.id, sala.letra 
-            FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE genero=?');
+            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero,pelicula.id_sala, sala.id, sala.letra 
+            FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.genero=?');
             $query->execute(array($genre));
             $movieByGenre = $query->fetchAll(PDO::FETCH_OBJ);
             return $movieByGenre;
