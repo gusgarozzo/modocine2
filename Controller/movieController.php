@@ -35,6 +35,7 @@ class movieController{
     function genreController(){
         $genre = $_REQUEST['genre'];
         $movies = $this->movieModel->getMoviesByGenre($genre);
+        var_dump($movies);
         $this->view->renderMoviesByGenre($movies);
 
     }
@@ -53,8 +54,7 @@ class movieController{
     }
 
     function insertNewMovie(){
-        $this->movieModel->InsertMovie($_POST['input_nombre'],$_POST['input_genero'],$_POST['input_id_sala']);
-
+        $this->movieModel->InsertMovie($_POST['input_nombre'],$_POST['input_genero'],$_POST['input_sinopsis'],$_POST['input_puntaje'],$_POST['input_id_sala']);
         $this->estrenosController();
     }
     
