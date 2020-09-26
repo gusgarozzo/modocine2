@@ -24,6 +24,9 @@ switch($params[0]){
     case 'estrenos':
         $controller->estrenosController();
     break;
+    case 'Detalle':
+        $controller->detailController(); //NUEVO--------------------------------------------------------------
+    break;
     case 'contacto':
         $controller->contactoController();
     break;
@@ -32,9 +35,6 @@ switch($params[0]){
     break;
     case 'Salas':
         $controller->moviesByRoomController();
-    break;
-    case 'lista':
-        $controller->movieController();
     break;
     case 'insert':
         $controller->insertNewMovie();
