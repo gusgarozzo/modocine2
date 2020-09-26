@@ -313,7 +313,9 @@
                         <form action="insert" method="POST" class="formulario">
                             <input type="text" placeholder="Titulo" name="input_nombre">
                             <input type="text" placeholder="Genero" name="input_genero">
-                            <input type="text" placeholder="Sala" name="input_id_sala">
+                            <input type="number" placeholder="Puntaje" name="input_puntaje">
+                            <input type="number" placeholder="Sala" name="input_id_sala">
+                            <textarea name="input_sinopsis">Escriba una sinopsis</textarea>
                             <button type="submit">Agregar</button>
                         </form>
                         </section>';
