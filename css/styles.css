@@ -261,7 +261,6 @@ aside ol li a {
 }
 
 /* ASIDE ESTRENOS--> TABLA ESTATICA */
-
 .asideEstrenos section table{
     border: 1px solid black;
     text-align: center;
@@ -305,6 +304,7 @@ aside ol li a {
 .asideEstrenos .tablaDinamica h2{
     text-align: center;
     margin-top: 20px;
+    font-size: 20px;
 }
 
 .asideEstrenos .tablaDinamica p{
@@ -320,6 +320,18 @@ aside ol li a {
     padding: 5px;
     font-size: 14px;
     font-weight: bold;
+}
+
+.asideEstrenos .tablaDinamica input[type=text]{
+    width: 50%;
+    margin: 15px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.asideEstrenos .tablaDinamica form{
+    width: 100%;
 }
 
 .asideEstrenos .tablaDinamica input[type=submit]{
@@ -570,7 +582,7 @@ main{
 /* ESTILOS GENERALES ASIDE */
 aside{
     grid-area: aside;
-    width: 500px;
+    width: 800px;
 }
 
 /* ESTILOS ASIDE INDEX */
@@ -597,6 +609,7 @@ aside ol li:hover a{
     text-align: justify;
 }
 
+
 .asideEstrenos section table{
     border: 1px solid black;
     text-align: center;
@@ -611,6 +624,7 @@ aside ol li:hover a{
 .asideEstrenos section table tbody{
     background: lightgray;
 }
+
 
 footer{
     grid-area: footer;

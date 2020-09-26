@@ -18,8 +18,9 @@
             $smarty->assign('contacto', "Contacto");
 
             // Main
-            $smarty->assing('tituloSeccion1', "Noticias de Cine y Series");
-            $smarty->assign('noticia1', "El cine después del coronavirus");
+            $smarty->assign('titulo_seccion', "NOTICIAS DE CINE Y SERIES" );
+            $smarty->assign('titulo_noticia1', "El cine después del coronavirus");
+            $smarty->assign('imagen_noticia1', "<img src='images/cine.jpeg' alt='cine_vacio'/>");
             $smarty->assign('texto_noticia1', "El mundo sigue esperando esa luz al final del túnel que nos permita regresar, en mayor o menor
             medida, a nuestra vida normal y a nuestras calles. ¿Te acuerdas de esa última vez que fuiste al
             cine
@@ -38,84 +39,71 @@
             o
             más allá. ¿Se optará por el reestreno de éxitos pasados, o será un regreso a medio gas hasta que
             podamos volver en serio a la normalidad?.");
-
-            $smarty->assign('noticia2', "Es mejor para tu salud mental que veas Contagio a que pongas los informativos,
+            $smarty->assign('titulo_noticia2', "Es mejor para tu salud mental que veas Contagio a que pongas los informativos,
             según una psicóloga");
-            $smarty->assign('texto_noticia2_1', "Aunque ya tenemos bastantes preocupaciones a raíz de la pandemia de coronavirus que afecta a casi
+            $smarty->assign('imagen_noticia2', "<img src='images/contagio.jpg' alt='escena_de_la_pelicula'/>");
+            $smarty->assign('texto_noticia2', "Aunque ya tenemos bastantes preocupaciones a raíz de la pandemia de coronavirus que afecta a casi
             todos los ámbitos de nuestra vida, no podemos olvidarnos de nuestra salud mental. El
-            confinamiento o
-            la incertidumbre de cuándo terminará y podremos recuperar nuestra vida normal (o al menos gran
-            parte
-            de ella) pueden afectar mucho a nuestro estado de ánimo y a nuestra cabeza. ¿Qué medidas podemos
-            tomar para reducir esa carga negativa hacia el cerebro? Sorprendentemente, ponernos");
-            $smarty->assign('url1', "https://www.youtube.com/watch?v=s5mwBJRFAA4");
-            $smarty->assign('main_link1', "'Contagio'");
-            $smarty->assign('texto_noticia2_2', "La doctora Pamela Rutledge, directora del Media Psychology
+            confinamiento o la incertidumbre de cuándo terminará y podremos recuperar nuestra vida normal (o al menos gran
+            parte de ella) pueden afectar mucho a nuestro estado de ánimo y a nuestra cabeza. ¿Qué medidas podemos
+            tomar para reducir esa carga negativa hacia el cerebro? Sorprendentemente, ponernos
+            <a href='https://www.youtube.com/watch?v=s5mwBJRFAA4' class='enlace' target='_blank'>
+                'Contagio'</a>. La doctora <span>Pamela Rutledge</span>, directora del Media Psychology
             Research Center, ha explicado a Insider que las películas sobre pandemias en realidad pueden
-            hacer
-            bastante bien a nuestra salud mental, sobre todo porque ofrecen una cosa muy importante que la
+            hacer bastante bien a nuestra salud mental, sobre todo porque ofrecen una cosa muy importante que la
             realidad de momento no nos puede dar: un cierre. 'Nos hace sentir que no estamos solos, y que
-            hay
-            una resolución para estas historias así que podemos expresar nuestra ansiedad de esa manera. Ya
-            sea
-            con películas zombies o con Contagio, cualquier thriller aumenta mucho la ansiedad y el miedo
-            que
-            luego son resueltos al final', explica la psicóloga.");
+            hay una resolución para estas historias así que podemos expresar nuestra ansiedad de esa manera. Ya
+            sea con películas zombies o con 'Contagio', cualquier thriller aumenta mucho la ansiedad y el miedo
+            que luego son resueltos al final', explica la psicóloga.</p>");
             $smarty->assign('titulo_noticia3', "¿Cuándo se estrenará Mulán en Argentina?");
-            $smarty->assing('texto_noticia3', "La versión live-action de Mulán fue uno de los tantos estrenos afectados por la pandemia de
+            $smarty->assign('imagen_noticia3', "<img src='images/mulan.jpeg' alt='mulan_con_una_espada'>");
+            $smarty->assign('texto_noticia3', "La versión live-action de Mulán fue uno de los tantos estrenos afectados por la pandemia de
             coronavirus. La película originalmente iba a estrenarse el 26 de marzo en Argentina. Disney
-            esta
-            semana informo que la nueva fecha de estreno será para el 23 de julio, dentro del período de
+            esta semana informo que la nueva fecha de estreno será para el 23 de julio, dentro del período de
             vacaciones de invierno de este año. De ser asi, Mulán compartirá la cartelera junto a
-            Tenet de Christopher Nolan que también se estrenaría ese dia.");
+            <span>Tenet de Christopher Nolan</span> que también se estrenaría ese dia.");
             $smarty->assign('titulo_noticia4', "'Doctor Strange 2', 'Thor: Love and Thunder' y las secuelas de 'Spider-Man' ya
             tienen nuevas fechas de estreno");
-            $smarty->assign('texto_noticia4_1', "Debido al coronavirus, muchos estrenos, tanto cinéfilos como seriéfilos, se han visto afectados
+            $smarty->assign('imagen_noticia4', "<img src='images/superheroes.jpg' alt='personajes_protagonistas'>");
+            $smarty->assign('texto_noticia4', "Debido al coronavirus, muchos estrenos, tanto cinéfilos como seriéfilos, se han visto afectados
             ya
             sea por tener que paralizar su rodaje o por tener que empezarlo mucho más tarde de lo planeado.
             Sin
             embargo, Sony y Marvel han anunciado las nuevas fechas de estreno de varias de sus
             películas. La
-            secuela de ");
-            $smarty->assign('url2', "https://www.youtube.com/watch?v=OaBHtiBI42U");
-            $smarty->assign('main_link2', "Spider-Man: Homecoming");
-            $smarty->assign('texto_noticia4_2', " se ha retrasado del 16 de julio de 2020 al 5 de noviembre de
+            secuela de <a href='https://www.youtube.com/watch?v=OaBHtiBI42U' target='_blank'>Spider-Man:
+                Homecoming</a> se ha retrasado del 16 de julio de 2020 al 5 de noviembre de
             2021.
-            Spider-Man: Un nuevo Universo 2solo se ha atrasado unos pocos meses: del 8 de
+            <span>Spider-Man: Un nuevo Universo 2</span> solo se ha atrasado unos pocos meses: del 8 de
             abril de
-            2022 al 7 de octubre del mismo año. Por otro lado, Doctor Strange in the Multiverse of
-                Madness se estrenará finalmente el 25 de marzo de 2022 en vez de hacerlo el 5 de
+            2022 al 7 de octubre del mismo año. Por otro lado, <span>Doctor Strange in the Multiverse of
+                Madness</span> se estrenará finalmente el 25 de marzo de 2022 en vez de hacerlo el 5 de
             noviembre de 2021. Y por último, Thor: Love and Thunder de Taika Waititi sólo se ha
             atrasado
             unos pocos días: del 11 de febrero de 2022 al 18 de febrero del mismo año. Otras de las
             películas
             que se ha visto afectada por el coronavirus ha sido Uncharted con Tom Holland, que se estrenará
-            finalmente el 8 de octubre de 2021 en vez de hacerlo el 16 del mismo año. ");
+            finalmente el 8 de octubre de 2021 en vez de hacerlo el 16 del mismo año.");
+            $smarty->assign('titulo_aside', "Top 10: Lo más visto en Argentina");
+            $smarty->assign('item1', "<a href='https://www.youtube.com/watch?v=2S5QZck_lyE' target='_blank'> El
+            Silencio del Pantano</a>");
+            $smarty->assign('item2', "<a href='https://www.youtube.com/watch?v=UqWH487bpmc' target='_blank'> Elite</a>");
+            $smarty->assign('item3', "<a href='https://www.youtube.com/watch?v=Oyuomep8Ac4' target='_blank'> El
+            Hoyo</a>");
+            $smarty->assign('item4', "<a href='https://www.youtube.com/watch?v=-DNFVYcrY5M' target='_blank'> Freud</a>");
+            $smarty->assign('item5', "<a href='https://www.youtube.com/watch?v=Nh-mJ_5jqLA' target='_blank'> Madame C.J
+            Walker: Una mujer que se hizo asi misma</a>");
+            $smarty->assign('item6', "<a href='https://www.youtube.com/watch?v=NvwNCuLt7u8' target='_blank'> Al Final
+            del Paraiso</a>");
+            $smarty->assign('item7', "<a href='https://www.youtube.com/watch?v=wPqcNPDc0z0' target='_blank'> Los
+            Asesinatos del Valhalla</a>");
+            $smarty->assign('item8', "<a href='https://www.youtube.com/watch?v=LvTfjCsQZQ0' target='_blank'> Virus</a>");
+            $smarty->assign('item9', "<a href='https://www.youtube.com/watch?v=DjmbrDogI0o' target='_blank'>Pandemia</a>");
+            $smarty->assign('item10', "<a href='https://www.youtube.com/watch?v=To_kVMMu-Ls' target='_blank'> La Casa de
+            Papel</a>");
 
-            $smarty->assing('titulo_aside', "Top 10: Lo más visto en Argentina");
-            $smarty->assign('aside_link1', "El Silencio del Pantano");
-            $smarty->assign('aside_link2', "Elite");
-            $smarty->assign('aside_link3', "El Hoyo");
-            $smarty->assign('aside_link4', "Freud");
-            $smarty->assign('aside_link5', "Madame C.J Walker: Una mujer que se hizo asi misma");
-            $smarty->assign('aside_link6', "Al Final del Paraiso");
-            $smarty->assign('aside_link7', "Los Asesinatos del Valhalla");
-            $smarty->assign('aside_link8', "Virus");
-            $smarty->assign('aside_link9', "Pandemia");
-            $smarty->assign('aside_link10', "La Casa de Papel");
-            $smarty->assign('url3', "https://www.youtube.com/watch?v=2S5QZck_lyE");
-            $smarty->assign('url4', "https://www.youtube.com/watch?v=UqWH487bpmc");
-            $smarty->assign('url5', "https://www.youtube.com/watch?v=Oyuomep8Ac4");
-            $smarty->assign('url6', "https://www.youtube.com/watch?v=-DNFVYcrY5M");
-            $smarty->assign('url7', "https://www.youtube.com/watch?v=Nh-mJ_5jqLA");
-            $smarty->assign('url8', "https://www.youtube.com/watch?v=NvwNCuLt7u8");
-            $smarty->assign('url9', "https://www.youtube.com/watch?v=wPqcNPDc0z0");
-            $smarty->assign('url10', "https://www.youtube.com/watch?v=LvTfjCsQZQ0");
-            $smarty->assign('url11', "https://www.youtube.com/watch?v=DjmbrDogI0o");
-            $smarty->assign('url12', "https://www.youtube.com/watch?v=To_kVMMu-Ls");
 
-            $smarty->display('./libs/templates/header.tpl');
-            $smarty->display('./libs/templates/index.tpl');
+            $smarty->display('templates/index.tpl');
         }
 
         function renderContacto(){
@@ -290,29 +278,21 @@
                                     <tr>
                                         <th>Pelicula</th>
                                         <th>Genero</th>
-                                        <th>Sinopsis</th>
-                                        <th>Puntaje IMDB</th>
                                         <th>Sala</th>
-                                        <th></th>
-                                        <th></th>
                                     </tr>
                                 </thead>';
                                         foreach ($movies as $movie) {
                                             $html.="<tr>
                                                     <td>$movie->nombre</td>
                                                     <td>$movie->genero</td>
-                                                    <td>$movie->sinopsis</td>
-                                                    <td>$movie->puntaje_imdb</td>
-                                                    <td>$movie->id_sala</td>
-                                                    <td><button>X</button></td>
-                                                    <td><button>Edit</button></td>
+                                                    <td>$movie->letra</td>
                                                 </tr>";
             }
                                 $html.='</tbody>
                             </table>
                             <h2> Cartelera de Cine</h2>
                         <p> Busque por género o por sala y encuentre la película que desea ver </p>
-                        <h3 class="asideTitle">Buscar pelicula por genero</h3>
+                        <h2 class="asideTitle">Buscar pelicula por genero</h2>
                         <ol>
                             <li><a href="Genero?genre=Accion">Acción</a></li>
                             <li><a href="Genero?genre=Suspenso">Suspenso</a></li>
@@ -320,15 +300,15 @@
                             <li><a href="Genero?genre=Drama">Drama</a></li>
                             <li><a href="Genero?genre=Terror">Terror</a></li>
                         </ol>
-                        <h3 class="asideTitle">Buscar pelicula por sala</h3>
+                        <h2 class="asideTitle">Buscar pelicula por sala</h2>
                         <ol>
-                            <li><a href="Salas?room=1">Sala 1</a></li>
-                            <li><a href="Salas?room=2">Sala 2</a></li>
-                            <li><a href="Salas?room=3">Sala 3</a></li>
+                            <li><a href="Salas?room=1">Sala A</a></li>
+                            <li><a href="Salas?room=2">Sala B</a></li>
+                            <li><a href="Salas?room=3">Sala C</a></li>
                             <li><a href="VerSalas">Ver todas las salas</a></li>                            
                         </ol>
-                        <h3 class="asideTitle">Agregar peliculas</h3>
-                        <form action="insert" method="POST">
+                        <h2 class="asideTitle">Agregar peliculas</h2>
+                        <form action="insert" method="POST" class="formulario">
                             <input type="text" placeholder="Titulo" name="input_nombre">
                             <input type="text" placeholder="Genero" name="input_genero">
                             <input type="text" placeholder="Sala" name="input_id_sala">

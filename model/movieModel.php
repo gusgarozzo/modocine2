@@ -20,7 +20,8 @@
 
         //traigo pelicula por genero
         function getMoviesByGenre($genre){
-            $query = $this->db->prepare('SELECT * FROM pelicula WHERE genero =?');
+            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.id_sala, sala.id, sala.letra 
+            FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE genero=?');
             $query->execute(array($genre));
             $movieByGenre = $query->fetchAll(PDO::FETCH_OBJ);
             return $movieByGenre;
@@ -28,7 +29,8 @@
 
         //traigo pelicula por sala
         function getMoviesByRoom($room){
-            $query = $this->db->prepare('SELECT * FROM pelicula WHERE id_sala = ?');
+            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.id_sala, sala.id, sala.letra 
+            FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE sala.id=?');
             $query->execute([$room]);
             $movieByRoom = $query->fetchAll(PDO::FETCH_OBJ);
             return $movieByRoom;
