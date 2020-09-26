@@ -29,7 +29,7 @@
 
         //traigo pelicula por genero
         function getMoviesByGenre($genre){
-            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero,pelicula.id_sala, sala.id, sala.letra 
+            $query = $this->db->prepare('SELECT pelicula.id, pelicula.nombre, pelicula.genero, sala.letra 
             FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.genero=?');
             $query->execute(array($genre));
             $movieByGenre = $query->fetchAll(PDO::FETCH_OBJ);
@@ -38,16 +38,16 @@
 
         //traigo pelicula por sala
         function getMoviesByRoom($room){
-            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.id_sala, sala.id, sala.letra 
+            $query = $this->db->prepare('SELECT pelicula.id, pelicula.nombre, pelicula.genero, sala.letra 
             FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE sala.id=?');
             $query->execute([$room]);
             $movieByRoom = $query->fetchAll(PDO::FETCH_OBJ);
             return $movieByRoom;
         }
 
-        function InsertMovie($title,$genre,$studio){
-            $query = $this->db->prepare("INSERT INTO pelicula(nombre, genero, id_sala) VALUES(?,?,?)");
-            $query->execute(array($title,$genre,$studio));
+        function InsertMovie($title,$genre,$sinopsis,$puntaje_imdb,$studio){
+            $query = $this->db->prepare("INSERT INTO pelicula(nombre, genero, sinopsis, puntaje_imdb, id_sala) VALUES(?,?,?,?,?)");
+            $query->execute(array($title,$genre,$sinopsis,$puntaje_imdb,$studio));
         }
 
         /* SELECT producto.nombre AS nombreProd, tipo.nombre AS nombreTipo FROM producto INNER JOIN tipo on producto.id_tipo = tipo.id */
