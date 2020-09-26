@@ -582,7 +582,10 @@ main{
 /* ESTILOS GENERALES ASIDE */
 aside{
     grid-area: aside;
-    width: 800px;
+}
+
+.asideIndex{
+    width: 600px;
 }
 
 /* ESTILOS ASIDE INDEX */
@@ -595,6 +598,10 @@ aside ol li:hover a{
 }
 
 /* ESTILOS ASIDE ESTRENOS */
+.asideEstrenos{
+    width: 800px;
+}
+
 .asideEstrenos section{
     padding: 10px;
     display: block;
