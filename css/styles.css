@@ -298,7 +298,11 @@ aside ol li a {
 }
 
 .asideEstrenos .tablaDinamica input[type=number]{
-    text-align: center;
+    width: 50%;
+    margin: 15px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .asideEstrenos .tablaDinamica h2{
