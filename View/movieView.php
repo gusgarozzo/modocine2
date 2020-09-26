@@ -280,15 +280,17 @@
                                         <th>Genero</th>
                                         <th>Sala</th>
                                     </tr>
-                                </thead>';
-                                        foreach ($movies as $movie) {
-                                            $html.="<tr>
-                                                    <td>$movie->nombre</td>
+                                </thead>
+                                <tbody>';
+                                    foreach ($movies as $movie) {
+                                        $html.="<tr>
+                                                    <td><a class=movie href='Detalle?id=$movie->id'>$movie->nombre</a></td>
                                                     <td>$movie->genero</td>
                                                     <td>$movie->letra</td>
                                                 </tr>";
-            }
-                                $html.='</tbody>
+                                    }
+                                    $html.='
+                                </tbody>
                             </table>
                             <h2> Cartelera de Cine</h2>
                         <p> Busque por género o por sala y encuentre la película que desea ver </p>
@@ -314,8 +316,25 @@
                             <input type="text" placeholder="Sala" name="input_id_sala">
                             <button type="submit">Agregar</button>
                         </form>
-                        </section>
-                    </aside>
+                        </section>';
+                        
+                        foreach ($movies as $mov) {
+                            if ($mov->puntaje_imdb!=null) {
+                                $html.= "<ul>
+                                        <li>
+                                            <h3>$mov->nombre
+                                            </h3>
+                                        </li>
+                                            <ul>
+                                                <li>$mov->sinopsis</li>
+                                                <li>Genero: $mov->genero</li>
+                                                <li>Puntaje: $mov->puntaje_imdb</li>
+                                            </ul>
+                                    </ul>";
+                            }
+                        }
+
+                    '</aside>
                     <footer>
                         <div class="social">
                             <i class="fab fa-instagram fa-2x"></i>
@@ -336,6 +355,10 @@
 
         function renderMoviesByRoom($movies){
             $this->renderEstrenos($movies);
+        }
+
+        function renderMovieById($movie){ //NUEVO--------------------------------------------------------------
+            $this->renderEstrenos($movie);
         }
 
         function renderRooms($rooms){
