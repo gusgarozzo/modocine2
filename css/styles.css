@@ -640,5 +640,9 @@ footer{
 footer i:hover{
     text-shadow: 2px 4px 4px lightgrey;
 }
+
+.movie{
+    text-decoration: none;
+}
 }
 
