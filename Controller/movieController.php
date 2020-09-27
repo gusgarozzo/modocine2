@@ -24,7 +24,8 @@ class movieController{
 
     function estrenosController(){
         $movies=$this->movieModel->getAllMoviesAndRooms();
-        $this->view->renderEstrenos($movies);
+        $rooms=$this->roomModel->getAllRooms();
+        $this->view->renderEstrenos($movies, $rooms);
     }
 
     function roomController(){
@@ -35,14 +36,13 @@ class movieController{
     function genreController(){
         $genre = $_REQUEST['genre'];
         $movies = $this->movieModel->getMoviesByGenre($genre);
-        var_dump($movies);
         $this->view->renderMoviesByGenre($movies);
 
     }
 
     function detailController(){
         $id = $_REQUEST['id'];
-        $movie = $this->movieModel->getMovieById($id);  //NUEVO--------------------------------------------------------------
+        $movie = $this->movieModel->getMovieById($id); 
         $this->view->renderMovieById($movie);
 
     }

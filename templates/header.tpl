@@ -20,9 +20,9 @@
                         <nav>
                             <i class="fas fa-bars" id="btn-abrir"></i>
                                 <ul class="menu" id="menu">
-                                    <li><a href="home">{$inicio|upper}</a></li>
-                                    <li><a href="estrenos">{$estrenos|upper}</a></li>
-                                    <li><a href="contacto">{$contacto|upper}</a></li>
+                                    <li><a href="home">HOME</a></li>
+                                    <li><a href="estrenos">ESTRENOS</a></li>
+                                    <li><a href="contacto">CONTACTO</a></li>
                                 </ul>
                         </nav>
                     </header>

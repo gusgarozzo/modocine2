@@ -650,3 +650,58 @@ footer i:hover{
 }
 }
 
+.asideEstrenos .tablaDinamica .tabla-pelicula, td a{
+    color: black;
+}
+
+.asideEstrenos .tablaDinamica .tabla-pelicula, td a:hover{
+    font-weight: bold;
+}
+
+.lista-detalles{
+    margin-top: 20px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    background: rgba(0,0,0, .3);
+    box-shadow: 3px 5px 5px darkslategray;
+}
+
+.lista-detalles h3{
+    border-bottom: 1px solid black;
+    text-shadow: 3px 5px 5px darkslategray;
+}
+
+.lista-detalles li{
+    list-style: none;
+    padding: 10px;
+}
+
+
+.asideEstrenos .formulario textarea{
+    font-family: inherit;
+    width: 100%;
+}
+
+.asideEstrenos .agregar-pelicula{
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-family: inherit;
+}
+
+.asideEstrenos .agregar-pelicula:hover{
+    background: lightgray;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.asideEstrenos .volver{
+    text-decoration: none;
+    color:inherit;
+    padding:20px;
+    margin-top: 100px;
+}
+
+.asideEstrenos .volver:hover{
+    font-weight: bold;
+}

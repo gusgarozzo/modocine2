@@ -5,23 +5,24 @@
 
     class MovieView{
 
+        public function __construct(){
+            $this->title = "MODOCINE";
+            $this->smarty = new Smarty();
+        }
+
         function renderHome(){
-            $smarty = new Smarty();
             // Display Header
 
             
             // Asignación de variables Smarty
             // Header
-            $smarty->assign('titulo', "Modocine");
-            $smarty->assign('inicio', "Inicio");
-            $smarty->assign('estrenos', "Estrenos");
-            $smarty->assign('contacto', "Contacto");
+            $this->smarty->assign('titulo', $this->title);
 
             // Main
-            $smarty->assign('titulo_seccion', "NOTICIAS DE CINE Y SERIES" );
-            $smarty->assign('titulo_noticia1', "El cine después del coronavirus");
-            $smarty->assign('imagen_noticia1', "<img src='images/cine.jpeg' alt='cine_vacio'/>");
-            $smarty->assign('texto_noticia1', "El mundo sigue esperando esa luz al final del túnel que nos permita regresar, en mayor o menor
+            $this->smarty->assign('titulo_seccion', "NOTICIAS DE CINE Y SERIES" );
+            $this->smarty->assign('titulo_noticia1', "El cine después del coronavirus");
+            $this->smarty->assign('imagen_noticia1', "<img src='images/cine.jpeg' alt='cine_vacio'/>");
+            $this->smarty->assign('texto_noticia1', "El mundo sigue esperando esa luz al final del túnel que nos permita regresar, en mayor o menor
             medida, a nuestra vida normal y a nuestras calles. ¿Te acuerdas de esa última vez que fuiste al
             cine
             antes de que el coronavirus los cerrara? Seguro que has visto un montón de películas y series en
@@ -39,10 +40,10 @@
             o
             más allá. ¿Se optará por el reestreno de éxitos pasados, o será un regreso a medio gas hasta que
             podamos volver en serio a la normalidad?.");
-            $smarty->assign('titulo_noticia2', "Es mejor para tu salud mental que veas Contagio a que pongas los informativos,
+            $this->smarty->assign('titulo_noticia2', "Es mejor para tu salud mental que veas Contagio a que pongas los informativos,
             según una psicóloga");
-            $smarty->assign('imagen_noticia2', "<img src='images/contagio.jpg' alt='escena_de_la_pelicula'/>");
-            $smarty->assign('texto_noticia2', "Aunque ya tenemos bastantes preocupaciones a raíz de la pandemia de coronavirus que afecta a casi
+            $this->smarty->assign('imagen_noticia2', "<img src='images/contagio.jpg' alt='escena_de_la_pelicula'/>");
+            $this->smarty->assign('texto_noticia2', "Aunque ya tenemos bastantes preocupaciones a raíz de la pandemia de coronavirus que afecta a casi
             todos los ámbitos de nuestra vida, no podemos olvidarnos de nuestra salud mental. El
             confinamiento o la incertidumbre de cuándo terminará y podremos recuperar nuestra vida normal (o al menos gran
             parte de ella) pueden afectar mucho a nuestro estado de ánimo y a nuestra cabeza. ¿Qué medidas podemos
@@ -55,17 +56,17 @@
             hay una resolución para estas historias así que podemos expresar nuestra ansiedad de esa manera. Ya
             sea con películas zombies o con 'Contagio', cualquier thriller aumenta mucho la ansiedad y el miedo
             que luego son resueltos al final', explica la psicóloga.</p>");
-            $smarty->assign('titulo_noticia3', "¿Cuándo se estrenará Mulán en Argentina?");
-            $smarty->assign('imagen_noticia3', "<img src='images/mulan.jpeg' alt='mulan_con_una_espada'>");
-            $smarty->assign('texto_noticia3', "La versión live-action de Mulán fue uno de los tantos estrenos afectados por la pandemia de
+            $this->smarty->assign('titulo_noticia3', "¿Cuándo se estrenará Mulán en Argentina?");
+            $this->smarty->assign('imagen_noticia3', "<img src='images/mulan.jpeg' alt='mulan_con_una_espada'>");
+            $this->smarty->assign('texto_noticia3', "La versión live-action de Mulán fue uno de los tantos estrenos afectados por la pandemia de
             coronavirus. La película originalmente iba a estrenarse el 26 de marzo en Argentina. Disney
             esta semana informo que la nueva fecha de estreno será para el 23 de julio, dentro del período de
             vacaciones de invierno de este año. De ser asi, Mulán compartirá la cartelera junto a
             <span>Tenet de Christopher Nolan</span> que también se estrenaría ese dia.");
-            $smarty->assign('titulo_noticia4', "'Doctor Strange 2', 'Thor: Love and Thunder' y las secuelas de 'Spider-Man' ya
+            $this->smarty->assign('titulo_noticia4', "'Doctor Strange 2', 'Thor: Love and Thunder' y las secuelas de 'Spider-Man' ya
             tienen nuevas fechas de estreno");
-            $smarty->assign('imagen_noticia4', "<img src='images/superheroes.jpg' alt='personajes_protagonistas'>");
-            $smarty->assign('texto_noticia4', "Debido al coronavirus, muchos estrenos, tanto cinéfilos como seriéfilos, se han visto afectados
+            $this->smarty->assign('imagen_noticia4', "<img src='images/superheroes.jpg' alt='personajes_protagonistas'>");
+            $this->smarty->assign('texto_noticia4', "Debido al coronavirus, muchos estrenos, tanto cinéfilos como seriéfilos, se han visto afectados
             ya
             sea por tener que paralizar su rodaje o por tener que empezarlo mucho más tarde de lo planeado.
             Sin
@@ -84,37 +85,37 @@
             películas
             que se ha visto afectada por el coronavirus ha sido Uncharted con Tom Holland, que se estrenará
             finalmente el 8 de octubre de 2021 en vez de hacerlo el 16 del mismo año.");
-            $smarty->assign('titulo_aside', "Top 10: Lo más visto en Argentina");
-            $smarty->assign('item1', "<a href='https://www.youtube.com/watch?v=2S5QZck_lyE' target='_blank'> El
+            $this->smarty->assign('titulo_aside', "Top 10: Lo más visto en Argentina");
+            $this->smarty->assign('item1', "<a href='https://www.youtube.com/watch?v=2S5QZck_lyE' target='_blank'> El
             Silencio del Pantano</a>");
-            $smarty->assign('item2', "<a href='https://www.youtube.com/watch?v=UqWH487bpmc' target='_blank'> Elite</a>");
-            $smarty->assign('item3', "<a href='https://www.youtube.com/watch?v=Oyuomep8Ac4' target='_blank'> El
+            $this->smarty->assign('item2', "<a href='https://www.youtube.com/watch?v=UqWH487bpmc' target='_blank'> Elite</a>");
+            $this->smarty->assign('item3', "<a href='https://www.youtube.com/watch?v=Oyuomep8Ac4' target='_blank'> El
             Hoyo</a>");
-            $smarty->assign('item4', "<a href='https://www.youtube.com/watch?v=-DNFVYcrY5M' target='_blank'> Freud</a>");
-            $smarty->assign('item5', "<a href='https://www.youtube.com/watch?v=Nh-mJ_5jqLA' target='_blank'> Madame C.J
+            $this->smarty->assign('item4', "<a href='https://www.youtube.com/watch?v=-DNFVYcrY5M' target='_blank'> Freud</a>");
+            $this->smarty->assign('item5', "<a href='https://www.youtube.com/watch?v=Nh-mJ_5jqLA' target='_blank'> Madame C.J
             Walker: Una mujer que se hizo asi misma</a>");
-            $smarty->assign('item6', "<a href='https://www.youtube.com/watch?v=NvwNCuLt7u8' target='_blank'> Al Final
+            $this->smarty->assign('item6', "<a href='https://www.youtube.com/watch?v=NvwNCuLt7u8' target='_blank'> Al Final
             del Paraiso</a>");
-            $smarty->assign('item7', "<a href='https://www.youtube.com/watch?v=wPqcNPDc0z0' target='_blank'> Los
+            $this->smarty->assign('item7', "<a href='https://www.youtube.com/watch?v=wPqcNPDc0z0' target='_blank'> Los
             Asesinatos del Valhalla</a>");
-            $smarty->assign('item8', "<a href='https://www.youtube.com/watch?v=LvTfjCsQZQ0' target='_blank'> Virus</a>");
-            $smarty->assign('item9', "<a href='https://www.youtube.com/watch?v=DjmbrDogI0o' target='_blank'>Pandemia</a>");
-            $smarty->assign('item10', "<a href='https://www.youtube.com/watch?v=To_kVMMu-Ls' target='_blank'> La Casa de
+            $this->smarty->assign('item8', "<a href='https://www.youtube.com/watch?v=LvTfjCsQZQ0' target='_blank'> Virus</a>");
+            $this->smarty->assign('item9', "<a href='https://www.youtube.com/watch?v=DjmbrDogI0o' target='_blank'>Pandemia</a>");
+            $this->smarty->assign('item10', "<a href='https://www.youtube.com/watch?v=To_kVMMu-Ls' target='_blank'> La Casa de
             Papel</a>");
 
 
-            $smarty->display('templates/index.tpl');
+            $this->smarty->display('templates/index.tpl');
         }
 
+
         function renderContacto(){
-            $smarty = new Smarty();
 
-            $smarty->assign('titulo', "Modocine");
-            $smarty->assign('inicio', "Inicio");
-            $smarty->assign('estrenos', "Estrenos");
-            $smarty->assign('contacto', "Contacto");
+            $this->smarty->assign('titulo', "Modocine");
+            $this->smarty->assign('inicio', "Inicio");
+            $this->smarty->assign('estrenos', "Estrenos");
+            $this->smarty->assign('contacto', "Contacto");
 
-            $smarty->display('./libs/templates/header.tpl');
+            $this->smarty->display('./templates/header.tpl');
             
                     $html= '<main class="main-contacto">
                         <h1>Dudas y sugerencias</h1>
@@ -172,183 +173,13 @@
         }
         
         function renderEstrenos($movies){
-            $smarty = new Smarty();
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('movies', $movies);
 
-            $smarty->assign('titulo', "Modocine");
-            $smarty->assign('inicio', "Inicio");
-            $smarty->assign('estrenos', "Estrenos");
-            $smarty->assign('contacto', "Contacto");
-
-            $smarty->display('templates/header.tpl');
-            
-                   $html= '<main class="mainEstrenos">
-                        <h1>PROXIMOS ESTRENOS</h1>
-                        <section class="peliculas">
-                            <h2>Peliculas</h2>
-                            <article>
-                                <h3>La Maldicion Renace</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/sMzc0my_tlk">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/sMzc0my_tlk" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                            <article>
-                                <h3>Bad Boys 3</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/HaojPx6HuyI">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/HaojPx6HuyI" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                            <article>
-                                <h3>A Quiet Place 2</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/8UJN0xbh-oM">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/8UJN0xbh-oM" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                            <article>
-                                <h3>Black Widow</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/8UJN0xbh-oM">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/giJYLfWIzTk" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                            <article>
-                                <h3>Mujer Maravilla 1984</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/t_3A2KAbK8g">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/t_3A2KAbK8g" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                        </section>
-                        <section class="series">
-                            <h2>Series</h2>
-                            <article>
-                                <h3>Los 100 (Temporada 6)</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/XjBEdmynbTE">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/XjBEdmynbTE" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                            <article>
-                                <h3>Altered Carbon (Temporada 2)</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/1Yli_WNf1DQ">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/1Yli_WNf1DQ" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                            <article>
-                                <h3>Locke & Key</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/r_I2NqjMM3g">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/r_I2NqjMM3g" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                            <article>
-                                <h3>White Lines</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/gNaNrVjnGVw">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/gNaNrVjnGVw" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                            <article>
-                                <h3>Tiger King</h3>
-                                <p>Ver trailer haciendo click <span><a
-                                            href="https://www.youtube.com/embed/BlOBpumIu8A">AQUI</a></span></p>
-                                <iframe src="https://www.youtube.com/embed/BlOBpumIu8A" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </article>
-                        </section>
-                    </main>
-                    <aside class="asideEstrenos">
-                        <h2>Cartelera</h2>            
-                        <section class="tablaDinamica">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Pelicula</th>
-                                        <th>Genero</th>
-                                        <th>Sala</th>
-                                    </tr>
-                                </thead>
-                                <tbody>';
-                                    foreach ($movies as $movie) {
-                                        $html.="<tr>
-                                                    <td><a class=movie href='Detalle?id=$movie->id'>$movie->nombre</a></td>
-                                                    <td>$movie->genero</td>
-                                                    <td>$movie->letra</td>
-                                                </tr>";
-                                    }
-                                    $html.='
-                                </tbody>
-                            </table>
-                            <h2> Cartelera de Cine</h2>
-                        <p> Busque por género o por sala y encuentre la película que desea ver </p>
-                        <h2 class="asideTitle">Buscar pelicula por genero</h2>
-                        <ol>
-                            <li><a href="Genero?genre=Accion">Acción</a></li>
-                            <li><a href="Genero?genre=Suspenso">Suspenso</a></li>
-                            <li><a href="Genero?genre=Aventura">Aventura</a></li>
-                            <li><a href="Genero?genre=Drama">Drama</a></li>
-                            <li><a href="Genero?genre=Terror">Terror</a></li>
-                        </ol>
-                        <h2 class="asideTitle">Buscar pelicula por sala</h2>
-                        <ol>
-                            <li><a href="Salas?room=1">Sala A</a></li>
-                            <li><a href="Salas?room=2">Sala B</a></li>
-                            <li><a href="Salas?room=3">Sala C</a></li>
-                            <li><a href="VerSalas">Ver todas las salas</a></li>                            
-                        </ol>
-                        <h2 class="asideTitle">Agregar peliculas</h2>
-                        <form action="insert" method="POST" class="formulario">
-                            <input type="text" placeholder="Titulo" name="input_nombre">
-                            <input type="text" placeholder="Genero" name="input_genero">
-                            <input type="number" placeholder="Puntaje" name="input_puntaje">
-                            <input type="number" placeholder="Sala" name="input_id_sala">
-                            <textarea name="input_sinopsis">Escriba una sinopsis</textarea>
-                            <button type="submit">Agregar</button>
-                        </form>
-                        </section>';
-                        
-                        foreach ($movies as $mov) {
-                            if ($mov->puntaje_imdb!=null) {
-                                $html.= "<ul>
-                                        <li>
-                                            <h3>$mov->nombre
-                                            </h3>
-                                        </li>
-                                            <ul>
-                                                <li>$mov->sinopsis</li>
-                                                <li>Genero: $mov->genero</li>
-                                                <li>Puntaje: $mov->puntaje_imdb</li>
-                                            </ul>
-                                    </ul>";
-                            }
-                        }
-
-                    '</aside>
-                    <footer>
-                        <div class="social">
-                            <i class="fab fa-instagram fa-2x"></i>
-                            <i class="fab fa-facebook fa-2x"></i>
-                            <i class="fab fa-twitter fa-2x"></i>
-                        </div>
-                    </footer>
-                </div>
-            </body>
-            
-            </html>';
-            echo $html;
+            $this->smarty->display('./templates/header.tpl');
+            $this->smarty->display('./templates/main-estrenos.tpl');
+            $this->smarty->display('./templates/aside-estrenos-tabla.tpl');
+            $this->smarty->display('./templates/footer.tpl');
         }
 
         function renderMoviesByGenre($movies){
@@ -359,24 +190,32 @@
             $this->renderEstrenos($movies);
         }
 
-        function renderMovieById($movie){ //NUEVO--------------------------------------------------------------
-            $this->renderEstrenos($movie);
+        function renderMovieById($movie){ 
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('movies', $movie);
+
+            $this->smarty->display('./templates/header.tpl');
+            $this->smarty->display('./templates/main-estrenos.tpl');
+            $this->smarty->display('./templates/aside-estrenos-detalles.tpl');
+            $this->smarty->display('./templates/footer.tpl');
         }
 
         function renderRooms($rooms){
             //$this->renderEstrenos($rooms);
-            echo '<table><thead><tr>
+            $table = '<table><thead><tr>
                 <th>Sala</th>
                 <th>Capacidad</th>
                 <th>Formato de Proyección</th>
             </tr></thead>';
             foreach ($rooms as $room) {
-                echo "<tbody><tr>
+                $table.= "<tbody><tr>
                         <td>$room->letra</td>
                         <td>$room->capacidad personas</td>
                         <td>$room->formato</td>
                     </tr>";
             }
-            echo '</tbody></table>';
+            $table.= '</tbody></table>';
         }
+
+        
     }
