@@ -10,6 +10,15 @@
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_modocine;charset=utf8', 'root', '');
         }
 
+        function getAdminMovie(){
+            $query=$this->db->prepare('SELECT * FROM pelicula');
+            $query->execute();
+            $allMovies=$query->fetchAll(PDO::FETCH_OBJ);
+            return $allMovies;    
+        }
+        
+
+
         function getMovieById($id){
             $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.puntaje_imdb, pelicula.id_sala, sala.letra,
                                          pelicula.sinopsis FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.id=?');
@@ -50,7 +59,9 @@
             $query->execute(array($title,$genre,$sinopsis,$puntaje_imdb,$studio));
         }
 
-        /* SELECT producto.nombre AS nombreProd, tipo.nombre AS nombreTipo FROM producto INNER JOIN tipo on producto.id_tipo = tipo.id */
-    }
+        function deleteMovie($movie){
+            $query = $this->db->prepare('DELETE * FROM pelicula WHERE id=?');
+            $query->execute($movie);
+        }
 
-?>
+    }

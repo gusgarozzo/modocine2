@@ -21,11 +21,15 @@ switch($params[0]){
     case 'home':
         $controller->homeController();
     break;
-    case 'estrenos':
+    case 'cartelera':  //ex-estrenos
         $controller->estrenosController();
     break;
+    case 'login':{
+        $controller->adminController();
+    break;
+    }
     case 'Detalle':
-        $controller->detailController(); //NUEVO--------------------------------------------------------------
+        $controller->detailController();
     break;
     case 'contacto':
         $controller->contactoController();
@@ -41,4 +45,7 @@ switch($params[0]){
     case 'VerSalas':
         $controller->roomController();
     break;
+    /*case 'Borrar':
+        $controller->deleteMovie();
+    break;*/
 }

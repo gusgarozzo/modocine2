@@ -53,9 +53,21 @@ class movieController{
         $this->view->renderMoviesByRoom($movies);
     }
 
+    function adminController(){
+        $movies=$this->movieModel->getAdminMovie();
+        $rooms=$this->roomModel->getAllRooms();
+        $this->view->renderAdmin($movies, $rooms);
+    }
+
     function insertNewMovie(){
         $this->movieModel->InsertMovie($_POST['input_nombre'],$_POST['input_genero'],$_POST['input_sinopsis'],$_POST['input_puntaje'],$_POST['input_id_sala']);
         $this->estrenosController();
+    }
+
+    function deleteMovie($movie){
+        $movie=$_GET['nombre'];
+        $action=$this->movieModel->deleteMovie($movie);
+        //$this->view->showDelete($action); MOSTRARÍA UN MENSAJE DE "BORRADO EXITOSO" AL ADMIN
     }
     
 }

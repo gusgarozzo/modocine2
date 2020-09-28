@@ -10,12 +10,12 @@
                             <ul class='datos-detalles'>
                                 <li>{$mov->sinopsis}</li>
                                 <li>Genero: {$mov->genero}</li>
-                                <li>Puntaje: {$mov->puntaje_imdb}</li>
+                                <li>Puntaje IMDB: {$mov->puntaje_imdb}/10</li>
                             </ul>
                     </ul>
             {/if}
         {/foreach}
-    <h2 class="asideTitle">Buscar pelicula por genero</h2>
+    <h2 class="asideTitle">Filtrar peliculas por genero</h2>
     <ol>
         <li><a href="Genero?genre=Accion">Acción</a></li>
         <li><a href="Genero?genre=Suspenso">Suspenso</a></li>
@@ -23,7 +23,7 @@
         <li><a href="Genero?genre=Drama">Drama</a></li>
         <li><a href="Genero?genre=Terror">Terror</a></li>
     </ol>
-    <h2 class="asideTitle">Buscar pelicula por sala</h2>
+    <h2 class="asideTitle">Filtrar peliculas por sala</h2>
     <ol>
         <li><a href="Salas?room=1">Sala A</a></li>
         <li><a href="Salas?room=2">Sala B</a></li>
@@ -32,5 +32,5 @@
     </ol>
     </section>   
      
-     <a href="estrenos" class="volver">Volver</a>
+     <a href="cartelera" class="volver">Volver</a>
 </aside>

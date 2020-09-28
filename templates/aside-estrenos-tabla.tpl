@@ -15,13 +15,14 @@
                     <td><a class=movie href='Detalle?id={$movie->id}'>{$movie->nombre}</a></td>
                     <td>{$movie->genero}</td>
                     <td>{$movie->letra}</td>
+                    <!--<td><a href='Borrar?nombre={$movie->nombre}'>Borrar</a></td> AGREGAR CUANDO ESTE
+                    LO DE ADMINISTRADOR--> 
                 </tr>
             {/foreach}  
             </tbody>
         </table>
         <h2>Cartelera de Cine</h2>
-    <p>Busque por género o por sala y encuentre la película que desea ver </p>
-    <h2 class="asideTitle">Buscar pelicula por genero</h2>
+    <h2 class="asideTitle">Filtrar peliculas por genero</h2>
     <ol>
         <li><a href="Genero?genre=Accion">Acción</a></li>
         <li><a href="Genero?genre=Suspenso">Suspenso</a></li>
@@ -30,7 +31,7 @@
         <li><a href="Genero?genre=Terror">Terror</a></li>
         <li><a href="estrenos">Todas</a></li>
     </ol>
-    <h2 class="asideTitle">Buscar pelicula por sala</h2>
+    <h2 class="asideTitle">Filtrar peliculas por sala</h2>
     <ol>
         <li><a href="Salas?room=1">Sala A</a></li>
         <li><a href="Salas?room=2">Sala B</a></li>
