@@ -16,18 +16,15 @@
             $allMovies=$query->fetchAll(PDO::FETCH_OBJ);
             return $allMovies;    
         }
-        
-
 
         function getMovieById($id){
             $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.puntaje_imdb, pelicula.id_sala, sala.letra,
                                          pelicula.sinopsis FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.id=?');
             $query->execute(array($id));
-            $movie = $query->fetchAll(PDO::FETCH_OBJ);                                      //NUEVO--------------------------------------------------------------
+            $movie = $query->fetchAll(PDO::FETCH_OBJ);
             return $movie;
         }
 
-        //traigo todos los elementos de la tabla pelicula
         function getAllMoviesAndRooms(){
             $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.id, pelicula.id_sala, sala.letra 
                                         FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id');
@@ -36,7 +33,6 @@
             return $movies;
         }
 
-        //traigo pelicula por genero
         function getMoviesByGenre($genre){
             $query = $this->db->prepare('SELECT pelicula.id, pelicula.nombre, pelicula.genero, sala.letra 
             FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.genero=?');
@@ -45,7 +41,6 @@
             return $movieByGenre;
         }
 
-        //traigo pelicula por sala
         function getMoviesByRoom($room){
             $query = $this->db->prepare('SELECT pelicula.id, pelicula.nombre, pelicula.genero, sala.letra 
             FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE sala.id=?');
@@ -59,9 +54,9 @@
             $query->execute(array($title,$genre,$sinopsis,$puntaje_imdb,$studio));
         }
 
-        function deleteMovie($movie){
-            $query = $this->db->prepare('DELETE * FROM pelicula WHERE id=?');
-            $query->execute($movie);
+        function deleteMovieId($id){
+            $query = $this->db->prepare("DELETE FROM pelicula WHERE id=?");
+            $query->execute(array($id));
         }
 
     }
