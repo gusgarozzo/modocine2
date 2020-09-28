@@ -56,21 +56,18 @@
             $this->smarty->display('./templates/footer.tpl');
         }
 
+        function renderRoomById($room){
+            $this->renderEstrenos($room);
+        }
+
         function renderRooms($rooms){
-            //$this->renderEstrenos($rooms);
-            $table = '<table><thead><tr>
-                <th>Sala</th>
-                <th>Capacidad</th>
-                <th>Formato de Proyección</th>
-            </tr></thead>';
-            foreach ($rooms as $room) {
-                $table.= "<tbody><tr>
-                        <td>$room->letra</td>
-                        <td>$room->capacidad personas</td>
-                        <td>$room->formato</td>
-                    </tr>";
-            }
-            $table.= '</tbody></table>';
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('rooms', $rooms);
+
+            $this->smarty->display('./templates/header.tpl');
+            $this->smarty->display('./templates/main-estrenos.tpl');
+            $this->smarty->display('./templates/rooms.tpl');
+            $this->smarty->display('./templates/footer.tpl');
         }
 
         function renderAdmin($movies, $rooms){
@@ -81,4 +78,9 @@
             $this->smarty->display('./templates/admin.tpl');
 
         }
+
+        function renderDelete(){
+
+        }
+
     }
