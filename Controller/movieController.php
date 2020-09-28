@@ -40,10 +40,17 @@ class movieController{
 
     }
 
-    function detailController(){
+    function movieDetailController(){
         $id = $_REQUEST['id'];
         $movie = $this->movieModel->getMovieById($id); 
         $this->view->renderMovieById($movie);
+
+    }
+
+    function roomDetailController(){
+        $id = $_REQUEST['id'];
+        $room = $this->roomModel->getRoomById($id); 
+        $this->view->renderRoomById($room);
 
     }
 
@@ -61,13 +68,16 @@ class movieController{
 
     function insertNewMovie(){
         $this->movieModel->InsertMovie($_POST['input_nombre'],$_POST['input_genero'],$_POST['input_sinopsis'],$_POST['input_puntaje'],$_POST['input_id_sala']);
-        $this->estrenosController();
+        $this->adminController();
     }
 
-    function deleteMovie($movie){
-        $movie=$_GET['nombre'];
-        $action=$this->movieModel->deleteMovie($movie);
-        //$this->view->showDelete($action); MOSTRARÍA UN MENSAJE DE "BORRADO EXITOSO" AL ADMIN
+    function deleteMovie(){
+        $this->movieModel->deleteMovieId($_GET['delete']);
+        $this->adminController();
     }
+
+    /*function editMovie(){
+        $this->movieModel->NewMovieValues(
+    }*/
     
 }
