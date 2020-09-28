@@ -29,7 +29,7 @@ switch($params[0]){
     break;
     }
     case 'Detalle':
-        $controller->detailController();
+        $controller->movieDetailController();
     break;
     case 'contacto':
         $controller->contactoController();
@@ -45,7 +45,13 @@ switch($params[0]){
     case 'VerSalas':
         $controller->roomController();
     break;
-    /*case 'Borrar':
+    case 'editar':
+        $controller->editMovie();
+    break;
+    case 'borrar':
         $controller->deleteMovie();
-    break;*/
+    break;
+    case 'sala':
+        $controller->roomDetailController();
+    break;
 }
