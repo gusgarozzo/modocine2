@@ -4,21 +4,21 @@
         <table class="tabla-peliculas">
             <thead>
                 <tr>
-                    <th>Pelicula</th>
-                    <th>Genero</th>
                     <th>Sala</th>
+                    <th>Capacidad</th>
+                    <th>Formato de proyeccion</th>
                 </tr>
             </thead>
             <tbody>
-            {foreach from=$movies item=movie}
+            {foreach from=$rooms item=room}
                 <tr>
-                    <td><a class="movie" href='Detalle?id={$movie->id}'>{$movie->nombre}</a></td>
-                    <td>{$movie->genero}</td>
-                    <td>{$movie->letra}</td>
+                    <td><a class="room" href='sala?id={$room->id}'>{$room->letra}</a></td>
+                    <td>{$room->capacidad}</td>
+                    <td>{$room->formato}</td>
                     <!--<td><a href='Borrar?nombre={$movie->nombre}'>Borrar</a></td> AGREGAR CUANDO ESTE
                     LO DE ADMINISTRADOR--> 
                 </tr>
-            {/foreach}  
+            {/foreach}
             </tbody>
         </table>
         <h2>Cartelera de Cine</h2>
