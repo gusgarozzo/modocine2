@@ -24,10 +24,9 @@ switch($params[0]){
     case 'cartelera':  //ex-estrenos
         $controller->estrenosController();
     break;
-    case 'login':{
+    case 'login':
         $controller->adminController();
     break;
-    }
     case 'Detalle':
         $controller->movieDetailController();
     break;
@@ -42,6 +41,7 @@ switch($params[0]){
     break;
     case 'insert':
         $controller->insertNewMovie();
+    break;
     case 'VerSalas':
         $controller->roomController();
     break;
