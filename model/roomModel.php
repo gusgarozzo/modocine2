@@ -25,6 +25,10 @@
             return $room;
         }
 
+        function deleteRoom($id){
+            $query = $this->db->prepare("DELETE FROM sala WHERE id=?");
+            $query->execute(array($id));
+        }
     }
 
 ?>

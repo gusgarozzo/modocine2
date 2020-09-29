@@ -13,6 +13,7 @@
 
     $params = explode('/', $action);
     $controller = new movieController();
+    $adminController = new adminController();
 
 switch($params[0]){
     case '':
@@ -25,7 +26,11 @@ switch($params[0]){
         $controller->estrenosController();
     break;
     case 'login':
+<<<<<<< HEAD
         $controller->adminController();
+=======
+        $adminController->adminController();
+>>>>>>> f3c360bc7e5e2cb35284380e571271da91cefc59
     break;
     case 'Detalle':
         $controller->movieDetailController();
@@ -40,16 +45,23 @@ switch($params[0]){
         $controller->moviesByRoomController();
     break;
     case 'insert':
+<<<<<<< HEAD
         $controller->insertNewMovie();
+=======
+        $adminController->insertNewMovie();
+>>>>>>> f3c360bc7e5e2cb35284380e571271da91cefc59
     break;
     case 'VerSalas':
         $controller->roomController();
     break;
-    case 'editar':
-        $controller->editMovie();
+    case 'editarPelicula':
+        $adminController->editMovie();
     break;
-    case 'borrar':
-        $controller->deleteMovie();
+    case 'borrarPelicula':
+        $adminController->deleteMovie();
+    break;
+    case 'borrarSala':
+        $adminController->deleteRoom();
     break;
     case 'sala':
         $controller->roomDetailController();

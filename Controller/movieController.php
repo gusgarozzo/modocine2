@@ -60,24 +60,6 @@ class movieController{
         $this->view->renderMoviesByRoom($movies);
     }
 
-    function adminController(){
-        $movies=$this->movieModel->getAdminMovie();
-        $rooms=$this->roomModel->getAllRooms();
-        $this->view->renderAdmin($movies, $rooms);
-    }
 
-    function insertNewMovie(){
-        $this->movieModel->InsertMovie($_POST['input_nombre'],$_POST['input_genero'],$_POST['input_sinopsis'],$_POST['input_puntaje'],$_POST['input_id_sala']);
-        $this->adminController();
-    }
-
-    function deleteMovie(){
-        $this->movieModel->deleteMovieId($_GET['delete']);
-        $this->adminController();
-    }
-
-    /*function editMovie(){
-        $this->movieModel->NewMovieValues(
-    }*/
     
 }
