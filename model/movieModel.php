@@ -1,6 +1,7 @@
 <?php 
 
     require_once './Controller/movieController.php';
+    require_once './Controller/adminController.php';
 
     class MovieModel{
 
@@ -19,7 +20,7 @@
 
         function getMovieById($id){
             $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.puntaje_imdb, pelicula.id_sala, sala.letra,
-                                         pelicula.sinopsis FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.id=?');
+                                            pelicula.sinopsis FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.id=?');
             $query->execute(array($id));
             $movie = $query->fetchAll(PDO::FETCH_OBJ);
             return $movie;
@@ -49,9 +50,10 @@
             return $movieByRoom;
         }
 
-        function InsertMovie($title,$genre,$sinopsis,$puntaje_imdb,$studio){
+        function insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala){
             $query = $this->db->prepare("INSERT INTO pelicula(nombre, genero, sinopsis, puntaje_imdb, id_sala) VALUES(?,?,?,?,?)");
-            $query->execute(array($title,$genre,$sinopsis,$puntaje_imdb,$studio));
+            $query->execute(array($titulo, $genero, $sinopsis, $puntaje, $sala));
+            
         }
 
         function deleteMovieId($id){
@@ -59,4 +61,11 @@
             $query->execute(array($id));
         }
 
+
+
+        function updateValues($titulo, $genero, $sinopsis, $puntaje){
+            $query = $this->db->prepare('UPDATE pelicula SET nombre=?, genero=?, sinopsis=?
+            puntaje_imdb=?, id_sala=? WHERE id=?');
+            $query->execute($titulo, $genero, $sinopsis, $puntaje);
+        }
     }

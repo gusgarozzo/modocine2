@@ -705,3 +705,100 @@ footer i:hover{
 .asideEstrenos .volver:hover{
     font-weight: bold;
 }
+
+/* ESTILOS ADMIN */
+.main-admin{
+    width: 100%;
+    padding: 10px;
+    margin: auto;
+    background: #f2f2f2;
+    display: block;
+}
+
+.main-admin .peliculas h1, h3{
+    text-align: center;
+}
+
+.main-admin .peliculas h3{
+    margin-top: 20px;
+}
+
+.main-admin .sala{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.admin-table{
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+}
+
+.admin-table thead{
+    background: grey;
+    font-weight: bold;
+}
+
+.admin-table thead th{
+    padding: 10px;
+}
+
+.admin-table tbody tr td{
+    padding: 10px;
+}
+
+.admin-table tbody{
+    background: lightgray;
+    
+}
+
+
+.main-admin .alta-baja-update{
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.main-admin h3{
+    border-bottom: 1px solid grey;
+}
+
+.main-admin .alta-baja-update .formulario{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+.main-admin .alta-baja-update .formulario label{
+    font-weight: bold;
+}
+
+.main-admin .alta-baja-update .formulario input{
+    width: 30%;
+    font-size: 15px;
+    padding: 2px 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-admin .alta-baja-update .formulario textarea{
+    font-size: 15px;
+    width: 70%;
+    padding: 2px 5px;
+    font-family: inherit;
+    margin-bottom: 20px;
+}
+
+.main-admin .alta-baja-update .formulario button{
+    font-size: 15px;
+    padding: 2px 5px;
+    margin-bottom: 20px;
+}
+
+.newmovie{
+    background: yellow;
+}

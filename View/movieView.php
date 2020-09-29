@@ -23,8 +23,7 @@
             $this->smarty->assign('estrenos', "Estrenos");
             $this->smarty->assign('contacto', "Contacto");
 
-            $this->smarty->display('./templates/contacto.tpl');
-            
+            $this->smarty->display('./templates/contacto.tpl');     
         }
         
 
@@ -76,11 +75,6 @@
             $this->smarty->assign('rooms', $rooms);
 
             $this->smarty->display('./templates/admin.tpl');
-
-        }
-
-        function renderDelete(){
-
         }
 
     }
