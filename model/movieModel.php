@@ -11,13 +11,6 @@
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_modocine;charset=utf8', 'root', '');
         }
 
-        function getAdminMovie(){
-            $query=$this->db->prepare('SELECT * FROM pelicula');
-            $query->execute();
-            $allMovies=$query->fetchAll(PDO::FETCH_OBJ);
-            return $allMovies;    
-        }
-
         function getMovieById($id){
             $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.puntaje_imdb, pelicula.id_sala, sala.letra,
                                             pelicula.sinopsis FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.id=?');
@@ -49,23 +42,6 @@
             $movieByRoom = $query->fetchAll(PDO::FETCH_OBJ);
             return $movieByRoom;
         }
-
-        function insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala){
-            $query = $this->db->prepare("INSERT INTO pelicula(nombre, genero, sinopsis, puntaje_imdb, id_sala) VALUES(?,?,?,?,?)");
-            $query->execute(array($titulo, $genero, $sinopsis, $puntaje, $sala));
-            
-        }
-
-        function deleteMovieId($id){
-            $query = $this->db->prepare("DELETE FROM pelicula WHERE id=?");
-            $query->execute(array($id));
-        }
-
-
-
-        function updateValues($titulo, $genero, $sinopsis, $puntaje){
-            $query = $this->db->prepare('UPDATE pelicula SET nombre=?, genero=?, sinopsis=?
-            puntaje_imdb=?, id_sala=? WHERE id=?');
-            $query->execute($titulo, $genero, $sinopsis, $puntaje);
-        }
+   
     }
+?>

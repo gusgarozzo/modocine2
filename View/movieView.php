@@ -69,12 +69,6 @@
             $this->smarty->display('./templates/footer.tpl');
         }
 
-        function renderAdmin($movies, $rooms){
-            $this->smarty->assign('titulo', $this->title);
-            $this->smarty->assign('movies', $movies);
-            $this->smarty->assign('rooms', $rooms);
-
-            $this->smarty->display('./templates/admin.tpl');
-        }
+    
 
     }

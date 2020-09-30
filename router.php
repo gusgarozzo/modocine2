@@ -15,55 +15,55 @@
     $controller = new movieController();
     $adminController = new adminController();
 
-switch($params[0]){
-    case '':
-        $controller->homeController();
-    break;
-    case 'home':
-        $controller->homeController();
-    break;
-    case 'cartelera':  //ex-estrenos
-        $controller->estrenosController();
-    break;
-    case 'login':
-<<<<<<< HEAD
-        $controller->adminController();
-=======
-        $adminController->adminController();
->>>>>>> f3c360bc7e5e2cb35284380e571271da91cefc59
-    break;
-    case 'Detalle':
-        $controller->movieDetailController();
-    break;
-    case 'contacto':
-        $controller->contactoController();
-    break;
-    case 'Genero':
-        $controller->genreController();
-    break;
-    case 'Salas':
-        $controller->moviesByRoomController();
-    break;
-    case 'insert':
-<<<<<<< HEAD
-        $controller->insertNewMovie();
-=======
-        $adminController->insertNewMovie();
->>>>>>> f3c360bc7e5e2cb35284380e571271da91cefc59
-    break;
-    case 'VerSalas':
-        $controller->roomController();
-    break;
-    case 'editarPelicula':
-        $adminController->editMovie();
-    break;
-    case 'borrarPelicula':
-        $adminController->deleteMovie();
-    break;
-    case 'borrarSala':
-        $adminController->deleteRoom();
-    break;
-    case 'sala':
-        $controller->roomDetailController();
-    break;
-}
+    switch($params[0]){
+        case '':
+            $controller->homeController();
+        break;
+        case 'home':
+            $controller->homeController();
+        break;
+        case 'cartelera':  //ex-estrenos
+            $controller->estrenosController();
+        break;
+        case 'login':
+            $adminController->adminController();
+        break;
+        case 'Detalle':
+            $controller->movieDetailController();
+        break;
+        case 'contacto':
+            $controller->contactoController();
+        break;
+        case 'Genero':
+            $controller->genreController();
+        break;
+        case 'Salas':
+            $controller->moviesByRoomController();
+        break;
+        case 'insertMovie':
+            $adminController->insertNewMovie();
+        break;
+        case 'insertRoom':
+            $adminController->insertNewRoom();
+        break;
+        case 'VerSalas':
+            $controller->roomController();
+        break;
+        case 'editarPeliculaMode':
+            $adminController->editMovieMode();
+        break;
+        case 'editarPelicula':
+            $adminController->editMovie();
+        break;
+        case 'borrarPelicula':
+            $adminController->deleteMovie();
+        break;
+        case 'borrarSala':
+            $adminController->deleteRoom();
+        break;
+        case 'sala':
+            $controller->roomDetailController();
+        break;
+  
+    }
+?>

@@ -10,7 +10,6 @@
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_modocine;charset=utf8', 'root', '');
         }
 
-        //traigo todos los elementos de la tabla sala
         function getAllRooms(){
             $query = $this->db->prepare('SELECT * FROM sala');
             $query->execute();
