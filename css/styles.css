@@ -799,6 +799,19 @@ footer i:hover{
     margin-bottom: 20px;
 }
 
-.newmovie{
-    background: yellow;
+.main-admin .links{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.main-admin .links a{
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-admin .links a:hover{
+    font-weight: bold;
+    text-decoration: underline;
 }

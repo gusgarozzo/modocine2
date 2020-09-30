@@ -24,6 +24,13 @@
             return $room;
         }
 
+        function getRoomInfoById($id){
+            $query = $this->db->prepare('SELECT * FROM sala WHERE sala.id=?');
+            $query->execute(array($id));
+            $room = $query->fetchAll(PDO::FETCH_OBJ);
+            return $room;
+        }
+
         function deleteRoom($id){
             $query = $this->db->prepare("DELETE FROM sala WHERE id=?");
             $query->execute(array($id));

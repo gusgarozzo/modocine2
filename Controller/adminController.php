@@ -41,7 +41,7 @@
         function editMovieMode(){
             $id = $_REQUEST['editMovie'];
             $movie = $this->adminModel->getMovieById($id);
-            $this->admView->renderEditMode($movie);
+            $this->admView->renderEditMovie($movie);
         }
 
         function editMovie(){
@@ -52,6 +52,21 @@
             $puntaje = $_POST['input_puntaje'];
             $sala = $_POST['input_id_sala'];
             $this->adminModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala,$id);
+            $this->adminController();
+        }
+
+        function editRoomMode(){
+            $id = $_GET['editRoom'];
+            $room = $this->roomModel->getRoomInfoById($id);
+            $this->admView->renderEditRoom($room);
+        }
+
+        function editRoom(){
+            $id = $_REQUEST['id'];
+            $sala= $_POST['input_sala'];
+            $capacidad = $_POST['input_capacidad'];
+            $formato = $_POST['input_formato'];
+            $this->adminModel->updateRooms($sala, $capacidad, $formato, $id);
             $this->adminController();
         }
 
@@ -70,5 +85,8 @@
             $this->admView->renderAdmin($movies, $rooms);
         }
 
+        function adminInsert(){
+            $this->admView->renderInsertMovie();
+        }
     }
 ?>

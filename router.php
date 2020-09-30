@@ -40,6 +40,9 @@
         case 'Salas':
             $controller->moviesByRoomController();
         break;
+        case "adminInsertMovie":
+            $adminController->adminInsert();
+        break;
         case 'insertMovie':
             $adminController->insertNewMovie();
         break;
@@ -49,7 +52,7 @@
         case 'VerSalas':
             $controller->roomController();
         break;
-        case 'editarPeliculaMode':
+        case 'adminMovie':
             $adminController->editMovieMode();
         break;
         case 'editarPelicula':
@@ -58,12 +61,17 @@
         case 'borrarPelicula':
             $adminController->deleteMovie();
         break;
+        case 'adminSala':
+            $adminController->editRoomMode();
+        break;
+        case 'editarSala':
+            $adminController->editRoom();
+        break;
         case 'borrarSala':
             $adminController->deleteRoom();
         break;
         case 'sala':
             $controller->roomDetailController();
         break;
-  
     }
 ?>

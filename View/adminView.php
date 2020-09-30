@@ -6,7 +6,7 @@
     class AdminView{
 
         public function __construct(){
-            $this->title = "MODOCINE - (ADMIN)";
+            $this->title = "MODOCINE - Administrador";
             $this->smarty = new Smarty();
         }
 
@@ -18,26 +18,23 @@
             $this->smarty->display('./templates/admin.tpl');
         }
 
-        function renderEditMode($movie){
-            foreach ($movie as $singleMovie) {
-          
-            $html = '<form action="editarPelicula?id='.$singleMovie->id.'" method="POST" class="formulario">
-                        <label for="input_nombre">Nombre:</label>
-                        <input type="text" placeholder="Titulo" name="input_nombre" value='.$singleMovie->nombre.'>
-                        <label for="input_nombre">Genero:</label>
-                        <input type="text" placeholder="Genero" name="input_genero" value='.$singleMovie->genero.'>
-                        <label for="input_nombre">Puntaje:</label>
-                        <input type="number" placeholder="Puntaje" name="input_puntaje" value='.$singleMovie->puntaje_imdb.'>
-                        <label for="input_nombre">Sala:</label>
-                        <input type="number" placeholder="Sala" name="input_id_sala" value='.$singleMovie->id_sala.'>
-                        <h3>Ingrese la sinopsis de la película</h3>
-                        <textarea name="input_sinopsis" cols="50" rows="5">'.$singleMovie->sinopsis.'</textarea>
-                        <button name="editarPelicula" type="submit">Actualizar</button>
-                    </form>';
-            }
-            echo $html;
+        function renderInsertMovie(){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->display('./templates/adminInsert.tpl');
         }
 
-    }
+        function renderEditMovie($movie){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('movie', $movie);
+            $this->smarty->display('./templates/adminEdit.tpl');
+        }
 
-?>
+        function renderEditRoom($room){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('room', $room);
+            $this->smarty->display('./templates/adminRoomEdit.tpl');
+        }
+
+
+
+    }
