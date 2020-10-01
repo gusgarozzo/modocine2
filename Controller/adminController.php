@@ -51,7 +51,7 @@
             $sinopsis = $_POST['input_sinopsis'];
             $puntaje = $_POST['input_puntaje'];
             $sala = $_POST['input_id_sala'];
-            $this->adminModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala,$id);
+            $this->adminModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $id);
             $this->adminController();
         }
 

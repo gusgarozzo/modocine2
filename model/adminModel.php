@@ -37,7 +37,7 @@
         function updateValues($titulo, $genero, $sinopsis, $puntaje,$sala,$id){
             $query = $this->db->prepare('UPDATE pelicula SET nombre=?, genero=?, sinopsis=?,
             puntaje_imdb=?, id_sala=? WHERE pelicula.id=?');
-            $query->execute(array($titulo, $genero, $sinopsis, $puntaje,$sala,$id));
+            $query->execute(array($titulo, $genero, $sinopsis, $puntaje, $sala, $id));
         }
 
         function updateRooms($sala, $capacidad, $formato, $id){
