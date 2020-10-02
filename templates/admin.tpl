@@ -7,6 +7,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>ID Sala</th>
                         <th>Pelicula</th>
                         <th>Genero</th>
                         <th>Sinopsis</th>
@@ -18,6 +19,7 @@
                 {foreach from=$movies item=movie}
                     <tr id="tabla">
                         <td>{$movie->id}</td>
+                         <td>{$movie->id_sala}</td>
                         <td>{$movie->nombre}</td>
                         <td>{$movie->genero}</td>
                         <td>{$movie->sinopsis}</td>
