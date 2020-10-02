@@ -1,7 +1,7 @@
 <?php
 
     require_once './libs/smarty/Smarty.class.php';
-    
+
 
     class AdminView{
 
@@ -26,7 +26,7 @@
         function renderEditMovie($movie){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movie', $movie);
-            $this->smarty->display('./templates/adminEdit.tpl');
+            $this->smarty->display('./templates/adminMovieEdit.tpl');
         }
 
         function renderEditRoom($room){
@@ -34,7 +34,5 @@
             $this->smarty->assign('room', $room);
             $this->smarty->display('./templates/adminRoomEdit.tpl');
         }
-
-
 
     }

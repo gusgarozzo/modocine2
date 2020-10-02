@@ -71,7 +71,8 @@
         }
 
         function deleteRoom(){
-            $this->roomModel->deleteRoom($_GET['delete']);
+            $delete = $_GET['delete'];
+            $this->adminModel->deleteRoomId($delete);
             $this->adminController();
         }
 

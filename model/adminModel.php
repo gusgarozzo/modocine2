@@ -13,13 +13,11 @@
         function insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala){
             $query = $this->db->prepare("INSERT INTO pelicula(nombre, genero, sinopsis, puntaje_imdb, id_sala) VALUES(?,?,?,?,?)");
             $query->execute(array($titulo, $genero, $sinopsis, $puntaje, $sala));
-            
         }
 
         function insertNewRoom($sala, $capacidad, $formato){
             $query = $this->db->prepare("INSERT INTO sala(letra, capacidad, formato) VALUES(?,?,?)");
             $query->execute(array($sala, $capacidad, $formato));
-            
         }
 
         function deleteMovieId($id){
@@ -41,7 +39,7 @@
         }
 
         function updateRooms($sala, $capacidad, $formato, $id){
-            $query = $this->db->prepare('UPDATE sala SET letra=?, capacidad=?, formato=?,
+            $query = $this->db->prepare('UPDATE sala SET letra=?, capacidad=?, formato=?
             WHERE sala.id=?');
             $query->execute(array($sala, $capacidad, $formato, $id));
         }
@@ -51,6 +49,11 @@
             $query->execute();
             $allMovies=$query->fetchAll(PDO::FETCH_OBJ);
             return $allMovies;    
+        }
+
+        function deleteRoomId($id){
+            $query = $this->db->prepare("DELETE FROM sala WHERE id=?");
+            $query->execute(array($id));
         }
     
     }

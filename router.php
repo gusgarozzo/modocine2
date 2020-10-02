@@ -22,11 +22,8 @@
         case 'home':
             $controller->homeController();
         break;
-        case 'cartelera':  //ex-estrenos
+        case 'cartelera':
             $controller->estrenosController();
-        break;
-        case 'login':
-            $adminController->adminController();
         break;
         case 'Detalle':
             $controller->movieDetailController();
@@ -40,6 +37,15 @@
         case 'Salas':
             $controller->moviesByRoomController();
         break;
+        case 'VerSalas':
+            $controller->roomController();
+        break;
+        case 'sala':
+            $controller->roomDetailController();
+        break;
+        case 'login':
+            $adminController->adminController();
+        break;
         case "adminInsertMovie":
             $adminController->adminInsert();
         break;
@@ -48,9 +54,6 @@
         break;
         case 'insertRoom':
             $adminController->insertNewRoom();
-        break;
-        case 'VerSalas':
-            $controller->roomController();
         break;
         case 'adminMovie':
             $adminController->editMovieMode();
@@ -70,8 +73,21 @@
         case 'borrarSala':
             $adminController->deleteRoom();
         break;
-        case 'sala':
-            $controller->roomDetailController();
-        break;
+       
+      
     }
+
+
+
+
+
+
+        // define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+        // $r = new Router();
+        // $r->addRoute("home", "GET", "movieController", "homeController");
+        // $r->addRoute("cartelera", "GET", "movieController", "estrenosController");
+        // $r->DefaultRoute("movieController", "homeController");
+
+        //va siempre
+        // $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
 ?>

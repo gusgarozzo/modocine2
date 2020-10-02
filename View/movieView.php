@@ -32,8 +32,8 @@
             $this->smarty->assign('movies', $movies);
 
             $this->smarty->display('./templates/header.tpl');
-            $this->smarty->display('./templates/main-estrenos.tpl');
-            $this->smarty->display('./templates/aside-estrenos-tabla.tpl');
+            $this->smarty->display('./templates/mainEstrenos.tpl');
+            $this->smarty->display('./templates/asideEstrenosTabla.tpl');
             $this->smarty->display('./templates/footer.tpl');
         }
 
@@ -50,8 +50,8 @@
             $this->smarty->assign('movies', $movie);
 
             $this->smarty->display('./templates/header.tpl');
-            $this->smarty->display('./templates/main-estrenos.tpl');
-            $this->smarty->display('./templates/aside-estrenos-detalles.tpl');
+            $this->smarty->display('./templates/mainEstrenos.tpl');
+            $this->smarty->display('./templates/asideEstrenosDetalles.tpl');
             $this->smarty->display('./templates/footer.tpl');
         }
 
@@ -64,7 +64,7 @@
             $this->smarty->assign('rooms', $rooms);
 
             $this->smarty->display('./templates/header.tpl');
-            $this->smarty->display('./templates/main-estrenos.tpl');
+            $this->smarty->display('./templates/mainEstrenos.tpl');
             $this->smarty->display('./templates/rooms.tpl');
             $this->smarty->display('./templates/footer.tpl');
         }

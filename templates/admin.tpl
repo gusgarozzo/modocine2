@@ -23,8 +23,12 @@
                         <td>{$movie->sinopsis}</td>
                         <td>{$movie->puntaje_imdb}</td>
                         <td>
-                            <a class="edit" href='adminMovie?editMovie={$movie->id}'>Edit |</a>
-                            <a class="delete" href='borrarPelicula?delete={$movie->id}'> Delete</a>
+                           <div>
+                                <a class="edit" href='adminMovie?editMovie={$movie->id}'>Edit</a>
+                            </div>
+                            <div>
+                                <a class="delete" href='borrarPelicula?delete={$movie->id}'> Delete</a>
+                            </div>
                         </td>
                     </tr>
                 {/foreach}
@@ -36,6 +40,7 @@
         <table class="admin-table">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Sala</th>
                         <th>Capacidad</th>
                         <th>Formato de Proyección</th>
@@ -45,12 +50,17 @@
                 <tbody>
                 {foreach from=$rooms item=room}
                     <tr>
+                        <td>{$room->id}</td>
                         <td>{$room->letra}</td>
                         <td>{$room->capacidad} personas</td>
                         <td>{$room->formato}</td>
                         <td>
-                            <a class="edit" href='adminSala?editRoom={$room->id}'>Edit |</a>
-                            <a class="delete" href='borrarSala?delete={$room->id}'> Delete</a>
+                            <div>
+                                <a class="edit" href='adminSala?editRoom={$room->id}'>Edit</a>
+                            </div>
+                            <div>
+                                <a class="delete" href='borrarSala?delete={$room->id}'> Delete</a>
+                            </div>
                         </td>
 
                     </tr>
