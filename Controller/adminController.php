@@ -20,7 +20,7 @@
             $this->admView->renderAdmin($movies, $rooms);
         }
 
-        function insertNewMovie(){
+        function insertMovie(){
             if((isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && (isset($_POST['input_sinopsis']))
                 && (isset($_POST['input_puntaje'])) && (isset($_POST['input_id_sala']))){
                 $titulo= $_POST['input_nombre'];
@@ -35,33 +35,31 @@
             }
         }
 
-        function deleteMovie(){
-            if ((isset($_GET['delete']))) {
-                $delete = $_GET['delete'];
-                $this->adminModel->deleteMovieId($delete);
-                $this->adminController();
-            }
+        function deleteMovie($params = null){
+            $movie_id = $params[':ID'];
+            $this->adminModel->deleteMovieId($movie_id);
+            header("Location: ".BASE_URL."login");
         }
 
-        function editMovieMode(){
-            if((isset($_REQUEST['editMovie']))){
-                $id = $_REQUEST['editMovie'];
-                $movie = $this->adminModel->getMovieById($id);
+        function editMovieMode($params = null){
+            if((isset($params[':ID']))){
+                $movie_id = $params[':ID'];
+                $movie = $this->adminModel->getMovieById($movie_id);
                 $this->admView->renderEditMovie($movie);
             }
         }
 
-        function editMovie(){
-            if((isset($_REQUEST['id'])) && (isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && (isset($_POST['input_sinopsis']))
+        function editMovie($params = null){
+            if((isset($params[':ID'])) && (isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && (isset($_POST['input_sinopsis']))
                 && (isset($_POST['input_puntaje'])) && (isset($_POST['input_id_sala']))){
-                $id = $_REQUEST['id'];
+                $movie_id = $params[':ID'];
                 $titulo= $_POST['input_nombre'];
                 $genero = $_POST['input_genero'];
                 $sinopsis = $_POST['input_sinopsis'];
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
-                $this->adminModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $id);
-                $this->adminController();
+                $this->adminModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $movie_id);
+                header("Location: ".BASE_URL."login");
             }
         }
 
@@ -80,25 +78,25 @@
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
                 $this->adminModel->updateRooms($sala, $capacidad, $formato, $id);
-                $this->adminController();
+                header("Location: ".BASE_URL."login");
             }
         }
 
-        function deleteRoom(){
-            if((isset($_GET['delete']))){
-                $delete = $_GET['delete'];
-                if($this->adminModel->deleteRoomId($delete)){
-                    $this->adminModel->deleteRoomId($delete);
-                    $this->adminController();
+        function deleteRoom($params = null){
+            if((isset($params[':ID']))){
+                $room_id = $params[':ID'];
+                if($this->adminModel->deleteRoomId($room_id)){
+                    $this->adminModel->deleteRoomId($room_id);
+                    header("Location: ".BASE_URL."login");
                 }
                 else{
+                    header("Location: ".BASE_URL."login"); //con esto no funca el cartel de error, pero sin esto se concatena mal la url
                     $this->admView->renderError();
-                    $this->adminController();
                 }
             }
         }
 
-        function insertNewRoom(){
+        function insertRoom(){
             if((isset($_POST['input_letra'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']))){
                 $sala= $_POST['input_letra'];
                 $capacidad = $_POST['input_capacidad'];
