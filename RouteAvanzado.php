@@ -5,6 +5,9 @@
     
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+    define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
+    
+
 
     $r = new Router();
 
@@ -23,16 +26,20 @@
     //$r->addRoute("completar/:ID", "GET", "TasksController", "MarkAsCompletedTask");
 
     // ADMIN CONTROLLER
+    // FUNCIONA
     $r->addRoute("login", "GET", "adminController", "adminController");
     $r->addRoute("adminInsert", "GET", "adminController", "adminInsert");//muestra form para agregar peli y sala
     $r->addRoute("insertMovie", "POST", "adminController", "insertMovie");//agrega peli
     $r->addRoute("insertRoom", "POST", "adminController", "insertRoom");//agrega sala
-    $r->addRoute("adminMovie/:ID", "GET", "adminController", "editMovieMode");//muestra form para editar peli
+    $r->addRoute("deleteMovie/:ID", "GET", "adminController", "deleteMovie");//borra peli
+    $r->addRoute("deleteRoom/:ID", "GET", "adminController", "deleteRoom");//borra sala
+
+    // NO FUNCIONA
+    $r->addRoute("editMovie/:ID", "GET", "adminController", "editMovieMode");//muestra form para editar peli
     $r->addRoute("editarPelicula/:ID", "POST", "adminController", "editMovie");//edita peli
-    $r->addRoute("adminSala", "GET", "adminController", "editRoomMode");//muestra form para editar sala
+    $r->addRoute("editRoom/:ID", "GET", "adminController", "editRoomMode");//muestra form para editar sala
     $r->addRoute("editarSala/:ID", "POST", "adminController", "editRoom");//edita sala
-    $r->addRoute("borrarPelicula/:ID", "GET", "adminController", "deleteMovie");//borra peli
-    $r->addRoute("borrarSala/:ID", "GET", "adminController", "deleteRoom");//borra sala
+
 
     //Ruta por defecto.
     $r->setDefaultRoute("movieController", "homeController");

@@ -26,10 +26,10 @@
                         <td>{$movie->puntaje_imdb}</td>
                         <td>
                            <div>
-                                <a class="edit" href="adminMovie/{$movie->id}">Edit</a>
+                                <a class="edit" href='editMovie/{$movie->id}'>Edit</a>
                             </div>
                             <div>
-                                <a class="delete" href="borrarPelicula/{$movie->id}"> Delete</a>
+                                <a class="delete" href='deleteMovie/{$movie->id}'> Delete</a>
                             </div>
                         </td>
                     </tr>
@@ -58,10 +58,10 @@
                         <td>{$room->formato}</td>
                         <td>
                             <div>
-                                <a class="edit" href="adminSala/{$room->id}">Edit</a>
+                                <a class="edit" href='editRoom/{$room->id}'>Edit</a>
                             </div>
                             <div>
-                                <a class="delete" href="borrarSala/{$room->id}"> Delete</a>
+                                <a class="delete" href='deleteRoom/{$room->id}'> Delete</a>
                             </div>
                         </td>
 

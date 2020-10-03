@@ -1,5 +1,5 @@
 {include file="header.tpl"} 
-<main class="main-admin">   
+<main class="main-admin">  
     <div class="alta-baja-update">
         <h3>Editar registro - Tabla "Pelicula"</h3>
         {foreach from=$movie item=singleMovie}

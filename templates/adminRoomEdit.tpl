@@ -3,7 +3,7 @@
     <div class="alta-baja-update">
         <h3>Editar registro - Tabla "Sala"</h3>
         {foreach from=$room item=sala}
-            <form action="editarSala?id={$sala->id}" method="POST" class="formulario">
+            <form action='editarSala?id={$sala->id}' method="POST" class="formulario">
                 <label for="input_sala">Sala:</label>
                 <input type="text" name="input_sala" value='{$sala->letra}'>
                 <label for="input_capacidad">Capacidad:</label>

@@ -4,7 +4,7 @@
     require_once ('./View/adminView.php');
 
     class adminController{
-        private $AdmView;
+        private $admView;
         private $roomModel;
         private $adminModel;
 
@@ -38,7 +38,7 @@
         function deleteMovie($params = null){
             $movie_id = $params[':ID'];
             $this->adminModel->deleteMovieId($movie_id);
-            header("Location: ".BASE_URL."login");
+            $this->admView->ShowLoginLocation();
         }
 
         function editMovieMode($params = null){
@@ -59,13 +59,13 @@
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
                 $this->adminModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $movie_id);
-                header("Location: ".BASE_URL."login");
+                $this->admView->ShowLoginLocation();
             }
         }
 
-        function editRoomMode(){
-            if((isset($_GET['editRoom']))){
-                $id = $_GET['editRoom'];
+        function editRoomMode($params=null){
+            if((isset($params[':ID']))){
+                $id = $params[':ID'];
                 $room = $this->roomModel->getRoomInfoById($id);
                 $this->admView->renderEditRoom($room);
             }
@@ -78,7 +78,7 @@
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
                 $this->adminModel->updateRooms($sala, $capacidad, $formato, $id);
-                header("Location: ".BASE_URL."login");
+                $this->admView->ShowLoginLocation();
             }
         }
 
@@ -87,10 +87,10 @@
                 $room_id = $params[':ID'];
                 if($this->adminModel->deleteRoomId($room_id)){
                     $this->adminModel->deleteRoomId($room_id);
-                    header("Location: ".BASE_URL."login");
+                    $this->admView->ShowLoginLocation();
                 }
                 else{
-                    header("Location: ".BASE_URL."login"); //con esto no funca el cartel de error, pero sin esto se concatena mal la url
+                    $this->admView->ShowLoginLocation(); //con esto no funca el cartel de error, pero sin esto se concatena mal la url
                     $this->admView->renderError();
                 }
             }

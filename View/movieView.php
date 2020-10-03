@@ -69,6 +69,10 @@
             $this->smarty->display('./templates/footer.tpl');
         }
 
+        function ShowHomeLocation(){
+            header("Location: ".BASE_URL."home");
+        }
+    
     
 
     }

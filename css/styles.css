@@ -815,3 +815,8 @@ footer i:hover{
     font-weight: bold;
     text-decoration: underline;
 }
+
+
+.roomError{
+    color: red;
+}
