@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2020 a las 01:31:13
+-- Tiempo de generación: 04-10-2020 a las 00:41:46
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -43,10 +43,9 @@ CREATE TABLE `pelicula` (
 INSERT INTO `pelicula` (`id`, `nombre`, `genero`, `sinopsis`, `puntaje_imdb`, `id_sala`) VALUES
 (1, 'La Monja', 'Terror', 'Una monja se suicida en una abadía rumana y el Vaticano envía a un sacerdote y una novicia a investigar lo sucedido. Lo que ambos encuentran allá es un secreto perverso que los enfrentará cara a cara con el mal en su esencia más pura.', 5.3, 1),
 (2, 'Tenet', 'Suspenso', 'Una acción épica que gira en torno al espionaje internacional, los viajes en el tiempo y la evolución, en la que un agente secreto debe prevenir la Tercera Guerra Mundial.', 7.8, 2),
-(3, 'Wonder Woman 1984', 'Aventura', 'Diana Prince, conocida como Wonder Woman se enfrenta a Cheetah, una villana que posee fuerza y agilidad sobrehumanas.', 7.4, 3),
 (4, 'Ford vs Ferrari', 'Drama', 'El visionario automovilístico Carroll Shelby y su conductor británico Ken Miles reciben la misión de construir un nuevo automóvil con el fin de derrocar el dominio de Ferrari en el Campeonato del Mundo de Le Mans de 1966.', 8.1, 1),
 (5, 'John Wick: Chapter 3 – Parabellum', 'Accion', 'John Wick se da a la fuga, pero el trabajo se le dificulta ya que es el objetivo de todos los asesinos a sueldo del mundo luego de que saliera una recompensa de 14 millones de dólares por su cabeza.', 7.5, 2),
-(6, 'Joker', 'Drama', 'Arthur Fleck adora hacer reír a la gente, pero su carrera como comediante es un fracaso. El repudio social, la marginación y una serie de trágicos acontecimientos lo conducen por el sendero de la locura y, finalmente, cae en el mundo del crimen.', 8.5, 3);
+(6, 'Joker', 'Drama', '\'Arthur Fleck adora hacer reír a la gente, pero su carrera como comediante es un fracaso. El repudio social, la marginación y una serie de trágicos acontecimientos lo conducen por el sendero de la locura y, finalmente, cae en el mundo del crimen.\'', 9, 3);
 
 -- --------------------------------------------------------
 
@@ -70,6 +69,25 @@ INSERT INTO `sala` (`id`, `letra`, `capacidad`, `formato`) VALUES
 (2, 'B', 100, '3D'),
 (3, 'C', 150, '2D');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `email`, `password`) VALUES
+(1, 'admin@modocine.com.ar', '$2y$12$GOuGI9qa.bhNJ1Ve4vycZeyY1aCnTZ/m4UBLxE8MDg210oZ/KKqWW');
+
 --
 -- Índices para tablas volcadas
 --
@@ -88,6 +106,12 @@ ALTER TABLE `sala`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -95,13 +119,19 @@ ALTER TABLE `sala`
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
