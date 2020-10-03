@@ -34,31 +34,36 @@
         }
 
         function genreController(){
-            $genre = $_REQUEST['genre'];
-            $movies = $this->movieModel->getMoviesByGenre($genre);
-            $this->view->renderMoviesByGenre($movies);
-
+            if((isset($_REQUEST['genre']))){
+                $genre = $_REQUEST['genre'];
+                $movies = $this->movieModel->getMoviesByGenre($genre);
+                $this->view->renderMoviesByGenre($movies);
+            }
         }
 
         function movieDetailController(){
-            $id = $_REQUEST['id'];
-            $movie = $this->movieModel->getMovieById($id); 
-            $this->view->renderMovieById($movie);
-
+            if((isset($_REQUEST['id']))){
+                $id = $_REQUEST['id'];
+                $movie = $this->movieModel->getMovieById($id); 
+                $this->view->renderMovieById($movie);
+            }
         }
 
         function roomDetailController(){
-            $id = $_REQUEST['id'];
-            $room = $this->roomModel->getRoomById($id); 
-            $this->view->renderRoomById($room);
+            if((isset($_REQUEST['id']))){
+                $id = $_REQUEST['id'];
+                $room = $this->roomModel->getRoomById($id); 
+                $this->view->renderRoomById($room);
+            }
 
         }
 
         function moviesByRoomController(){
-            $room = $_REQUEST['room'];
-            $movies = $this->movieModel->getMoviesByRoom($room);
-            $this->view->renderMoviesByRoom($movies);
+            if((isset($_REQUEST['room']))){
+                $room = $_REQUEST['room'];
+                $movies = $this->movieModel->getMoviesByRoom($room);
+                $this->view->renderMoviesByRoom($movies);
+            }
         }
-        
     }
 ?>

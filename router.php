@@ -19,75 +19,61 @@
         case '':
             $controller->homeController();
         break;
-        case 'home':
+        case 'home'://listo
             $controller->homeController();
         break;
-        case 'cartelera':
+        case 'cartelera'://listo
             $controller->estrenosController();
         break;
-        case 'Detalle':
+        case 'Detalle'://listo
             $controller->movieDetailController();
         break;
-        case 'contacto':
+        case 'contacto'://listo
             $controller->contactoController();
         break;
-        case 'Genero':
+        case 'Genero'://listo
             $controller->genreController();
         break;
-        case 'Salas':
+        case 'Salas'://listo
             $controller->moviesByRoomController();
         break;
-        case 'VerSalas':
+        case 'VerSalas'://listo
             $controller->roomController();
         break;
-        case 'sala':
+        case 'sala'://listo
             $controller->roomDetailController();
         break;
-        case 'login':
+        case 'login'://listo
             $adminController->adminController();
         break;
-        case "adminInsertMovie":
+        case "adminInsert"://listo
             $adminController->adminInsert();
         break;
-        case 'insertMovie':
+        case 'insertMovie'://listo
             $adminController->insertNewMovie();
         break;
-        case 'insertRoom':
+        case 'insertRoom'://listo
             $adminController->insertNewRoom();
         break;
-        case 'adminMovie':
+        case 'adminMovie'://listo
             $adminController->editMovieMode();
         break;
-        case 'editarPelicula':
+        case 'editarPelicula'://listo
             $adminController->editMovie();
         break;
-        case 'borrarPelicula':
+        case 'borrarPelicula'://listo
             $adminController->deleteMovie();
         break;
-        case 'adminSala':
+        case 'adminSala'://listo
             $adminController->editRoomMode();
         break;
-        case 'editarSala':
+        case 'editarSala'://listo
             $adminController->editRoom();
         break;
-        case 'borrarSala':
+        case 'borrarSala'://listo
             $adminController->deleteRoom();
         break;
        
-      
     }
 
-
-
-
-
-
-        // define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
-        // $r = new Router();
-        // $r->addRoute("home", "GET", "movieController", "homeController");
-        // $r->addRoute("cartelera", "GET", "movieController", "estrenosController");
-        // $r->DefaultRoute("movieController", "homeController");
-
-        //va siempre
-        // $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
 ?>

@@ -11,7 +11,7 @@
                 <label for="input_nombre">Genero:</label>
                 <input type="text" name="input_genero" value='{$singleMovie->genero}'>
                 <label for="input_nombre">Puntaje:</label>
-                <input type="text" name="input_puntaje" value='{$singleMovie->puntaje_imdb}'>
+                <input step="any" type="number" name="input_puntaje" value='{$singleMovie->puntaje_imdb}'>
                 <label for="input_nombre">Sala:</label>
                 <input type="number" name="input_id_sala" value='{$singleMovie->id_sala}'>
                 <h3>Ingrese la sinopsis de la película</h3>
@@ -20,9 +20,8 @@
             </form>
         {/foreach}
     </div>
-
     <div class="links">
-    <a href="login">Volver</a>
+        <a href="login">Volver</a>
     </div>
 </main>
 {include file="footer.tpl"}

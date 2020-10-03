@@ -35,4 +35,8 @@
             $this->smarty->display('./templates/adminRoomEdit.tpl');
         }
 
+        function renderError(){
+            $this->smarty->display('./templates/adminDeleteRoomError.tpl');
+        }
+
     }
