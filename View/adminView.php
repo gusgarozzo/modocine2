@@ -39,6 +39,13 @@
             $this->smarty->display('./templates/adminDeleteRoomError.tpl');
         }
 
+        function showLogin($mensaje = ''){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('mensaje', $mensaje);
+            $this->smarty->display('./templates/login.tpl');
+        }
+
+
         function ShowLoginLocation(){
             header("Location: ".BASE_URL."login");
         }

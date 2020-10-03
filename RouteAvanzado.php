@@ -1,12 +1,13 @@
 <?php
     require_once 'Controller/adminController.php';
     require_once 'Controller/movieController.php';
+    require_once 'Controller/loginController.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
-    
+    define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 
 
     $r = new Router();
@@ -27,20 +28,23 @@
 
     // ADMIN CONTROLLER
     // FUNCIONA
-    $r->addRoute("login", "GET", "adminController", "adminController");
+    $r->addRoute("admin", "GET", "adminController", "adminController");
+
     $r->addRoute("adminInsert", "GET", "adminController", "adminInsert");//muestra form para agregar peli y sala
     $r->addRoute("insertMovie", "POST", "adminController", "insertMovie");//agrega peli
     $r->addRoute("insertRoom", "POST", "adminController", "insertRoom");//agrega sala
     $r->addRoute("deleteMovie/:ID", "GET", "adminController", "deleteMovie");//borra peli
     $r->addRoute("deleteRoom/:ID", "GET", "adminController", "deleteRoom");//borra sala
-
-    // NO FUNCIONA
     $r->addRoute("editMovie/:ID", "GET", "adminController", "editMovieMode");//muestra form para editar peli
     $r->addRoute("editarPelicula/:ID", "POST", "adminController", "editMovie");//edita peli
     $r->addRoute("editRoom/:ID", "GET", "adminController", "editRoomMode");//muestra form para editar sala
     $r->addRoute("editarSala/:ID", "POST", "adminController", "editRoom");//edita sala
 
 
+    // LOGIN
+    $r->addRoute("login", "GET", "loginController", "login");
+    $r->addRoute("logout", "GET", "loginController", "logout");
+    $r->addRoute("verifyUser", "POST", "loginController", "verifyUser");
     //Ruta por defecto.
     $r->setDefaultRoute("movieController", "homeController");
 

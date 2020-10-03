@@ -111,5 +111,5 @@
         function adminInsert(){
             $this->admView->renderInsertMovie();
         }
+
     }
-?>

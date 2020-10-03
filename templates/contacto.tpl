@@ -25,7 +25,7 @@
                                     <li><a href="home">HOME</a></li>
                                     <li><a href="cartelera">CARTELERA</a></li>
                                     <li><a href="contacto">CONTACTO</a></li>
-                                    <li><a href="login">LOGIN</a></li>
+                                    <li><a href="login">ADMINISTRAR</a></li>
                                 </ul>
                         </nav>
                     </header>
