@@ -50,7 +50,8 @@
         }
 
         function editMovie($params = null){
-            if((isset($params[':ID'])) && (isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && (isset($_POST['input_sinopsis']))
+            if((isset($params[':ID'])) && (isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && 
+            (isset($_POST['input_sinopsis']))
                 && (isset($_POST['input_puntaje'])) && (isset($_POST['input_id_sala']))){
                 $movie_id = $params[':ID'];
                 $titulo= $_POST['input_nombre'];

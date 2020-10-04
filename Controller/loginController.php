@@ -41,9 +41,8 @@ class loginController{
                     $this->admView->ShowLogin("Contraseña incorrecta");
                 }
             }else{
-                $this->admView->ShowLogin("El usuario no existe");
+                $this->admView->ShowLogin("Usuario incorrecto");
             }
-
         }
     }
 }
