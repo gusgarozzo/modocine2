@@ -785,6 +785,14 @@ footer i:hover{
     margin-bottom: 20px;
 }
 
+.main-admin .alta-baja-update .formulario select{
+    width: 30%;
+    font-size: 15px;
+    padding: 2px 5px;
+    margin-bottom: 20px;
+    text-indent: 50%;
+}
+
 .main-admin .alta-baja-update .formulario textarea{
     font-size: 15px;
     width: 70%;

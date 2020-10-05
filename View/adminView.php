@@ -18,8 +18,9 @@
             $this->smarty->display('./templates/admin.tpl');
         }
 
-        function renderInsertMovie(){
+        function renderInsertMovie($rooms){
             $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('rooms', $rooms);
             $this->smarty->display('./templates/adminInsert.tpl');
         }
 
@@ -48,6 +49,10 @@
 
         function ShowLoginLocation(){
             header("Location: ".BASE_URL."login");
+        }
+
+        function ShowAdmin(){
+            header("Location: ".BASE_URL."admin");
         }
     
 

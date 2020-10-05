@@ -40,8 +40,12 @@
             <input type="text" placeholder="Ej: Terror" name="input_genero" required>
             <label for="input_nombre">Puntaje:</label>
             <input step="any" type="number" placeholder="Ej: 5.8" name="input_puntaje" required>
-            <label for="input_nombre">Sala:</label>
-            <input type="number" placeholder="Ej: 4" name="input_id_sala" required>
+            <label for="input_id_sala">Sala:</label>
+            <select name="input_id_sala" id="">
+            {foreach from=$rooms item=allRooms}
+                <option class="option" value="{$allRooms->id}">{$allRooms->letra}</option>
+            {/foreach}
+            </select>
             <h3>Ingrese la sinopsis de la película</h3>
             <textarea name="input_sinopsis" cols="50" rows="5" required></textarea>
             <button name="insert" type="submit">Agregar</button>

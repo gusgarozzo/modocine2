@@ -20,6 +20,11 @@
             $this->admView->renderAdmin($movies, $rooms);
         }
 
+        function adminInsert(){
+            $rooms=$this->roomModel->getAllRooms();
+            $this->admView->renderInsertMovie($rooms);
+        }
+
         function insertMovie(){
             if((isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && (isset($_POST['input_sinopsis']))
                 && (isset($_POST['input_puntaje'])) && (isset($_POST['input_id_sala']))){
@@ -29,16 +34,14 @@
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
                 $this->adminModel->insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala);
-                $movies = $this->adminModel->getAdminMovie();
-                $rooms = $this->roomModel->getAllRooms();
-                $this->admView->renderAdmin($movies, $rooms);
+                $this->admView->ShowAdmin();
             }
         }
 
         function deleteMovie($params = null){
             $movie_id = $params[':ID'];
             $this->adminModel->deleteMovieId($movie_id);
-            $this->admView->ShowLoginLocation();
+            $this->admView->ShowAdmin();
         }
 
         function editMovieMode($params = null){
@@ -60,40 +63,34 @@
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
                 $this->adminModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $movie_id);
-                $this->admView->ShowLoginLocation();
+                $this->admView->ShowAdmin();
             }
         }
 
         function editRoomMode($params=null){
             if((isset($params[':ID']))){
-                $id = $params[':ID'];
-                $room = $this->roomModel->getRoomInfoById($id);
+                $room_id = $params[':ID'];
+                $room = $this->roomModel->getRoomInfoById($room_id);
                 $this->admView->renderEditRoom($room);
             }
         }
 
-        function editRoom(){
-            if((isset($_REQUEST['id'])) && (isset($_POST['input_sala'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']))){
-                $id = $_REQUEST['id'];
-                $sala= $_POST['input_sala'];
+        function editRoom($params = null){
+            if((isset($params[':ID'])) && (isset($_POST['input_sala'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']))){
+                $room_id = $params[':ID'];
+                $sala = $_POST['input_sala'];
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
-                $this->adminModel->updateRooms($sala, $capacidad, $formato, $id);
-                $this->admView->ShowLoginLocation();
+                $this->adminModel->updateRooms($sala, $capacidad, $formato, $room_id);
+                $this->admView->ShowAdmin();
             }
         }
 
         function deleteRoom($params = null){
             if((isset($params[':ID']))){
                 $room_id = $params[':ID'];
-                if($this->adminModel->deleteRoomId($room_id)){
-                    $this->adminModel->deleteRoomId($room_id);
-                    $this->admView->ShowLoginLocation();
-                }
-                else{
-                    $this->admView->ShowLoginLocation(); //con esto no funca el cartel de error, pero sin esto se concatena mal la url
-                    $this->admView->renderError();
-                }
+                $this->adminModel->deleteRoomId($room_id);
+                $this->admView->ShowAdmin();
             }
         }
 
@@ -103,14 +100,8 @@
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
                 $this->adminModel->insertNewRoom($sala, $capacidad, $formato);
-                $movies = $this->adminModel->getAdminMovie();
-                $rooms = $this->roomModel->getAllRooms();
-                $this->admView->renderAdmin($movies, $rooms);
+                $this->admView->ShowAdmin();
             }
-        }
-
-        function adminInsert(){
-            $this->admView->renderInsertMovie();
         }
 
     }
