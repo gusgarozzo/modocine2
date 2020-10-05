@@ -1,6 +1,6 @@
 <?php 
 
-    require_once './Controller/movieController.php';
+    require_once './Controller/publicController.php';
 
     class RoomModel{
 

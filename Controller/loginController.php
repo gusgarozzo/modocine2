@@ -33,9 +33,8 @@ class loginController{
             if(isset($usuario) && $usuario){
                 if (password_verify($pass, $usuario->password)){
                     session_start();
-                    $_SESSION["EMAIL"] = $usuario->email;
-                    $_SESSION['LAST_ACTIVITY'] = time();
-
+                    $_SESSION["usuario"] = $usuario->email; 
+                    $_SESSION['timeout'] = time(); 
                     header("Location: ".BASE_URL."admin");
                 } else{
                     $this->admView->ShowLogin("Contraseña incorrecta");
@@ -45,4 +44,6 @@ class loginController{
             }
         }
     }
+
+
 }

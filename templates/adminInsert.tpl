@@ -18,18 +18,16 @@
                 <div class="contenedor">
                     <header>
                         <p>{$titulo|upper}</p>
-                        <nav>
+                        <nav class="adminMenu">
                             <i class="fas fa-bars" id="btn-abrir"></i>
+                            <p class="saludo">Bienvenido Administrador!</p>
                                 <ul class="menu" id="menu">
-                                    <li><a href="home">HOME</a></li>
-                                    <li><a href="cartelera">CARTELERA</a></li>
-                                    <li><a href="contacto">CONTACTO</a></li>
                                     <li><a href="logout">LOGOUT</a></li>
                                 </ul>
                         </nav>
                     
                     
-                    </header>           
+                    </header>          
 <main class="main-admin">   
     <div class="alta-baja-update">
         <h3>Agregar peliculas</h3>
