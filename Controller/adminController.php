@@ -1,4 +1,6 @@
 <?php
+
+    // Controlador para aquellas funciones propias del administrador
     require_once ('./Model/roomModel.php');
     require_once ('./Model/adminModel.php');
     require_once ('./View/adminView.php');
@@ -15,16 +17,19 @@
             $this->adminModel = new AdminModel();
         }
 
+        // Controlador para verificar si el usuario continua logueado y activo
         private function sessionController(){
             session_start();
             if (!isset($_SESSION['usuario'])){
                 header("Location: ".BASE_URL."login");
                 die();
             }else{
+                // Pasados los 2 minutos de inactividad, se cierra automaticamente la sesión
                 if(isset($_SESSION['timeout']) && (time()-$_SESSION['timeout'] > 120)){
                     header("Location: ".BASE_URL."logout");  
                     die();
                 }
+                // De lo contrario, se actualiza el temporizador
                 $_SESSION['timeout'] = time();
             }
         }

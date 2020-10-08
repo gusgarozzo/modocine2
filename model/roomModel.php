@@ -7,7 +7,7 @@
         private $db;
 
         public function __construct(){
-            $this->db = new PDO('mysql:host=localhost;'.'dbname=db_modocine;charset=utf8', 'root', '');
+            $this->db = new PDO('mysql:host=localhost;'.'dbname=modocine;charset=utf8', 'root', '');
         }
 
         function getAllRooms(){
