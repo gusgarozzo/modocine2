@@ -3,7 +3,7 @@
     require_once ('./View/publicView.php');
     require_once ('./Model/roomModel.php');
 
-    class movieController{
+    class publicController{
         private $movieModel;
         private $view;
         private $roomModel;
@@ -33,34 +33,33 @@
             $this->view->renderRooms($room);
         }
 
-        function genreController(){
-            if((isset($_REQUEST['genre']))){
-                $genre = $_REQUEST['genre'];
+        function genreController($params = null){
+            if((isset($params[':GEN']))){
+                $genre = $params[':GEN'];
                 $movies = $this->movieModel->getMoviesByGenre($genre);
                 $this->view->renderMoviesByGenre($movies);
             }
         }
 
-        function movieDetailController(){
-            if((isset($_REQUEST['id']))){
-                $id = $_REQUEST['id'];
+        function movieDetailController($params = null){
+            if((isset($params[':ID']))){
+                $id = $params[':ID'];
                 $movie = $this->movieModel->getMovieById($id); 
                 $this->view->renderMovieById($movie);
             }
         }
 
-        function roomDetailController(){
-            if((isset($_REQUEST['id']))){
-                $id = $_REQUEST['id'];
-                $room = $this->roomModel->getRoomById($id); 
+        function roomDetailController($params = null){
+            if((isset($params[':ID']))){
+                $id = $params[':ID'];
+                $room = $this->roomModel->getRoomById($id);
                 $this->view->renderRoomById($room);
             }
-
         }
 
-        function moviesByRoomController(){
-            if((isset($_REQUEST['room']))){
-                $room = $_REQUEST['room'];
+        function moviesByRoomController($params = null){
+            if((isset($params[':ROOM']))){
+                $room = $params[':ROOM'];
                 $movies = $this->movieModel->getMoviesByRoom($room);
                 $this->view->renderMoviesByRoom($movies);
             }

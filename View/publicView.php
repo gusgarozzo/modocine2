@@ -17,12 +17,10 @@
 
 
         function renderContacto(){
-
             $this->smarty->assign('titulo', "Modocine");
             $this->smarty->assign('inicio', "Inicio");
             $this->smarty->assign('estrenos', "Estrenos");
             $this->smarty->assign('contacto', "Contacto");
-
             $this->smarty->display('./templates/contacto.tpl');     
         }
         
@@ -30,11 +28,10 @@
         function renderEstrenos($movies){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movies);
-
-            $this->smarty->display('./templates/header.tpl');
+            //$this->smarty->display('./templates/header.tpl');
             $this->smarty->display('./templates/mainEstrenos.tpl');
-            $this->smarty->display('./templates/asideEstrenosTabla.tpl');
-            $this->smarty->display('./templates/footer.tpl');
+            //$this->smarty->display('./templates/asideEstrenosTabla.tpl');
+            //$this->smarty->display('./templates/footer.tpl');
         }
 
         function renderMoviesByGenre($movies){
@@ -48,31 +45,27 @@
         function renderMovieById($movie){ 
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movie);
-
-            $this->smarty->display('./templates/header.tpl');
-            $this->smarty->display('./templates/mainEstrenos.tpl');
+            //$this->smarty->display('./templates/header.tpl');
+            //$this->smarty->display('./templates/mainEstrenos.tpl');
             $this->smarty->display('./templates/asideEstrenosDetalles.tpl');
-            $this->smarty->display('./templates/footer.tpl');
-        }
-
-        function renderRoomById($room){
-            $this->renderEstrenos($room);
+            //$this->smarty->display('./templates/footer.tpl');
         }
 
         function renderRooms($rooms){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('rooms', $rooms);
-
-            $this->smarty->display('./templates/header.tpl');
-            $this->smarty->display('./templates/mainEstrenos.tpl');
+            //$this->smarty->display('./templates/header.tpl');
+            //$this->smarty->display('./templates/mainEstrenos.tpl');
             $this->smarty->display('./templates/rooms.tpl');
-            $this->smarty->display('./templates/footer.tpl');
+            //$this->smarty->display('./templates/footer.tpl');
+        }
+
+        function renderRoomById($rooms){
+            $this->renderRooms($rooms);
         }
 
         function ShowHomeLocation(){
             header("Location: ".BASE_URL."home");
         }
-    
-    
 
     }

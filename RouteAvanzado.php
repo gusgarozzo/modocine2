@@ -12,22 +12,21 @@
 
     $r = new Router();
 
-    // MOVIE CONTROLLER
-    $r->addRoute("home", "GET", "movieController", "homeController"); //vista home
-    $r->addRoute("cartelera", "GET", "movieController", "estrenosController"); // vista cartelera
-    $r->addRoute("contacto", "GET", "movieController", "contactoController"); //vista contacto
-    $r->addRoute("Detalle", "GET", "movieController", "movieDetailController"); //detalle de cada pelicula
-    $r->addRoute("Genero", "GET", "movieController", "genreController"); // pelicula por genero
-    $r->addRoute("Salas", "GET", "movieController", "moviesByRoomController"); //pelicula por sala
-    $r->addRoute("VerSalas", "GET", "movieController", "roomController"); //todas las salas
-    $r->addRoute("sala", "GET", "movieController", "roomDetailController"); //detalle de cada sala
+    // PUBLIC CONTROLLER
+    $r->addRoute("home", "GET", "publicController", "homeController"); //vista home
+    $r->addRoute("cartelera", "GET", "publicController", "estrenosController"); // vista cartelera
+    $r->addRoute("contacto", "GET", "publicController", "contactoController"); //vista contacto
+    $r->addRoute("detalle/:ID", "GET", "publicController", "movieDetailController"); //detalle de cada pelicula
+    $r->addRoute("genero/:GEN", "GET", "publicController", "genreController"); // pelicula por genero
+    $r->addRoute("sala/:ROOM", "GET", "publicController", "moviesByRoomController"); //pelicula por sala
+    $r->addRoute("salas", "GET", "publicController", "roomController"); //todas las salas
+    $r->addRoute("detallesala/:ID", "GET", "publicController", "roomDetailController"); //detalle de cada sala
 
     //$r->addRoute("insert", "POST", "TasksController", "InsertTask");
     //$r->addRoute("delete/:ID", "GET", "TasksController", "BorrarLaTaskQueVienePorParametro");
     //$r->addRoute("completar/:ID", "GET", "TasksController", "MarkAsCompletedTask");
 
     // ADMIN CONTROLLER
-    // FUNCIONA
     $r->addRoute("admin", "GET", "adminController", "adminController");
 
     $r->addRoute("adminInsert", "GET", "adminController", "adminInsert");//muestra form para agregar peli y sala
@@ -46,7 +45,7 @@
     $r->addRoute("logout", "GET", "loginController", "logout");
     $r->addRoute("verifyUser", "POST", "loginController", "verifyUser");
     //Ruta por defecto.
-    $r->setDefaultRoute("movieController", "homeController");
+    $r->setDefaultRoute("publicController", "homeController");
 
     //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 

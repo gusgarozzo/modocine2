@@ -44,7 +44,7 @@
                 <label for="input_nombre">Sala:</label>
                 <input type="number" name="input_id_sala" value='{$singleMovie->id_sala}'>
                 <h3>Ingrese la sinopsis de la película</h3>
-                <textarea name="input_sinopsis" cols="50" rows="5">'{$singleMovie->sinopsis}'</textarea>
+                <textarea name="input_sinopsis" cols="50" rows="5">{$singleMovie->sinopsis}</textarea>
                 <button name="editarPelicula" type="submit">Actualizar</button>
             </form>
         {/foreach}
