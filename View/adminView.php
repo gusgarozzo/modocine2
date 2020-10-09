@@ -2,7 +2,6 @@
 
     require_once './libs/smarty/Smarty.class.php';
 
-
     class AdminView{
 
         public function __construct(){
@@ -45,7 +44,6 @@
             $this->smarty->assign('mensaje', $mensaje);
             $this->smarty->display('./templates/login.tpl');
         }
-
 
         function ShowLoginLocation(){
             header("Location: ".BASE_URL."login");

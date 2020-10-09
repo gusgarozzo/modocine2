@@ -14,7 +14,6 @@
             $query = $this->db->prepare('SELECT * FROM usuario WHERE email=?');
             $query->execute(array($user));
             $datos=$query->fetch(PDO::FETCH_OBJ);
-
             return $datos;
         }
     

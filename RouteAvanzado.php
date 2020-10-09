@@ -9,7 +9,6 @@
     define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
     define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 
-
     $r = new Router();
 
     // PUBLIC CONTROLLER
@@ -22,13 +21,8 @@
     $r->addRoute("salas", "GET", "publicController", "roomController"); //todas las salas
     $r->addRoute("detallesala/:ID", "GET", "publicController", "roomDetailController"); //detalle de cada sala
 
-    //$r->addRoute("insert", "POST", "TasksController", "InsertTask");
-    //$r->addRoute("delete/:ID", "GET", "TasksController", "BorrarLaTaskQueVienePorParametro");
-    //$r->addRoute("completar/:ID", "GET", "TasksController", "MarkAsCompletedTask");
-
     // ADMIN CONTROLLER
     $r->addRoute("admin", "GET", "adminController", "adminController");
-
     $r->addRoute("adminInsert", "GET", "adminController", "adminInsert");//muestra form para agregar peli y sala
     $r->addRoute("insertMovie", "POST", "adminController", "insertMovie");//agrega peli
     $r->addRoute("insertRoom", "POST", "adminController", "insertRoom");//agrega sala
@@ -39,11 +33,11 @@
     $r->addRoute("editRoom/:ID", "GET", "adminController", "editRoomMode");//muestra form para editar sala
     $r->addRoute("editarSala/:ID", "POST", "adminController", "editRoom");//edita sala
 
-
     // LOGIN
     $r->addRoute("login", "GET", "loginController", "login");
     $r->addRoute("logout", "GET", "loginController", "logout");
     $r->addRoute("verifyUser", "POST", "loginController", "verifyUser");
+    
     //Ruta por defecto.
     $r->setDefaultRoute("publicController", "homeController");
 

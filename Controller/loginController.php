@@ -20,7 +20,7 @@ class loginController{
     function logout(){
         session_start();
         session_destroy();
-        header("Location: ".LOGIN);
+        $this->admView->ShowLoginLocation();
     }
 
     function verifyUser(){
@@ -34,8 +34,8 @@ class loginController{
                 if (password_verify($pass, $usuario->password)){
                     session_start();
                     $_SESSION["usuario"] = $usuario->email; 
-                    $_SESSION['timeout'] = time(); 
-                    header("Location: ".BASE_URL."admin");
+                    $_SESSION['timeout'] = time();
+                    $this->admView->ShowAdmin();
                 } else{
                     $this->admView->ShowLogin("Contraseña incorrecta");
                 }
