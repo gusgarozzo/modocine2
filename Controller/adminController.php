@@ -34,6 +34,7 @@
             }
         }
 
+        // Muestra la pantalla de inicio de la seccion administrador
         function adminController(){
             $this->sessionController();
             $movies=$this->adminModel->getAdminMovie();
