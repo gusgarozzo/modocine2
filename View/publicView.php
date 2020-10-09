@@ -54,14 +54,15 @@
         function renderRooms($rooms){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('rooms', $rooms);
-            //$this->smarty->display('./templates/header.tpl');
-            //$this->smarty->display('./templates/mainEstrenos.tpl');
             $this->smarty->display('./templates/rooms.tpl');
-            //$this->smarty->display('./templates/footer.tpl');
+
         }
 
         function renderRoomById($rooms){
-            $this->renderRooms($rooms);
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('rooms', $rooms);
+            $this->smarty->display('./templates/asideRoomDetalle.tpl');
+
         }
 
         function ShowHomeLocation(){

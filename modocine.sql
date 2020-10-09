@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2020 a las 22:49:22
+-- Tiempo de generación: 09-10-2020 a las 21:29:04
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -57,17 +57,19 @@ CREATE TABLE `sala` (
   `id` int(11) NOT NULL,
   `letra` varchar(11) CHARACTER SET latin1 NOT NULL,
   `capacidad` int(11) NOT NULL,
-  `formato` varchar(10) CHARACTER SET latin1 NOT NULL
+  `formato` varchar(10) CHARACTER SET latin1 NOT NULL,
+  `butaca` varchar(100) NOT NULL,
+  `info_butaca` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `sala`
 --
 
-INSERT INTO `sala` (`id`, `letra`, `capacidad`, `formato`) VALUES
-(1, 'A', 120, '2D'),
-(2, 'B', 100, '3D'),
-(3, 'C', 150, '2D');
+INSERT INTO `sala` (`id`, `letra`, `capacidad`, `formato`, `butaca`, `info_butaca`) VALUES
+(1, 'A', 120, '2D', 'D-BOX', 'Butacas programadas para moverse según los efectos especiales de la película, brindando al espectador una innovadora y diferente manera de vivir el cine. La suma de estos efectos hará la experiencia de ver una película aún más espectacular.'),
+(2, 'B', 100, '3D', 'Comfort', 'Comfort es un concepto pensado para brindar la mayor comodidad. Las butacas Comfort son más amplias y cómodas, poseen apoya pies y un sistema de reclinado electrónico que permite al espectador mirar la película en un cómodo sillón casi a 180 grados.'),
+(3, 'C', 150, '2D', 'XD Digital', 'Una pantalla gigante de piso a techo y de pared a pared, con posibilidad de visualizar películas tanto en 2D como en 3D en formato completamente digital, con butacas más grande y cómodas, acompañado de un impactante sistema de audio digital superior.');
 
 -- --------------------------------------------------------
 

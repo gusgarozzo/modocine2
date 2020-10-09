@@ -8,6 +8,9 @@
                 <tr>
                     <th>Sala</th>
                     <th>Capacidad</th>
+                    <th>Formato de proyeccion</th>
+                    <th>Butacas</th>
+                    <th>Información</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,6 +18,9 @@
                 <tr>
                     <td><a class="room" href='detallesala/{$room->id}'>{$room->letra}</a></td>
                     <td>{$room->capacidad}</td>
+                    <td>{$room->formato}</td>
+                    <td>{$room->butaca}</td>
+                    <td>{$room->info_butaca}</td>
                 </tr>
             {/foreach}
             </tbody>
