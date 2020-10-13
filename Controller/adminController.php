@@ -119,8 +119,13 @@
             $this->sessionController();
             if((isset($params[':ID']))){
                 $room_id = $params[':ID'];
-                $this->adminModel->deleteRoomId($room_id);
-                $this->admView->ShowAdmin();
+                $delete=$this->adminModel->deleteRoomId($room_id);
+                if (is_null($delete)===true){
+                    $this->admView->renderError("Primero debe eliminar la/s pelicula/s relacionadas a la sala");
+                } elseif(is_null($delete)===false) {
+                    $this->admView->ShowAdmin();
+                }
+                
             }
         }
 

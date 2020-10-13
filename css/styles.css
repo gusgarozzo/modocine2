@@ -854,6 +854,11 @@ footer i:hover{
     width: 50%;
 }
 
+.cajaError{
+    width: 100%;
+    height: 600px;
+}
+
 .error{
     text-align: center;
     display: block;
@@ -877,3 +882,4 @@ header .adminMenu{
     padding: 0 5px 0 5px;
     font-size: 15px;
 }
+
