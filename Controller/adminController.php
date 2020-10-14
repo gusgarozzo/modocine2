@@ -128,7 +128,8 @@
                         $this->admView->ShowAdmin();
                     break;
                     case false:
-                        $this->admView->renderError("Disculpe! Para eliminar la sala, primero debe eliminar todos las peliculas asociadas a la misma");
+                        $this->admView->renderError("Disculpe! Para eliminar la sala, primero debe eliminar 
+                        todos las peliculas asociadas a la misma");
                     break;
                 }
             } 

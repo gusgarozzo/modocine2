@@ -881,8 +881,8 @@ footer i:hover{
 header .adminMenu{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    background: inherit;
+    justify-content: center;
+    background: gold;
 }
 
 .adminMenu .saludo{
@@ -893,3 +893,35 @@ header .adminMenu{
     font-size: 15px;
 }
 
+.saludo{
+    width:100%;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.saludo p{
+    font-size: 15px;
+    color: black;
+    text-shadow: none;
+}
+
+.saludo a{
+    text-decoration: none;
+    color: black;
+}
+
+.saludo a:hover{
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.registro a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.registro a:hover{
+    font-weight: bold;
+    text-decoration-line: underline;
+}

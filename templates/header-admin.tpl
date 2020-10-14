@@ -19,11 +19,15 @@
                         <p>{$titulo|upper}</p>
                         <nav class="adminMenu">
                             <i class="fas fa-bars" id="btn-abrir"></i>
-                            <p class="saludo">Bienvenido Administrador!</p>
                                 <ul class="menu" id="menu">
-                                    <li><a href="logout">LOGOUT</a></li>
+                                    <li><a href="home">HOME</a></li>
+                                    <li><a href="cartelera">CARTELERA</a></li>
+                                    <li><a href="contacto">CONTACTO</a></li>
+                                    
                                 </ul>
-                        </nav>
-                    
-                    
+                        </nav>       
+                        <div class="saludo">
+                            <p>Bienvenido {$smarty.session.usuario}</p>
+                            <a href="logout">LOGOUT</a>
+                        </div>             
                     </header> 

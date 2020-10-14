@@ -14,7 +14,13 @@ class loginController{
     }
 
     function login(){
-        $this->admView->ShowLogin();
+        session_start();
+        if (isset($_SESSION["usuario"])){
+            header("Location: ".BASE_URL."admin");
+        } else{
+            $this->admView->ShowLogin();
+        }
+        
     }
 
     function logout(){
@@ -43,6 +49,10 @@ class loginController{
                 $this->admView->ShowLogin("Usuario incorrecto");
             }
         }
+    }
+
+    function newUser(){
+        $this->admView->showRegisterForm();
     }
 
 

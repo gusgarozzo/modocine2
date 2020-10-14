@@ -47,7 +47,6 @@
             $this->smarty->display('./templates/login.tpl');
         }
 
-
         function ShowLoginLocation(){
             header("Location: ".BASE_URL."login");
         }

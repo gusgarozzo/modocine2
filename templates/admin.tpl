@@ -1,6 +1,5 @@
 {include file="header-admin.tpl"}     
 <main class="main-admin">
-
     <div class="peliculas">
         <h1>Administra la Base de Datos</h1>
         <h3>Base de Datos: Pelicula</h3>
