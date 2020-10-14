@@ -17,9 +17,9 @@
         }
 
         // Agregar Sala
-        function insertNewRoom($sala, $capacidad, $formato){
-            $query = $this->db->prepare("INSERT INTO sala(letra, capacidad, formato) VALUES(?,?,?)");
-            $query->execute(array($sala, $capacidad, $formato));
+        function insertNewRoom($sala, $capacidad, $formato, $tipo, $info){
+            $query = $this->db->prepare("INSERT INTO sala(letra, capacidad, formato, butaca, info_butaca) VALUES(?,?,?,?,?)");
+            $query->execute(array($sala, $capacidad, $formato, $tipo, $info));
         }
 
         // Borrar pelicula
@@ -61,7 +61,9 @@
         // Borrar sala desde su id
         function deleteRoomId($id){
             $query = $this->db->prepare("DELETE FROM sala WHERE id=?");
-            $query->execute(array($id));
+            $action=$query->execute(array($id));
+
+            return $action;
         }
     
     }

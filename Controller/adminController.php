@@ -117,25 +117,36 @@
 
         function deleteRoom($params = null){
             $this->sessionController();
-            if((isset($params[':ID']))){
+            if((isset($params[':ID']) && !is_null($params))){
                 $room_id = $params[':ID'];
-                $delete=$this->adminModel->deleteRoomId($room_id);
-                if (is_null($delete)===true){
-                    $this->admView->renderError("Primero debe eliminar la/s pelicula/s relacionadas a la sala");
-                } elseif(is_null($delete)===false) {
-                    $this->admView->ShowAdmin();
-                }
+
+                $action=null;
+                $action=$this->adminModel->deleteRoomId($room_id);    
                 
-            }
+                switch($action){
+                    case true:
+                        $this->admView->ShowAdmin();
+                    break;
+                    case false:
+                        $this->admView->renderError("Disculpe! Para eliminar la sala, primero debe eliminar todos las peliculas asociadas a la misma");
+                    break;
+                }
+            } 
+            
+     
         }
+
 
         function insertRoom(){
             $this->sessionController();
-            if((isset($_POST['input_letra'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']))){
+            if((isset($_POST['input_letra'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']) && 
+            (isset($_POST['input_tipo'])) && (isset($_POST['input_info'])) )){
                 $sala= $_POST['input_letra'];
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
-                $this->adminModel->insertNewRoom($sala, $capacidad, $formato);
+                $tipo = $_POST['input_tipo'];
+                $info = $_POST['input_info'];
+                $this->adminModel->insertNewRoom($sala, $capacidad, $formato, $tipo, $info);
                 $this->admView->ShowAdmin();
             }
         }
