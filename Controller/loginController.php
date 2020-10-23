@@ -50,9 +50,5 @@ class loginController{
         }
     }
 
-    function newUser(){
-        $this->admView->showRegisterForm();
-    }
-
 
 }
