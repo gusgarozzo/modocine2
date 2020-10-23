@@ -37,7 +37,6 @@
     $r->addRoute("login", "GET", "loginController", "login");
     $r->addRoute("logout", "GET", "loginController", "logout");
     $r->addRoute("verifyUser", "POST", "loginController", "verifyUser");
-    
     //Ruta por defecto.
     $r->setDefaultRoute("publicController", "homeController");
 

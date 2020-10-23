@@ -2,19 +2,19 @@
 
     // Controlador para aquellas funciones propias del administrador
     require_once ('./Model/roomModel.php');
-    require_once ('./Model/adminModel.php');
+    require_once ('./Model/movieModel.php');
     require_once ('./View/adminView.php');
     require_once ('loginController.php');
 
     class adminController{
         private $admView;
         private $roomModel;
-        private $adminModel;
+        private $movieModel;
 
         public function __construct(){
             $this->roomModel = new RoomModel();
             $this->admView = new AdminView();
-            $this->adminModel = new AdminModel();
+            $this->movieModel = new MovieModel();
         }
 
         // Controlador para verificar si el usuario continua logueado y activo
@@ -37,7 +37,7 @@
         // Muestra la pantalla de inicio de la seccion administrador
         function adminController(){
             $this->sessionController();
-            $movies=$this->adminModel->getAdminMovie();
+            $movies=$this->movieModel->getAdminMovie();
             $rooms=$this->roomModel->getAllRooms();
             $this->admView->renderAdmin($movies, $rooms);
         }
@@ -57,7 +57,7 @@
                 $sinopsis = $_POST['input_sinopsis'];
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
-                $this->adminModel->insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala);
+                $this->movieModel->insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala);
                 $this->admView->ShowAdmin();
             }
         }
@@ -65,7 +65,7 @@
         function deleteMovie($params = null){
             $this->sessionController();
             $movie_id = $params[':ID'];
-            $this->adminModel->deleteMovieId($movie_id);
+            $this->movieModel->deleteMovieId($movie_id);
             $this->admView->ShowAdmin();
         }
 
@@ -73,7 +73,7 @@
             $this->sessionController();
             if((isset($params[':ID']))){
                 $movie_id = $params[':ID'];
-                $movie = $this->adminModel->getMovieById($movie_id);
+                $movie = $this->movieModel->getMovieByIdAdm($movie_id);
                 $this->admView->renderEditMovie($movie);
             }
         }
@@ -89,7 +89,7 @@
                 $sinopsis = $_POST['input_sinopsis'];
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
-                $this->adminModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $movie_id);
+                $this->movieModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $movie_id);
                 $this->admView->ShowAdmin();
             }
         }
@@ -110,29 +110,43 @@
                 $sala = $_POST['input_sala'];
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
-                $this->adminModel->updateRooms($sala, $capacidad, $formato, $room_id);
+                $this->movieModel->updateRooms($sala, $capacidad, $formato, $room_id);
                 $this->admView->ShowAdmin();
             }
         }
 
         function deleteRoom($params = null){
             $this->sessionController();
-            if((isset($params[':ID']))){
+            if((isset($params[':ID']) && !is_null($params))){
                 $room_id = $params[':ID'];
-                $this->adminModel->deleteRoomId($room_id);
-                $this->admView->ShowAdmin();
-            }
+
+                $action=null;
+                $action=$this->movieModel->deleteRoomId($room_id);    
+                
+                switch($action){
+                    case true:
+                        $this->admView->ShowAdmin();
+                    break;
+                    case false:
+                        $this->admView->renderError("Disculpe! Para eliminar la sala, primero debe eliminar 
+                        todos las peliculas asociadas a la misma");
+                    break;
+                }
+            } 
         }
+
 
         function insertRoom(){
             $this->sessionController();
-            if((isset($_POST['input_letra'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']))){
+            if((isset($_POST['input_letra'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']) && 
+            (isset($_POST['input_tipo'])) && (isset($_POST['input_info'])) )){
                 $sala= $_POST['input_letra'];
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
-                $this->adminModel->insertNewRoom($sala, $capacidad, $formato);
+                $tipo = $_POST['input_tipo'];
+                $info = $_POST['input_info'];
+                $this->adminModel->insertNewRoom($sala, $capacidad, $formato, $tipo, $info);
                 $this->admView->ShowAdmin();
             }
         }
-
     }

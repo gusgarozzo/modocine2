@@ -13,7 +13,6 @@
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movies);
             $this->smarty->assign('rooms', $rooms);
-
             $this->smarty->display('./templates/admin.tpl');
         }
 
@@ -35,8 +34,10 @@
             $this->smarty->display('./templates/adminRoomEdit.tpl');
         }
 
-        function renderError(){
-            $this->smarty->display('./templates/adminDeleteRoomError.tpl');
+        function renderError($mensaje = ''){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('mensaje', $mensaje);
+            $this->smarty->display('./templates/error.tpl');
         }
 
         function showLogin($mensaje = ''){

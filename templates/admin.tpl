@@ -1,6 +1,5 @@
 {include file="header-admin.tpl"}     
 <main class="main-admin">
-
     <div class="peliculas">
         <h1>Administra la Base de Datos</h1>
         <h3>Base de Datos: Pelicula</h3>
@@ -47,6 +46,8 @@
                         <th>Sala</th>
                         <th>Capacidad</th>
                         <th>Formato de Proyección</th>
+                        <th>Tipo de Sala</th>
+                        <th>Características</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
@@ -57,6 +58,8 @@
                         <td>{$room->letra}</td>
                         <td>{$room->capacidad} personas</td>
                         <td>{$room->formato}</td>
+                        <td>{$room->butaca}</td>
+                        <td>{$room->info_butaca}</td>
                         <td>
                             <div>
                                 <a class="edit" href='editRoom/{$room->id}'>Edit</a>
