@@ -86,7 +86,7 @@
         }
 
         // Trae todos los elementos de la tabla pelicula para ser mostrada en la vista del admin
-        function getAdminMovie(){
+        function getMovies(){
             $query=$this->db->prepare('SELECT * FROM pelicula');
             $query->execute();
             $allMovies=$query->fetchAll(PDO::FETCH_OBJ);

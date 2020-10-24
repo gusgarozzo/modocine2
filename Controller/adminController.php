@@ -37,7 +37,7 @@
         // Muestra la pantalla de inicio de la seccion administrador
         function adminController(){
             $this->sessionController();
-            $movies=$this->movieModel->getAdminMovie();
+            $movies=$this->movieModel->getMovies();
             $rooms=$this->roomModel->getAllRooms();
             $this->admView->renderAdmin($movies, $rooms);
         }
