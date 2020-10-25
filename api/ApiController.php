@@ -5,7 +5,6 @@ require_once './api/APIView.php';
 abstract class ApiController {
     protected $model;
     protected $view;
-
     private $data; 
 
     public function __construct() {

@@ -2,7 +2,6 @@
 require_once 'RouterClass.php';
 require_once 'api/ApiMovieController.php';
 
-// instacio el router
 $router = new Router();
 
 // RUTEO API REST

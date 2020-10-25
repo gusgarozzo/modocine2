@@ -2,16 +2,15 @@
 
 class APIView {
 
-    /**
-     * Responde en formato JSON
-     */
+    // Responde en formato JSON
     public function response($data, $status) {
         header("Content-Type: application/json");
         header("HTTP/1.1 " . $status . " " . $this->requestStatus($status));
         echo json_encode($data);
     }
 
-    private function requestStatus($code) {
+    //da un mensaje asociado a un código de respuesta
+    private function _requestStatus($code) {
         $status = array(
           200 => "OK",
           404 => "Not found",
