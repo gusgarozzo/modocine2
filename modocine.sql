@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2020 a las 21:29:04
+-- Tiempo de generación: 11-11-2020 a las 00:26:03
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -45,7 +45,7 @@ INSERT INTO `pelicula` (`id`, `nombre`, `genero`, `sinopsis`, `puntaje_imdb`, `i
 (2, 'Tenet', 'Suspenso', 'Una acción épica que gira en torno al espionaje internacional, los viajes en el tiempo y la evolución, en la que un agente secreto debe prevenir la Tercera Guerra Mundial.', 7.8, 2),
 (4, 'Ford vs Ferrari', 'Drama', 'El visionario automovilístico Carroll Shelby y su conductor británico Ken Miles reciben la misión de construir un nuevo automóvil con el fin de derrocar el dominio de Ferrari en el Campeonato del Mundo de Le Mans de 1966.', 8.1, 1),
 (5, 'John Wick: Chapter 3 – Parabellum', 'Accion', 'John Wick se da a la fuga, pero el trabajo se le dificulta ya que es el objetivo de todos los asesinos a sueldo del mundo luego de que saliera una recompensa de 14 millones de dólares por su cabeza.', 7.5, 2),
-(6, 'Joker', 'Drama', '\'Arthur Fleck adora hacer reír a la gente, pero su carrera como comediante es un fracaso. El repudio social, la marginación y una serie de trágicos acontecimientos lo conducen por el sendero de la locura y, finalmente, cae en el mundo del crimen.\'', 9, 3);
+(6, 'Joker', 'Drama', 'Arthur Fleck adora hacer reír a la gente, pero su carrera como comediante es un fracaso. El repudio social, la marginación y una serie de trágicos acontecimientos lo conducen por el sendero de la locura y, finalmente, cae en el mundo del crimen.', 9, 3);
 
 -- --------------------------------------------------------
 
@@ -80,15 +80,18 @@ INSERT INTO `sala` (`id`, `letra`, `capacidad`, `formato`, `butaca`, `info_butac
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(250) NOT NULL
+  `password` varchar(250) NOT NULL,
+  `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `email`, `password`) VALUES
-(1, 'admin@modocine.com.ar', '$2y$12$GOuGI9qa.bhNJ1Ve4vycZeyY1aCnTZ/m4UBLxE8MDg210oZ/KKqWW');
+INSERT INTO `usuario` (`id`, `email`, `password`, `admin`) VALUES
+(1, 'admin@modocine.com.ar', '$2y$12$GOuGI9qa.bhNJ1Ve4vycZeyY1aCnTZ/m4UBLxE8MDg210oZ/KKqWW', 1),
+(2, 'usuariocomun@usuario.com', '$2y$10$3TKAMlb4.iO21S/TaStVluF53mkKFa2hiRmeynOv16HzwWGdItxAG', 0),
+(3, 'usuariocomun2@usuario.com', '$2y$10$YcjxokT7ILoQ9.nAEeG/GuyHSay3mFo6a55G.DDs1fDJIddBrTCi6', 0);
 
 --
 -- Índices para tablas volcadas
@@ -121,19 +124,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
