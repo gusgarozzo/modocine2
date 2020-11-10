@@ -16,5 +16,10 @@
             $datos=$query->fetch(PDO::FETCH_OBJ);
             return $datos;
         }
+
+        function saveUserInDDBB($username, $hash){
+            $query = $this->db->prepare("INSERT INTO usuario(email, password) VALUES(?,?)");
+            $query->execute(array($username, $hash));
+        }
     
     }

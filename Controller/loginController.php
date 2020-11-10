@@ -50,5 +50,29 @@ class loginController{
         }
     }
 
+    function showRegisterForm(){
+        $this->admView->renderRegisterForm();
+    }
+
+    function registerUser(){
+        if((!empty($_POST['input_user'])) && (!empty($_POST['input_ruser'])) && (!empty($_POST['input_password'])) && (!empty($_POST['input_rpassword']))){
+            //falta chequeo si existe usuario en la DDBB
+            $username = $_POST['input_user'];
+            $rusername =  $_POST['input_ruser'];
+            $password = $_POST['input_password'];
+            $rpassword = $_POST['input_rpassword'];
+            if ($username === $rusername) {
+                if ($password === $rpassword) {
+                    $hash = password_hash($password, PASSWORD_DEFAULT);
+                    $this->userModel->saveUserInDDBB($username, $hash);
+                    //$this->admView->
+                }
+                //$this->adnView->showRegisterForm('Las contraseñas no coinciden');
+            }
+            else {
+                //$this->adnView->showRegisterForm('Los emails no coinciden');
+            }
+        }
+    }//https://www.php.net/manual/es/function.password-hash.php
 
 }

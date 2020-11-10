@@ -53,5 +53,14 @@
         function ShowAdmin(){
             header("Location: ".BASE_URL."admin");
         }
+
+        function renderRegisterForm(){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->display('./templates/register.tpl');
+        }
+
+        function showRegisterForm(){
+            header("Location: ".BASE_URL."registrar");
+        }
     
     }

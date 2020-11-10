@@ -35,6 +35,8 @@
 
     // LOGIN
     $r->addRoute("login", "GET", "loginController", "login");
+    $r->addRoute("registrar", "GET", "loginController", "showRegisterForm");
+    $r->addRoute("registerUser", "POST", "loginController", "registerUser");
     $r->addRoute("logout", "GET", "loginController", "logout");
     $r->addRoute("verifyUser", "POST", "loginController", "verifyUser");
     //Ruta por defecto.
