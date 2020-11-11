@@ -40,18 +40,18 @@
     <div class="sala">
         <h3>Base de Datos: Sala</h3>
         <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Sala</th>
-                        <th>Capacidad</th>
-                        <th>Formato de Proyección</th>
-                        <th>Tipo de Sala</th>
-                        <th>Características</th>
-                        <th>Accion</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Sala</th>
+                    <th>Capacidad</th>
+                    <th>Formato de Proyección</th>
+                    <th>Tipo de Sala</th>
+                    <th>Características</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
                 {foreach from=$rooms item=room}
                     <tr>
                         <td>{$room->id}</td>
@@ -68,14 +68,41 @@
                                 <a class="delete" href='deleteRoom/{$room->id}'> Delete</a>
                             </div>
                         </td>
-
                     </tr>
                 {/foreach}  
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
+    </div>
+    <div class="user">
+        <h3>Base de Datos: Usuarios</h3>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Admin</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach from=$users item=user}
+                    <tr>
+                        <td>{$user->email}</td>
+                        <td>{$user->admin}</td>
+                        <td>
+                            <div>
+                                <a class="edit" href='editUser/{$user->id}'>Edit</a>
+                            </div>
+                            <div>
+                                <a class="delete" href='deleteUser/{$user->id}'>Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                {/foreach}  
+            </tbody>
+        </table>
+    </div>
     <div class="links">
-    <a href="adminInsert">Agregar registro a la base de datos</a>
+        <a href="adminInsert">Agregar registro a la base de datos</a>
     </div>
 </main>
 {include file="footer.tpl"}
