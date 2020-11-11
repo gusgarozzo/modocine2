@@ -162,8 +162,16 @@
             }
         }
     
-        /*function editUser(){
-
-        }*/
+        function editUser($params = null){
+            $this->sessionController();
+            if((isset($params[':ID'])) && (isset($_POST['input_isAdmin']))){
+                $user_id = $params[':ID'];
+                $isAdmin = $_POST['input_isAdmin'];
+                if ($isAdmin == 0 || $isAdmin == 1 ) {
+                    $this->userModel->editPermission($user_id, $isAdmin);
+                    $this->admView->ShowAdmin();
+                }
+            }
+        }
 
     }
