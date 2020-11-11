@@ -14,7 +14,7 @@
             <div> 
                 {$mensaje}
             </div>
-            <button type="submit">Registrarme</button>
+            <input type="submit" class="boton" value="Registrarme">
         </form>      
     </main>
 {include file="footer.tpl"}
