@@ -9,10 +9,11 @@
             $this->smarty = new Smarty();
         }
 
-        function renderAdmin($movies, $rooms){
+        function renderAdmin($movies, $rooms, $users){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movies);
             $this->smarty->assign('rooms', $rooms);
+            $this->smarty->assign('users', $users);
             $this->smarty->display('./templates/admin.tpl');
         }
 
@@ -54,13 +55,24 @@
             header("Location: ".BASE_URL."admin");
         }
 
-        function renderRegisterForm(){
+        function renderRegisterForm($mensaje = ''){
             $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('mensaje', $mensaje);
             $this->smarty->display('./templates/register.tpl');
         }
 
         function showRegisterForm(){
             header("Location: ".BASE_URL."registrar");
+        }
+
+        function ShowHomeLocation(){
+            header("Location: ".BASE_URL."home");
+        }
+
+        function renderEditUser($user){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('user', $user);
+            $this->smarty->display('./templates/adminUserEdit.tpl');
         }
     
     }
