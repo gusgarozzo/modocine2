@@ -33,7 +33,7 @@ class loginController{
         $pass = $_REQUEST['password'];
 
         if(isset($user)){
-            $usuario = $this->userModel->getUser($user);
+            $usuario = $this->userModel->getUserInfo($user);
 
             if(isset($usuario) && $usuario){
                 if (password_verify($pass, $usuario->password)){
@@ -56,23 +56,36 @@ class loginController{
 
     function registerUser(){
         if((!empty($_POST['input_user'])) && (!empty($_POST['input_ruser'])) && (!empty($_POST['input_password'])) && (!empty($_POST['input_rpassword']))){
-            //falta chequeo si existe usuario en la DDBB
             $username = $_POST['input_user'];
-            $rusername =  $_POST['input_ruser'];
+            $rUsername =  $_POST['input_ruser'];
             $password = $_POST['input_password'];
-            $rpassword = $_POST['input_rpassword'];
-            if ($username === $rusername) {
-                if ($password === $rpassword) {
-                    $hash = password_hash($password, PASSWORD_DEFAULT);
-                    $this->userModel->saveUserInDDBB($username, $hash);
-                    //$this->admView->
+            $rPassword = $_POST['input_rpassword'];
+            $existeUsuario = $this->userModel->getUserInfo($username);
+            if (!$existeUsuario) {
+                if ($username === $rUsername) {
+                    if ($password === $rPassword) {
+                        $hash = password_hash($password, PASSWORD_DEFAULT);
+                        $this->userModel->saveUserInDDBB($username, $hash);
+                        //Aca faltaria loguearlo
+                        //
+                        //llevarlo al home para que siga navegando
+                        //$this->admView->ShowHomeLocation();
+                    }
+                    else {
+                        $this->admView->renderRegisterForm('Las contraseñas no coinciden');
+                        die();
+                    }
                 }
-                //$this->adnView->showRegisterForm('Las contraseñas no coinciden');
+                else {
+                    $this->admView->renderRegisterForm('Los emails no coinciden');
+                    die();
+                }
             }
             else {
-                //$this->adnView->showRegisterForm('Los emails no coinciden');
+                $this->admView->renderRegisterForm('El mail ingresado no esta disponible');
+                die();
             }
         }
-    }//https://www.php.net/manual/es/function.password-hash.php
+    }
 
 }
