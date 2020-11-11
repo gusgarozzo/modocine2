@@ -3,7 +3,7 @@
     <div class="alta-baja-update">
         <h3>Editar registro - Tabla "Pelicula"</h3>
         {foreach from=$movie item=singleMovie}
-                <form action="editarPelicula/{$singleMovie->id}" method="POST" class="formulario">
+            <form action="editarPelicula/{$singleMovie->id}" method="POST" class="formulario">
                 <label for="id">ID:</label>
                 <input type="text" name="id" value='{$singleMovie->id}'>
                 <label for="input_nombre">Nombre:</label>
