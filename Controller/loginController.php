@@ -39,6 +39,7 @@ class loginController{
                 if (password_verify($pass, $usuario->password)){
                     session_start();
                     $_SESSION["usuario"] = $usuario->email; 
+                    $_SESSION['loggedInUser'];
                     $_SESSION['timeout'] = time();
                     $this->admView->ShowAdmin();
                 } else{
@@ -65,7 +66,15 @@ class loginController{
                 if ($username === $rUsername) {
                     if ($password === $rPassword) {
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $this->userModel->saveUserInDDBB($username, $hash);
+                        $user=$this->userModel->saveUserInDDBB($username, $hash);
+                        if($user>0){
+                            session_start();
+                            $_SESSION["usuario"] = $username; 
+                            $_SESSION['timeout'] = time();
+                            $this->admView->ShowAdmin();
+                        }else{
+                            $this->admView->renderError("Registro inválido. Reintente");
+                        }
                         //Aca faltaria loguearlo
                         //
                         //llevarlo al home para que siga navegando

@@ -29,7 +29,13 @@ class ApiMovieController extends ApiController {
     
     public function deleteMovie($params = null) {
         $id = $params[':ID'];
-        $task = $this->model->deleteMovieId($id);
+        $delete = $this->model->deleteMovieId($id);
+        
+        if($delete>0){
+            $this->view->response("La pelicula ha sido eliminada exitosamente", 200);
+        }else{
+            $this->view->response("La pelicula que usted quiere borrar, no existe", 404);
+        }
     }
 
 }

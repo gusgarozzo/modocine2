@@ -61,6 +61,7 @@
         function deleteMovieId($id){
             $query = $this->db->prepare("DELETE FROM pelicula WHERE id=?");
             $query->execute(array($id));
+            return $query->rowCount();
         }
 
         // Traer pelicula por el id

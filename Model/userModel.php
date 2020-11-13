@@ -27,6 +27,7 @@
         function saveUserInDDBB($username, $hash){
             $query = $this->db->prepare("INSERT INTO usuario(email, password) VALUES(?,?)");
             $query->execute(array($username, $hash));
+            return $query->rowCount();
         }
 
         function getUserById($user_id){
@@ -39,6 +40,13 @@
         function editPermission($user_id, $isAdmin){
             $query = $this->db->prepare('UPDATE usuario SET admin=? WHERE id=?');
             $query->execute(array($isAdmin, $user_id));
+        }
+
+        function getUsersRol($email){
+            $query = $this->db->prepare('SELECT admin FROM usuario WHERE email=?');
+            $query->execute(array($email));
+            $datos=$query->fetch(PDO::FETCH_OBJ);
+            return $datos;
         }
     
     }

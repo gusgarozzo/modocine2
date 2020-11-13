@@ -1,4 +1,4 @@
-{include file="header-admin.tpl"}     
+{include file="header-admin.tpl"}    
 <main class="main-admin">
     <div class="peliculas">
         <h1>Administra la Base de Datos</h1>
@@ -73,13 +73,13 @@
             </tbody>
         </table>
     </div>
-    <div class="user">
+    <div class="users">
         <h3>Base de Datos: Usuarios</h3>
         <table class="admin-table">
             <thead>
                 <tr>
                     <th>Email</th>
-                    <th>Admin</th>
+                    <th>Admin (1 = SI - 2 = NO)</th>
                     <th>Accion</th>
                 </tr>
             </thead>
