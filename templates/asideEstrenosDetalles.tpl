@@ -18,6 +18,16 @@
             {/if}
         {/foreach}
         {include file="filtro.tpl"}
+    <form class="formulario" action="api/comentar" method="post">
+        <h2>Danos tu opinión sobre {$pelicula}</h2>
+        <label for="puntaje">Puntaje:</label>
+        <input type="text" name="puntaje">
+        <p>Comentario</p>
+        <textarea name="comentario" id="coment" cols="60" rows="10"></textarea>
+        <input type="submit" value="Publicar">
+    </form>
     </section>
+    
 </aside>  
+
 {include file="footer.tpl"}

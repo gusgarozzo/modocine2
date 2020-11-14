@@ -45,7 +45,10 @@
         function renderMovieById($movie){ 
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movie);
-            //$this->smarty->display('./templates/header.tpl');
+            
+            foreach($movie as $mov){
+                $this->smarty->assign('pelicula', $mov->nombre);
+            }
             //$this->smarty->display('./templates/mainEstrenos.tpl');
             $this->smarty->display('./templates/asideEstrenosDetalles.tpl');
             //$this->smarty->display('./templates/footer.tpl');

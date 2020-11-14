@@ -38,4 +38,28 @@ class ApiMovieController extends ApiController {
         }
     }
 
+    public function addComment($params=null){
+        // Devuelve el objeto JSON enviado por POST
+        $body = $this->getData();
+        
+        // Guardo los datos ingresados por el usuario, en variables
+        $usuario = $body->usuario;
+        $pelicula = $body->pelicula;
+        var_dump($pelicula);die();
+        $puntaje = $body->puntaje;
+        $mensaje = $body->mensaje;
+
+        // Envío los datos al model
+        $action = $this->model->addCommentModel($usuario, $pelicula, $puntaje, $mensaje);
+        
+        // Verifico que el comentario exista
+        if (!empty($action)) {
+            // Si existe envío la respuesta junto con el código 200
+            $this->view->response($this->model->getMensaje($action), 200);
+        }else{
+            // Si no existe, envío mensaje con el código de error
+            $this->view->response("El mensaje no se pudo insertar", 404);
+        }
+    }
+
 }

@@ -75,10 +75,6 @@ class loginController{
                         }else{
                             $this->admView->renderError("Registro inválido. Reintente");
                         }
-                        //Aca faltaria loguearlo
-                        //
-                        //llevarlo al home para que siga navegando
-                        //$this->admView->ShowHomeLocation();
                     }
                     else {
                         $this->admView->renderRegisterForm('Las contraseñas no coinciden');

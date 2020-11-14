@@ -12,7 +12,7 @@
         }
 
         function getMovieById($id){
-            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.puntaje_imdb, pelicula.id_sala, sala.letra,
+            $query = $this->db->prepare('SELECT pelicula.nombre, pelicula.genero, pelicula.puntaje_imdb, pelicula.id, pelicula.id_sala, sala.letra,
                                         pelicula.sinopsis FROM pelicula INNER JOIN sala ON pelicula.id_sala = sala.id WHERE pelicula.id=?');
             $query->execute(array($id));
             $movie = $query->fetchAll(PDO::FETCH_OBJ);
