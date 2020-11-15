@@ -66,12 +66,12 @@ class loginController{
                 if ($username === $rUsername) {
                     if ($password === $rPassword) {
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $user=$this->userModel->saveUserInDDBB($username, $hash);
+                        $user = $this->userModel->saveUserInDDBB($username, $hash);
                         if($user>0){
                             session_start();
                             $_SESSION["usuario"] = $username; 
                             $_SESSION['timeout'] = time();
-                            $this->admView->ShowAdmin();
+                            header("Location: ".BASE_URL."home");
                         }else{
                             $this->admView->renderError("Registro inválido. Reintente");
                         }
