@@ -1,12 +1,12 @@
 <?php
-require_once './Model/MovieModel.php';
+require_once './Model/commentModel.php';
 require_once 'ApiController.php';
 
 class ApiMovieController extends ApiController {
 
     function __construct() {
         parent::__construct();
-        $this->model = new MovieModel();
+        $this->model = new CommentModel();
         $this->view = new APIView();
     }
 
@@ -40,26 +40,27 @@ class ApiMovieController extends ApiController {
 
     public function addComment($params=null){
         // Devuelve el objeto JSON enviado por POST
-        $body = $this->getData();
+        if(!is_null($params)){
+                $body = $this->getData();
         
-        // Guardo los datos ingresados por el usuario, en variables
-        $usuario = $body->usuario;
-        $pelicula = $body->pelicula;
-        var_dump($pelicula);die();
-        $puntaje = $body->puntaje;
-        $mensaje = $body->mensaje;
+                // Traigo el id de la película
+                $pelicula_id = $params[':ID'];
 
-        // Envío los datos al model
-        $action = $this->model->addCommentModel($usuario, $pelicula, $puntaje, $mensaje);
-        
-        // Verifico que el comentario exista
-        if (!empty($action)) {
-            // Si existe envío la respuesta junto con el código 200
-            $this->view->response($this->model->getMensaje($action), 200);
-        }else{
-            // Si no existe, envío mensaje con el código de error
-            $this->view->response("El mensaje no se pudo insertar", 404);
+                // Vamos a necesitar un helper para acceder a los datos del usuario logueado
+                // $body->usuario = $_SESSION['usuario'];
+                // $body->puntaje = $_POST['puntaje'];
+                $body->comentario = $_POST['comentario'];
+                // Envío los datos al model
+                $action = $this->model->addCommentModel("Aca van las variables con los datos del form");
+                // Verifico que el comentario exista
+                if (!empty($action)) {
+                    var_dump($this->model->getMensaje($action));die();
+                    // Si existe envío la respuesta junto con el código 200
+                    $this->view->response($this->model->getMensaje($action), 200);
+                }else{
+                    // Si no existe, envío mensaje con el código de error
+                    $this->view->response("El mensaje no se pudo insertar", 404);
+                }
         }
     }
-
 }

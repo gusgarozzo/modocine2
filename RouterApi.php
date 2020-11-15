@@ -8,7 +8,7 @@ $router = new Router();
 $router->addRoute('peliculas', 'GET', 'ApiMovieController', 'getMovies');
 $router->addRoute('peliculas/:ID', 'GET', 'ApiMovieController', 'getMovie');
 $router->addRoute('peliculas/:ID', 'DELETE', 'ApiMovieController', 'deleteMovie');
-$router->addRoute('comentar', 'POST', 'ApiMovieController', 'addComment');
+$router->addRoute('comentar/:ID', 'POST', 'ApiMovieController', 'addComment');
 
 // $router->addRoute('peliculas', 'POST', 'ApiMovieController', 'insertMovie');
 // $router->addRoute('peliculas/:ID', 'PUT', 'ApiMovieController', 'updateMovie');

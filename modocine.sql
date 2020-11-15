@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2020 a las 00:26:03
+-- Tiempo de generación: 15-11-2020 a las 16:24:25
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `modocine`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_pelicula` int(11) NOT NULL,
+  `puntaje` varchar(10) NOT NULL,
+  `comentario` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -91,11 +105,20 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id`, `email`, `password`, `admin`) VALUES
 (1, 'admin@modocine.com.ar', '$2y$12$GOuGI9qa.bhNJ1Ve4vycZeyY1aCnTZ/m4UBLxE8MDg210oZ/KKqWW', 1),
 (2, 'usuariocomun@usuario.com', '$2y$10$3TKAMlb4.iO21S/TaStVluF53mkKFa2hiRmeynOv16HzwWGdItxAG', 0),
-(3, 'usuariocomun2@usuario.com', '$2y$10$YcjxokT7ILoQ9.nAEeG/GuyHSay3mFo6a55G.DDs1fDJIddBrTCi6', 0);
+(3, 'usuariocomun2@usuario.com', '$2y$10$YcjxokT7ILoQ9.nAEeG/GuyHSay3mFo6a55G.DDs1fDJIddBrTCi6', 0),
+(13, 'usuario@modocine.com.ar', '$2y$10$ejBcrsM1miskMZqPUz/sluoF6iQQBmFU4b6BTBTdfaR2yjHEmv/bW', 0);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comment` (`id_usuario`,`id_pelicula`),
+  ADD KEY `id_pelicula` (`id_pelicula`);
 
 --
 -- Indices de la tabla `pelicula`
@@ -121,6 +144,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
@@ -136,11 +165,18 @@ ALTER TABLE `sala`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_pelicula`) REFERENCES `pelicula` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `pelicula`

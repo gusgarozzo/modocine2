@@ -47,7 +47,7 @@
             $this->smarty->assign('movies', $movie);
             
             foreach($movie as $mov){
-                $this->smarty->assign('pelicula', $mov->nombre);
+                $this->smarty->assign('pelicula', $mov->id);
             }
             //$this->smarty->display('./templates/mainEstrenos.tpl');
             $this->smarty->display('./templates/asideEstrenosDetalles.tpl');

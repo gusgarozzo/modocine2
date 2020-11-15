@@ -18,7 +18,7 @@
             {/if}
         {/foreach}
         {include file="filtro.tpl"}
-    <form class="formulario" action="api/comentar" method="post">
+    <form class="formulario" action='api/comentar/{$pelicula}' method="POST">
         <h2>Danos tu opinión sobre {$pelicula}</h2>
         <label for="puntaje">Puntaje:</label>
         <input type="text" name="puntaje">
