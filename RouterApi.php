@@ -1,17 +1,17 @@
 <?php
 require_once 'RouterClass.php';
-require_once 'api/ApiMovieController.php';
+require_once 'api/ApiComentController.php';
 
 $router = new Router();
 
 // RUTEO API REST
-$router->addRoute('peliculas', 'GET', 'ApiMovieController', 'getMovies');
-$router->addRoute('peliculas/:ID', 'GET', 'ApiMovieController', 'getMovie');
-$router->addRoute('peliculas/:ID', 'DELETE', 'ApiMovieController', 'deleteMovie');
-$router->addRoute('comentar/:ID', 'POST', 'ApiMovieController', 'addComment');
+$router->addRoute('comentarios', 'GET', 'ApiComentController', 'showComments');
+$router->addRoute('comentario/:ID', 'GET', 'ApiComentController', 'showComment');
+//$router->addRoute('peliculas/:ID', 'DELETE', 'ApiComentController', 'deleteMovie');
+$router->addRoute('comentar/:ID', 'POST', 'ApiComentController', 'addComment');
 
-// $router->addRoute('peliculas', 'POST', 'ApiMovieController', 'insertMovie');
-// $router->addRoute('peliculas/:ID', 'PUT', 'ApiMovieController', 'updateMovie');
+// $router->addRoute('peliculas', 'POST', 'ApiComentController', 'insertMovie');
+// $router->addRoute('peliculas/:ID', 'PUT', 'ApiComentController', 'updateMovie');
 
 //run
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
