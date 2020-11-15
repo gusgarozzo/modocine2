@@ -27,7 +27,7 @@
                                 </ul>
                         </nav>       
                         <div class="saludo">
-                            <p>Bienvenido</p>
+                            <p>Bienvenido {$smarty.session.usuario}</p>
                             <a href="logout">LOGOUT</a>
                         </div>             
                     </header> 

@@ -4,7 +4,7 @@
         <h4 class="roomError">{$mensaje}</h4>
     </div>
     <div class="links">
-        <a href="admin">Volver</a>
+        <a href="home">Volver</a>
     </div>
 </main>
 

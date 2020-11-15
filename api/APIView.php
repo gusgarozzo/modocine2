@@ -10,7 +10,7 @@ class APIView {
     }
 
     //da un mensaje asociado a un código de respuesta
-    private function _requestStatus($code) {
+    private function requestStatus($code) {
         $status = array(
           200 => "OK",
           404 => "Not found",

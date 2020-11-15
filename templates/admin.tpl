@@ -79,7 +79,7 @@
             <thead>
                 <tr>
                     <th>Email</th>
-                    <th>Admin (1 = SI - 2 = NO)</th>
+                    <th>Admin (1 = SI / 0 = NO)</th>
                     <th>Accion</th>
                 </tr>
             </thead>
