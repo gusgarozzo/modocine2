@@ -58,6 +58,7 @@
         // Muestra la pantalla de inicio de la seccion administrador
         function adminController(){
             $this->sessionController();
+            $this->verifyAdmin();
             $movies = $this->movieModel->getMovies();
             $rooms = $this->roomModel->getAllRooms();
             $users = $this->userModel->getAllUsers();
