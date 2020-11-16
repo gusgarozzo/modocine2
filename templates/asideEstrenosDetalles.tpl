@@ -10,7 +10,6 @@
                             <h3>{$mov->nombre}</h3>
                         </li>
                             <ul class='datos-detalles'>
-                                <li id="pelicula_id">ID: {$mov->id}<li>
                                 <li>{$mov->sinopsis}</li>
                                 <li>Genero: {$mov->genero}</li>
                                 <li>Puntaje IMDB: {$mov->puntaje_imdb}/10</li>
@@ -23,6 +22,8 @@
                   
         <form class="formulario" id="commentForm">
             <h2>Danos tu opinión sobre {$mov->nombre}</h2>
+            <label for="pelicula_id">ID</label>
+            <input type="text" name="pelicula_id" id='pelicula_id' value='{$mov->id}' data='{$mov->id}' readonly>
             {if (isset($smarty.session.usuario))}  
             {foreach from=usuario item=user}
                 <label for="usuario_id">Usuario</label>

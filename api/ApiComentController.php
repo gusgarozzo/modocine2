@@ -50,20 +50,18 @@ class ApiComentController extends ApiController {
         }
     }*/
 
-    public function addComment($params=[]){
+    public function addComment($params= null){
         // Devuelve el objeto JSON enviado por POST
-        if(!is_null($params=[])){
                 $body = $this->getData();
                 // Envío los datos al model
                 $action = $this->model->addCommentModel($body->ususario_id, $body->pelicula_id, $body->puntaje, $body->comentario);
                 // Verifico que el comentario exista
                 if (!empty($action)) {
                     // Si existe envío la respuesta junto con el código 200
-                    $this->view->response($this->model->getComment($action), 200);
+                    $this->view->response($this->model->getComment($action), 201);
                 }else{
                     // Si no existe, envío mensaje con el código de error
                     $this->view->response("El mensaje no se pudo insertar", 404);
                 }
             }
-    }
 }
