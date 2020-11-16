@@ -1,6 +1,7 @@
 <?php
 require_once './Model/commentModel.php';
 require_once 'ApiController.php';
+require_once ('./helpers/authHelper.php');
 
 class ApiComentController extends ApiController {
 
@@ -8,6 +9,14 @@ class ApiComentController extends ApiController {
         parent::__construct();
         $this->model = new CommentModel();
         $this->view = new APIView();
+        AuthHelper::checkLoggedIn();
+        /*
+        (asi lo hicieron en bolivar)
+
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
+
+        */ 
     }
 
     public function showComments($params = null) {
