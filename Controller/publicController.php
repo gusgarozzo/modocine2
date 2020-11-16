@@ -2,15 +2,20 @@
     require_once ('./Model/movieModel.php');
     require_once ('./View/publicView.php');
     require_once ('./Model/roomModel.php');
+    require_once './Model/userModel.php';
 
     class publicController{
         private $movieModel;
+        private $userModel;
         private $view;
         private $roomModel;
+        private $control;
 
         public function __construct(){
             $this->movieModel = new MovieModel();
             $this->roomModel = new RoomModel();
+            $this->userModel = new userModel();
+            $this->control = new adminController(); // Una vez creado el helper, eliminar esto
             $this->view = new MovieView();
         }
 
@@ -42,10 +47,13 @@
         }
 
         function movieDetailController($params = null){
+            $this->control->sessionController();
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
+                $user = $_SESSION['usuario'];
+                $usuario = $this->userModel->getUserInfo($user);
                 $movie = $this->movieModel->getMovieById($id); 
-                $this->view->renderMovieById($movie);
+                $this->view->renderMovieById($movie, $usuario);
             }
         }
 

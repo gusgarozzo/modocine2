@@ -21,7 +21,7 @@
         }
 
         // Controlador para verificar si el usuario continua logueado y activo
-        private function sessionController(){
+        function sessionController(){
             session_start();
             if (!isset($_SESSION['usuario'])){
                 header("Location: ".BASE_URL."login");
