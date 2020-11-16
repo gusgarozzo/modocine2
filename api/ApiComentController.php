@@ -2,6 +2,7 @@
 require_once './Model/commentModel.php';
 require_once './Model/UserModel.php';
 require_once 'ApiController.php';
+require_once ('./helpers/authHelper.php');
 require_once './Controller/adminController.php';
 
 class ApiComentController extends ApiController {
@@ -11,7 +12,15 @@ class ApiComentController extends ApiController {
         $this->model = new CommentModel();
         $this->userModel = new userModel();
         $this->view = new APIView();
-        $this->control = new adminController();
+        AuthHelper::checkLoggedIn();
+        /*
+        (asi lo hicieron en bolivar)
+
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
+
+        */ 
+        //$this->control = new adminController();
     }
 
     public function showComments($params = null) {
