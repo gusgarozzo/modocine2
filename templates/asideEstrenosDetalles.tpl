@@ -21,7 +21,7 @@
         {include file="filtro.tpl"}
         
                   
-        <form class="formulario">
+        <form class="formulario" id="commentForm">
             <h2>Danos tu opinión sobre {$mov->nombre}</h2>
             {if (isset($smarty.session.usuario))}  
             {foreach from=usuario item=user}
@@ -33,9 +33,9 @@
             <input type="number" name="puntaje" min="1" max="5" id="puntaje">
             <label for="comentario">Comentario</label>
             <textarea name="comentario" id="comment" cols="60" rows="10"></textarea>
-            
+            <input type="submit" id="btn-send">
         </form>
-        <button id="btn_send">Publicar</button>
+
 
         
         

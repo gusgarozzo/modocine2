@@ -45,22 +45,12 @@ class ApiComentController extends ApiController {
         // Devuelve el objeto JSON enviado por POST
         if(!is_null($params=[])){
                 $body = $this->getData();
-
-                // Obtengo datos del usuario que está logueado
-                $usuario = $body->usuario_id;
-                $pelicula = $body->pelicula_id;
-                $puntaje = $body->puntaje;
-                $comentario = $body->mensaje;
-
-                var_dump($puntaje);die();
-
                 // Envío los datos al model
-                $action = $this->model->addCommentModel($usuario, $pelicula, $puntaje, $comentario);
+                $action = $this->model->addCommentModel($body->ususario_id, $body->pelicula_id, $body->puntaje, $body->comentario);
                 // Verifico que el comentario exista
-                if ($action > 0) {
-                   var_dump($this->model->getComment($action)); die();
+                if (!empty($action)) {
                     // Si existe envío la respuesta junto con el código 200
-                    $this->view->response($this->model->getMensaje($action), 200);
+                    $this->view->response($this->model->getComment($action), 200);
                 }else{
                     // Si no existe, envío mensaje con el código de error
                     $this->view->response("El mensaje no se pudo insertar", 404);
