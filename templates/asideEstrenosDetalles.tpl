@@ -10,6 +10,7 @@
                             <h3>{$mov->nombre}</h3>
                         </li>
                             <ul class='datos-detalles'>
+                                <li id="pelicula_id">ID: {$mov->id}<li>
                                 <li>{$mov->sinopsis}</li>
                                 <li>Genero: {$mov->genero}</li>
                                 <li>Puntaje IMDB: {$mov->puntaje_imdb}/10</li>
@@ -18,20 +19,26 @@
             {/if}
         {/foreach}
         {include file="filtro.tpl"}
-        <form class="formulario" action='api/comentar/{$pelicula}' method="POST">
+        
+                  
+        <form class="formulario">
             <h2>Danos tu opinión sobre {$mov->nombre}</h2>
-            <label for="select">Puntaje</label>
-            <select name="select" required>
-                <option value="1">1</option> 
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
+            {if (isset($smarty.session.usuario))}  
+            {foreach from=usuario item=user}
+                <label for="usuario_id">Usuario</label>
+                <input type="text" name="usuario_id" id='usuario_id' value='{$usuario->email}' data='{$usuario->id}' readonly>
+            {/foreach}
+            {/if}
+            <label for="puntaje">Puntaje</label>
+            <input type="number" name="puntaje" min="1" max="5" id="puntaje">
             <label for="comentario">Comentario</label>
-            <textarea name="comentario" id="coment" cols="60" rows="10"></textarea>
-            <input type="submit" value="Publicar">
+            <textarea name="comentario" id="comment" cols="60" rows="10"></textarea>
+            
         </form>
+        <button id="btn_send">Publicar</button>
+
+        
+        
     </section>
 </aside>  
 

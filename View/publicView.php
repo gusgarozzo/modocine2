@@ -42,10 +42,11 @@
             $this->renderEstrenos($movies);
         }
 
-        function renderMovieById($movie){ 
+        function renderMovieById($movie, $usuario){ 
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movie);
-            
+            $this->smarty->assign('usuario', $usuario);
+
             foreach($movie as $mov){
                 $this->smarty->assign('pelicula', $mov->id);
             }
