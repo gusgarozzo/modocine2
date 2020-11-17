@@ -24,7 +24,7 @@ function renderComments(comments){
 
   if (pelicula = comment.pelicula_id){
     console.log(comments)
-}
+  }
   fetch('api/comentarios' + '/' + pelicula)
   .then(response => response.json())
   .then((comments) => {
