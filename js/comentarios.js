@@ -2,6 +2,7 @@
 
 let comentarios = []
 
+
 document.addEventListener("DOMContentLoaded", function(){
   getComments();
   document.getElementById("commentForm").addEventListener("submit", e => {
@@ -19,10 +20,18 @@ function getComments() {
 
 function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
-  for (let comment of comments) {
-    console.log(comment);
-    container.innerHTML +=  `<div> <h3>${comment.id_usuario}</h3> Comentario: ${comment.comentario} - Puntaje: ${comment.puntaje} - Pelicula: ${comment.id_pelicula}</div>`;
-  }
+  let pelicula = document.getElementById("pelicula_id").value
+
+  if (pelicula = comment.pelicula_id){
+    console.log(comments)
+}
+  fetch('api/comentarios' + '/' + pelicula)
+  .then(response => response.json())
+  .then((comments) => {
+    
+
+  })
+  .catch(error => console.log(error));
 }
 
 function addComent(){

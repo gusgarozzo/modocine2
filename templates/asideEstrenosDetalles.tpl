@@ -35,7 +35,9 @@
             <textarea name="comentario" id="comment" cols="60" rows="10"></textarea>
             <input type="submit" id="btn-send">
         </form>
-
+        <form class="formulario" id="showComments" method="POST" action="comentario/{$mov->id}">
+            <button id="btn-show">Mostrar Comentarios</button>
+        </form>
     </section>
 </aside>  
 
