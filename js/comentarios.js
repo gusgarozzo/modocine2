@@ -19,6 +19,7 @@ function getComments() {
 
 function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
+  container.innerHTML = '';
   for (let comment of comments) {
     console.log(comment);
     container.innerHTML +=  `<div> <h3>${comment.id_usuario}</h3> Comentario: ${comment.comentario} - Puntaje: ${comment.puntaje} - Pelicula: ${comment.id_pelicula}</div>`;
@@ -26,7 +27,6 @@ function renderComments(comments){
 }
 
 function addComent(){
-
     const comentario = {
       "comentario": document.getElementById("comment").value,
       "puntaje": document.querySelector("#puntaje").value,
@@ -34,18 +34,12 @@ function addComent(){
       "pelicula_id": document.getElementById("pelicula_id").value
     }
 
-    console.log(comentario)
-
     fetch('api/comentarios', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(comentario)
     })
-
     .then(response => response.json())
-    .then(() => comentarios.push(comentario))
+    .then(comentario => getComments())
     .catch(error => console.log(error));
 }
-
-
-  
