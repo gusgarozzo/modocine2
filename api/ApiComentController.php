@@ -2,35 +2,34 @@
 require_once './Model/commentModel.php';
 require_once './Model/UserModel.php';
 require_once 'ApiController.php';
-require_once ('./helpers/authHelper.php');
+require_once './helpers/authHelper.php';
 require_once './Controller/adminController.php';
 
 class ApiComentController extends ApiController {
+    private $commentModel;
+    private $userModel;
+    private $view;
 
     function __construct() {
         parent::__construct();
-        $this->model = new CommentModel();
+        $this->commentModel = new CommentModel();
         $this->userModel = new userModel();
         $this->view = new APIView();
-        AuthHelper::checkLoggedIn();
-        /*
-        (asi lo hicieron en bolivar)
-
-        $authHelper = new AuthHelper();
-        $authHelper->checkLoggedIn();
-
-        */ 
-        //$this->control = new adminController();
     }
 
     public function showComments($params = null) {
-        $comentarios = $this->model->getComments();
-        $this->view->response($comentarios, 200);
+        $comentarios = $this->commentModel->getComments();
+        if(!empty($comentarios)){
+            $this->view->response($comentarios, 200);
+        }else{
+            $this->view->response("No hay mensajes disponibles", 404);
+        }
+        
     }
 
     public function showComment($params = null){
         $id = $params[':ID'];
-        $comment = $this->model->getComment($id);
+        $comment = $this->commentModel->getComment($id);
         if (!empty($comment)){
             $this->view->response($comment, 200);
         }
@@ -50,18 +49,22 @@ class ApiComentController extends ApiController {
         }
     }*/
 
-    public function addComment($params= null){
-        // Devuelve el objeto JSON enviado por POST
-                $body = $this->getData();
-                // Envío los datos al model
-                $action = $this->model->addCommentModel($body->ususario_id, $body->pelicula_id, $body->puntaje, $body->comentario);
-                // Verifico que el comentario exista
-                if (!empty($action)) {
-                    // Si existe envío la respuesta junto con el código 200
-                    $this->view->response($this->model->getComment($action), 201);
-                }else{
-                    // Si no existe, envío mensaje con el código de error
-                    $this->view->response("El mensaje no se pudo insertar", 404);
-                }
-            }
+    public function addComment($params=[]){
+        // devuelve el objeto JSON enviado por POST
+        $body = $this->getData();
+
+        $body->usuario_id;
+        $idPelicula = $body->pelicula_id;
+        $puntaje = $body->puntaje;
+        $comentario = $body->comentario;
+
+        $response = $this->commentModel->addCommentModel($body->usuario_id, $idPelicula, $puntaje, $comentario);
+        if (!empty($response)) {
+            $this->view->response($this->commentModel->getComments(), 200);
+            die();
+        }else{
+            $this->view->response("El comentario no se pudo insertar", 404);
+            die();
+        }
+    }
 }

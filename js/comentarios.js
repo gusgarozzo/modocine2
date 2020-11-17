@@ -3,7 +3,7 @@
 let comentarios = [];
 
 document.addEventListener("DOMContentLoaded", function(){
-  document.querySelector("#commentForm").addEventListener("submit", e => {
+  document.getElementById("commentForm").addEventListener("submit", e => {
     e.preventDefault();
     addComent();
   });
@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
   function addComent(){
 
-      const comentario = {
+      let comentario = {
         mensaje: document.querySelector("#comment").value,
         puntaje:document.querySelector("#puntaje").value,
         usuario_id: document.querySelector("#usuario_id").getAttribute("data"),
-        pelicula_id: document.getElementById("pelicula_id").value
+        pelicula_id: document.getElementById("pelicula_id").value,
       }
 
-      console.log(comentario);
+      console.log(comentario)
 
       fetch('api/comentarios', {
         method: 'POST',
@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function(){
         body: JSON.stringify(comentario)
       })
 
-      .then(response => response.json()) // No ejecuta, consola lanza error "Unexpected end of JSON input"
-      .then(comentario => console.log(comentario))
+      .then(response => response.json())
+      .then(comentario => comentarios.push(comentario))
       .catch(error => console.log(error));
   }
 

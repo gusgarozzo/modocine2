@@ -16,9 +16,9 @@ class CommentModel{
         return $comentarios;
     }
 
-    function addCommentModel($usuario, $pelicula_id, $puntaje, $mensaje){
+    function addCommentModel($idusuario, $idPelicula, $puntaje, $comentario){
         $query = $this->db->prepare("INSERT INTO comentario(id_usuario, id_pelicula, puntaje, comentario) VALUES(?,?,?,?)");
-        $query->execute(array($usuario, $pelicula_id, $puntaje, $mensaje));
+        $query->execute(array($idusuario, $idPelicula, $puntaje, $comentario));
         return $query->rowCount();
     }
 

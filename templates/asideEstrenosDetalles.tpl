@@ -20,7 +20,7 @@
         {include file="filtro.tpl"}
         
                   
-        <form class="formulario" id="commentForm">
+        <form class="formulario" id="commentForm" method="POST" action="comentarios">
             <h2>Danos tu opinión sobre {$mov->nombre}</h2>
             <label for="pelicula_id">ID</label>
             <input type="text" name="pelicula_id" id='pelicula_id' value='{$mov->id}' data='{$mov->id}' readonly>
@@ -37,9 +37,6 @@
             <input type="submit" id="btn-send">
         </form>
 
-
-        
-        
     </section>
 </aside>  
 
