@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-
+{include file="comentarios.tpl"}
 <aside class="asideEstrenos">
     <h2>Detalles de la película</h2>            
     <section class="tablaDinamica">
@@ -18,7 +18,6 @@
             {/if}
         {/foreach}
         {include file="filtro.tpl"}
-        
                   
         <form class="formulario" id="commentForm" method="POST" action="comentarios">
             <h2>Danos tu opinión sobre {$mov->nombre}</h2>
