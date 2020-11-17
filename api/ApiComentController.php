@@ -53,12 +53,12 @@ class ApiComentController extends ApiController {
         // devuelve el objeto JSON enviado por POST
         $body = $this->getData();
 
-        $body->usuario_id;
+        $idUsuario = $body->usuario_id;
         $idPelicula = $body->pelicula_id;
         $puntaje = $body->puntaje;
         $comentario = $body->comentario;
 
-        $response = $this->commentModel->addCommentModel($body->usuario_id, $idPelicula, $puntaje, $comentario);
+        $response = $this->commentModel->addCommentModel($idUsuario, $idPelicula, $puntaje, $comentario);
         if (!empty($response)) {
             $this->view->response($this->commentModel->getComments(), 200);
             die();

@@ -1,6 +1,6 @@
 "use strict";
 
-let comentarios = [];
+let comentarios = []
 
 document.addEventListener("DOMContentLoaded", function(){
   document.getElementById("commentForm").addEventListener("submit", e => {
@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
   function addComent(){
 
-      let comentario = {
-        mensaje: document.querySelector("#comment").value,
-        puntaje:document.querySelector("#puntaje").value,
-        usuario_id: document.querySelector("#usuario_id").getAttribute("data"),
-        pelicula_id: document.getElementById("pelicula_id").value,
+      const comentario = {
+        "comentario": document.getElementById("comment").value,
+        "puntaje": document.querySelector("#puntaje").value,
+        "usuario_id": document.querySelector("#usuario_id").getAttribute("data"),
+        "pelicula_id": document.getElementById("pelicula_id").value
       }
 
       console.log(comentario)
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){
       })
 
       .then(response => response.json())
-      .then(comentario => comentarios.push(comentario))
+      .then(() => comentarios.push(comentario))
       .catch(error => console.log(error));
   }
 
