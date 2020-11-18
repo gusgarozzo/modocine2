@@ -13,10 +13,17 @@ class loginController{
         $this->admView = new AdminView();
     }
 
+
     function login(){
         session_start();
         if (isset($_SESSION["usuario"])){
-            header("Location: ".BASE_URL."admin");
+            if($_SESSION['admin'] === "1"){
+                header("Location: ".BASE_URL."admin");
+                die();
+            }else{
+                $this->admView->renderError("Usted tiene una sesión activa");
+                die();
+            }
         } else{
             $this->admView->ShowLogin();
         }
@@ -39,9 +46,17 @@ class loginController{
                 if (password_verify($pass, $usuario->password)){
                     session_start();
                     $_SESSION["usuario"] = $usuario->email; 
-                    $_SESSION['loggedInUser'];
+                    //$_SESSION['loggedInUser'];
                     $_SESSION['timeout'] = time();
-                    $this->admView->ShowAdmin();
+                    $_SESSION['admin'] = $usuario->admin;
+
+                    if($_SESSION['admin']=== "1"){
+                        header("Location: ".BASE_URL."admin");
+                        die();
+                    }else{
+                        header("Location: ".BASE_URL."home");
+                        die();
+                    }
                 } else{
                     $this->admView->ShowLogin("Contraseña incorrecta");
                 }
@@ -56,7 +71,8 @@ class loginController{
     }
 
     function registerUser(){
-        if((!empty($_POST['input_user'])) && (!empty($_POST['input_ruser'])) && (!empty($_POST['input_password'])) && (!empty($_POST['input_rpassword']))){
+        if((!empty($_POST['nick'])) && (!empty($_POST['input_user'])) && (!empty($_POST['input_ruser'])) && (!empty($_POST['input_password'])) && (!empty($_POST['input_rpassword']))){
+            $nickname = $_POST['nick'];
             $username = $_POST['input_user'];
             $rUsername =  $_POST['input_ruser'];
             $password = $_POST['input_password'];
@@ -66,7 +82,7 @@ class loginController{
                 if ($username === $rUsername) {
                     if ($password === $rPassword) {
                         $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $user = $this->userModel->saveUserInDDBB($username, $hash);
+                        $user = $this->userModel->saveUserInDDBB($nickname, $username, $hash);
                         if($user>0){
                             session_start();
                             $_SESSION["usuario"] = $username; 

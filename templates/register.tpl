@@ -3,7 +3,9 @@
         <h1>Registro de usuario</h1>
         <p>Los campos con (*) son obligatorios</p>
         <form action="registerUser" method="POST" class="formulario">
-            <label for="user">Email (*)</label>
+            <label for="nick">Nick (*)</label>
+            <input type="text" name="nick" placeholder="cinefilo123">
+            <label for="input_user">Email (*)</label>
             <input type="email" name="input_user" placeholder="mail@mail.com.ar">
             <label for="user">Repetir Email (*)</label>
             <input type="email" name="input_ruser" placeholder="mail@mail.com.ar">

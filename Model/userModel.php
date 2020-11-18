@@ -25,13 +25,13 @@
         }
 
         function saveUserInDDBB($username, $hash){
-            $query = $this->db->prepare("INSERT INTO usuario(email, password) VALUES(?,?)");
+            $query = $this->db->prepare("INSERT INTO usuario(nickname, email, password) VALUES(?,?,?)");
             $query->execute(array($username, $hash));
             return $query->rowCount();
         }
 
         function getUserById($user_id){
-            $query = $this->db->prepare('SELECT usuario.id, usuario.email, usuario.admin FROM usuario WHERE id=?');
+            $query = $this->db->prepare('SELECT usuario.id, usuario.nickname, usuario.email, usuario.admin FROM usuario WHERE id=?');
             $query->execute(array($user_id));
             $data = $query->fetchAll(PDO::FETCH_OBJ);
             return $data;

@@ -21,11 +21,14 @@ function getComments() {
 function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
   let peli_id = document.querySelector('#peli_id').value;
-  container.innerHTML = '<h1>Comentarios</h1>';
+  let nickname = document.getElementById("nickname").value
+  console.log(nickname)
   for (let comment of comments) {
-    console.log(comment);
     if (peli_id == comment.id_pelicula) {
-      container.innerHTML +=  `<div> <h3>${comment.id_usuario}</h3> Comentario: ${comment.comentario} - Puntaje: ${comment.puntaje} - Pelicula: ${comment.id_pelicula}</div>`;
+      container.innerHTML +=  `<div class="posteo">
+        <div>Puntaje: ${comment.puntaje}</div><div class="caja-comentario"> <span class="nick">${nickname} dijo:</span> " 
+        ${comment.comentario}"</div>
+        </div>`;
     }
   }
 }

@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-    <main class="main-contacto login">
+    <main class="main-contacto login signup">
         <h1>Bienvenido</h1>
         <p>Por favor ingrese su usuario y contraseña</p>
         <form action="verifyUser" method="POST" class="formulario" name="adminlogin">

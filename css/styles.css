@@ -824,16 +824,18 @@ footer i:hover{
     text-decoration: underline;
 }
 
-
-
 .login{
-    height: 477px;
+    height: auto;
     margin: 0px;
 }
 
 .login .formulario{
     width: 60%;
     height: 60%;
+}
+
+.signup{
+    padding-bottom: 167px;
 }
 
 .login input{
@@ -928,4 +930,45 @@ header .adminMenu{
 
 .users{
     margin-top: 20px;
+}
+
+.div-comentarios{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.caja-comentario{
+    width: 100%;
+    font-style: italic;
+}
+
+.posteo{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: lightgray;
+    border: black;
+    border-radius: 10px;
+}
+
+.nick{
+    font-style: normal;
+    font-weight: bold;
+}
+
+#commentForm input{
+    text-align: center;
+}
+
+#commentForm textarea{
+    padding: 5px;
+}
+
+.mainEstrenos .box{
+    margin-top: -590px;
 }

@@ -7,7 +7,7 @@
                 <title>{$titulo|upper}</title>
                 <!--<link rel="stylesheet" href="css/styles.css?1.0">-->
                 <base href="{BASE_URL}">
-                <link rel="stylesheet" href="./css/styles.css?1.0">
+                <link rel="stylesheet" href="./css/styles.css?1">
                 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
                     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">   
@@ -25,7 +25,7 @@
                                 <li><a href="cartelera">CARTELERA</a></li>
                                 <li><a href="contacto">CONTACTO</a></li>
                                 <li><a href="registrar">REGISTRARSE</a></li>
-                                <li><a href="login">ADMINISTRAR</a></li>
+                                <li><a href="login">INICIAR SESIÓN</a></li>
                             </ul>
                         </nav>
                     </header>

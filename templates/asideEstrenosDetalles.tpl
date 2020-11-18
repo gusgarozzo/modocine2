@@ -26,7 +26,7 @@
             {if (isset($smarty.session.usuario))}  
             {foreach from=usuario item=user}
                 <label for="usuario_id">Usuario</label>
-                <input type="text" name="usuario_id" id='usuario_id' value='{$usuario->email}' data='{$usuario->id}' readonly>
+                <input type="text" name="usuario_id" id='nickname' value='{$usuario->nickname}' data='{$usuario->id}' readonly>
             {/foreach}
             {/if}
             <label for="puntaje">Puntaje</label>
@@ -34,9 +34,6 @@
             <label for="comentario">Comentario</label>
             <textarea name="comentario" id="comment" cols="60" rows="10"></textarea>
             <input type="submit" id="btn-send">
-        </form>
-        <form class="formulario" id="showComments" method="POST" action="comentario/{$mov->id}">
-            <button id="btn-show">Mostrar Comentarios</button>
         </form>
     </section>
 </aside>  
