@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2020 a las 16:24:25
+-- Tiempo de generación: 18-11-2020 a las 20:57:25
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -34,6 +34,21 @@ CREATE TABLE `comentario` (
   `puntaje` varchar(10) NOT NULL,
   `comentario` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id`, `id_usuario`, `id_pelicula`, `puntaje`, `comentario`) VALUES
+(6, 13, 6, '5', 'muy buena'),
+(7, 13, 6, '5', 'muy buena'),
+(8, 13, 6, '5', 'buena'),
+(9, 13, 6, '5', 'buena'),
+(10, 13, 6, '5', 'buena'),
+(11, 13, 6, '5', 'regular'),
+(12, 13, 1, '3', 'asdad'),
+(13, 13, 1, '3', 'dasdad'),
+(14, 13, 1, '', '');
 
 -- --------------------------------------------------------
 
@@ -93,6 +108,7 @@ INSERT INTO `sala` (`id`, `letra`, `capacidad`, `formato`, `butaca`, `info_butac
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(250) NOT NULL,
   `admin` tinyint(1) NOT NULL
@@ -102,11 +118,9 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `email`, `password`, `admin`) VALUES
-(1, 'admin@modocine.com.ar', '$2y$12$GOuGI9qa.bhNJ1Ve4vycZeyY1aCnTZ/m4UBLxE8MDg210oZ/KKqWW', 1),
-(2, 'usuariocomun@usuario.com', '$2y$10$3TKAMlb4.iO21S/TaStVluF53mkKFa2hiRmeynOv16HzwWGdItxAG', 0),
-(3, 'usuariocomun2@usuario.com', '$2y$10$YcjxokT7ILoQ9.nAEeG/GuyHSay3mFo6a55G.DDs1fDJIddBrTCi6', 0),
-(13, 'usuario@modocine.com.ar', '$2y$10$ejBcrsM1miskMZqPUz/sluoF6iQQBmFU4b6BTBTdfaR2yjHEmv/bW', 0);
+INSERT INTO `usuario` (`id`, `nickname`, `email`, `password`, `admin`) VALUES
+(1, 'administrador', 'admin@modocine.com.ar', '$2y$12$GOuGI9qa.bhNJ1Ve4vycZeyY1aCnTZ/m4UBLxE8MDg210oZ/KKqWW', 1),
+(13, 'aurelio', 'usuario@modocine.com.ar', '$2y$10$ejBcrsM1miskMZqPUz/sluoF6iQQBmFU4b6BTBTdfaR2yjHEmv/bW', 0);
 
 --
 -- Índices para tablas volcadas
@@ -147,7 +161,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `pelicula`
