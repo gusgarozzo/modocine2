@@ -43,6 +43,13 @@
             return $movieByRoom;
         }
 
+        function searchMovies($search){
+            $query = $this->db->prepare("SELECT * FROM pelicula INNER JOIN sala WHERE pelicula.id_sala = sala.id 
+                AND pelicula.nombre LIKE '%".$search."%' OR pelicula.genero LIKE '%".$search."%' OR pelicula.sinopsis LIKE '%".$search."%'");
+            $query->execute(array($search));
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            var_dump($result);die();
+        }
         // *********************** ACA EMPIEZA LO DEL ADMIN ************************
 
         // Agregar pelicula

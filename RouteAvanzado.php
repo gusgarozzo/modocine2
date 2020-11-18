@@ -20,7 +20,7 @@
     $r->addRoute("sala/:ROOM", "GET", "publicController", "moviesByRoomController"); // pelicula por sala
     $r->addRoute("salas", "GET", "publicController", "roomController"); // todas las salas
     $r->addRoute("detallesala/:ID", "GET", "publicController", "roomDetailController"); // detalle de cada sala
-    $r->addRoute("buscador/:KEY", "POST", "publicController", "searchController"); // buscador
+    $r->addRoute("buscador", "POST", "publicController", "searchController"); // buscador
 
     // ADMIN CONTROLLER
     $r->addRoute("admin", "GET", "adminController", "adminController");

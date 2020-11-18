@@ -66,11 +66,18 @@
         }
 
         function moviesByRoomController($params = null){
-            if((isset($params[':ROOM']))){
+            if(isset($params[':ROOM'])){
                 $room = $params[':ROOM'];
                 $movies = $this->movieModel->getMoviesByRoom($room);
                 $this->view->renderMoviesByRoom($movies);
             }
         }
+
+        function searchController($params=null){
+            if(isset($_POST['input-search'])){
+                $search = $_POST['input-search'];
+
+                $result = $this->movieModel->searchMovies($search);
+            }
+        }
     }
-?>
