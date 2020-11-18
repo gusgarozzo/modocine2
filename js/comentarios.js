@@ -36,9 +36,13 @@ function addComent(){
     const comentario = {
       "comentario": document.getElementById("comment").value,
       "puntaje": document.querySelector("#puntaje").value,
-      "usuario_id": document.querySelector("#usuario_id").getAttribute("data"),
+      "usuario_id": document.querySelector("#usuario_id").value,
+      "nickname": document.querySelector("#nickname").value,
       "pelicula_id": document.getElementById("pelicula_id").value
     }
+
+    console.log(comentario.usuario_id)
+    console.log(comentario.nickname)
 
     fetch('api/comentarios', {
       method: 'POST',
@@ -66,4 +70,3 @@ function deleteComment(){
   .catch(console.log(error))
 }
 
-  

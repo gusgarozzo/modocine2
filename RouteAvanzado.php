@@ -20,6 +20,7 @@
     $r->addRoute("sala/:ROOM", "GET", "publicController", "moviesByRoomController"); // pelicula por sala
     $r->addRoute("salas", "GET", "publicController", "roomController"); // todas las salas
     $r->addRoute("detallesala/:ID", "GET", "publicController", "roomDetailController"); // detalle de cada sala
+    $r->addRoute("buscador/:KEY", "POST", "publicController", "searchController"); // buscador
 
     // ADMIN CONTROLLER
     $r->addRoute("admin", "GET", "adminController", "adminController");
@@ -35,6 +36,7 @@
     $r->addRoute("editUser/:ID", "GET", "adminController", "editUserMode"); // muestra form para editar usuario
     $r->addRoute("editarUsuario/:ID", "POST", "adminController", "editUser"); // edita usuario
 
+
     // LOGIN
     $r->addRoute("login", "GET", "loginController", "login");
     $r->addRoute("registrar", "GET", "loginController", "showRegisterForm");
@@ -47,5 +49,3 @@
 
     //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
-
-?>

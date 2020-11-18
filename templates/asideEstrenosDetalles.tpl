@@ -25,8 +25,9 @@
             <input type="text" name="pelicula_id" id='pelicula_id' value='{$mov->id}' data='{$mov->id}' readonly>
             {if (isset($smarty.session.usuario))}  
             {foreach from=usuario item=user}
-                <label for="usuario_id">Usuario</label>
-                <input type="text" name="usuario_id" id='nickname' value='{$usuario->nickname}' data='{$usuario->id}' readonly>
+                <label for="nickname">Usuario</label>
+                <input type="text" name="nickname" id='nickname' value='{$usuario->nickname}' readonly>
+                <input type="hidden" name="usuario_id" id='usuario_id' value='{$usuario->id}'>
             {/foreach}
             {/if}
             <label for="puntaje">Puntaje</label>

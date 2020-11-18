@@ -972,3 +972,26 @@ header .adminMenu{
 .mainEstrenos .box{
     margin-top: -590px;
 }
+
+.busqueda{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 10px;
+}
+
+.busqueda input{
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.busqueda input[type=submit]{
+    font-size: 15px;
+    background: lightgray;
+    border: 1px solid grey;
+}
+
+.buscador{
+    display: flex;
+}

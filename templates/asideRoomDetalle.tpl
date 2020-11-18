@@ -25,7 +25,7 @@
             {/foreach}
             </tbody>
         </table>
+        {include file="footer.tpl"}
     </section>
     {include file="filtro.tpl"}
 </aside>
-{include file="footer.tpl"}

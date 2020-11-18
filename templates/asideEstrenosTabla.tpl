@@ -20,5 +20,6 @@
             </tbody>
         </table>
     </section>
+    {include file="buscador.tpl"}
     {include file="filtro.tpl"}
 </aside>
