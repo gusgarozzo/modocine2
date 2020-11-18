@@ -18,7 +18,7 @@
             {/if}
         {/foreach}
         {include file="filtro.tpl"}
-                  
+        <input type="hidden" name="pelicula" id="peli_id" value='{$mov->id}'>
         <form class="formulario" id="commentForm" method="POST" action="comentarios">
             <h2>Danos tu opinión sobre {$mov->nombre}</h2>
             <label for="pelicula_id">ID</label>
