@@ -31,4 +31,10 @@ class CommentModel{
         $comment = $query->fetchAll(PDO::FETCH_OBJ);
         return $comment;
     }
+
+    function deleteComment($id){
+        $query = $this->db->prepare("DELETE FROM comentario WHERE id=?");
+        $query->execute(array($id));
+        return $query->rowCount();
+    }
 }

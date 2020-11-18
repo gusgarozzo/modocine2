@@ -38,16 +38,17 @@ class ApiComentController extends ApiController {
         }
     }
     
-    /*public function deleteMovie($params = null) {
+    public function deleteComment($params = null) {
         $id = $params[':ID'];
-        $delete = $this->model->deleteMovieId($id);
+        $resultado = $this->commentModel->deleteComment($id);
         
-        if($delete>0){
-            $this->view->response("La pelicula ha sido eliminada exitosamente", 200);
-        }else{
-            $this->view->response("La pelicula que usted quiere borrar, no existe", 404);
+        if($resultado > 0){
+            $this->view->response("El comentario con el id=$id fue eliminado", 200);
         }
-    }*/
+        else{
+            $this->view->response("El comentario con el id=$id no existe", 404);
+        }
+    }
 
     public function addComment($params=[]){
         // devuelve el objeto JSON enviado por POST

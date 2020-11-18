@@ -7,7 +7,7 @@ $router = new Router();
 // RUTEO API REST
 $router->addRoute('comentarios', 'GET', 'ApiComentController', 'showComments');
 $router->addRoute('comentarios/:ID', 'GET', 'ApiComentController', 'showComment');
-//$router->addRoute('peliculas/:ID', 'DELETE', 'ApiComentController', 'deleteMovie');
+$router->addRoute('comentarios/:ID', 'DELETE', 'ApiComentController', 'deleteComment');
 $router->addRoute('comentarios', 'POST', 'ApiComentController', 'addComment');
 
 // $router->addRoute('peliculas', 'POST', 'ApiComentController', 'insertMovie');
