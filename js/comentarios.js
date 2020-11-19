@@ -8,8 +8,10 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 })
 
+let baseURL = "api/comentarios";
+
 function getComments() {
-  fetch('api/comentarios')
+  fetch(baseURL)
       .then(response => response.json())
       .then(comments => renderComments(comments))
       .catch(error => console.log(error));
@@ -21,29 +23,36 @@ function renderComments(comments){
   container.innerHTML = ' ';
   console.log(nickname)
   for (let comment of comments) {
-    console.log(comment);
+    console.log(comment.id);
     if (peli_id == comment.id_pelicula) {
-      /*let divContainer = document.createElement("div");
+      let divContainer = document.createElement("div");
       let divPuntaje = document.createElement("div");
       let divComentario = document.createElement("div");
       let spanNick = document.createElement("span");
       let deleteButton = document.createElement("button");
 
-      divPuntaje.innerHTML = comment.puntaje;
-      divComentario.innerHTML = comment.comentario;
-      spanNick.innerHTML = comment.nickname;
+      divPuntaje.innerHTML = "Puntaje: " + comment.puntaje;
+      spanNick.innerHTML = comment.nickname + " dijo: ";
+      spanNick.classList.add("nick");
       divComentario.appendChild(spanNick);
-      deleteButton.innerHTML = 'X';
+      divComentario.innerHTML += comment.comentario;
+      deleteButton.innerHTML = 'Borrar comentario';
+      divContainer.appendChild(divPuntaje);
+      divContainer.appendChild(divComentario);
+      divContainer.appendChild(deleteButton);
+      divContainer.classList.add("posteo");
+      container.appendChild(divContainer);
+      let id = comment.id;
 
-      deleteButton.id = */
+      deleteButton.addEventListener("click", () => deleteComment(id));
 
-      container.innerHTML +=  `<div class="posteo">
+      /*container.innerHTML +=  `<div class="posteo">
                                     <div>Puntaje: ${comment.puntaje}</div>
                                     <div class="caja-comentario"> 
                                        <span class="nick">${comment.nickname} dijo:</span> " 
                                    ${comment.comentario}"</div>
                                    <button id='borrar'>X</button>
-                                </div>`;
+                                </div>`;*/
     }
   }
 }
@@ -57,29 +66,27 @@ function addComent(){
       "pelicula_id": document.getElementById("pelicula_id").value
     }
 
-    fetch('api/comentarios', {
+    fetch(baseURL, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(comentario)
     })
 
     .then(response => response.json())
-    //.then(() => comentarios.push(comentario))
     .then(comentario => getComments())
     .catch(error => console.log(error));
 }
 
-function deleteComment(){
-  fetch('api/comentarios', {
+function deleteComment(id){
+  fetch(baseURL+"/"+id, {
     method: 'DELETE',
-    headers: { "Content-Type": "application/json" },
   })
-  .then(response => response.json())
-  .then(() => {
-    for (let comment of comments){
-      comments.pop(comment.id)
-    }   
+  .then(function (respuesta) {
+    if (!respuesta.ok) {
+        console.log("Error");
+    }
+    else {
+      getComments();
+    }
   })
-  .catch(console.log(error))
 }
-
