@@ -28,10 +28,7 @@
         function renderEstrenos($movies){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movies);
-            //$this->smarty->display('./templates/header.tpl');
             $this->smarty->display('./templates/mainEstrenos.tpl');
-            //$this->smarty->display('./templates/asideEstrenosTabla.tpl');
-            //$this->smarty->display('./templates/footer.tpl');
         }
 
         function renderMoviesByGenre($movies){
@@ -46,9 +43,7 @@
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movie);
             $this->smarty->assign('usuario', $usuario);
-            //$this->smarty->display('./templates/mainEstrenos.tpl');
             $this->smarty->display('./templates/asideEstrenosDetalles.tpl');
-            //$this->smarty->display('./templates/footer.tpl');
         }
 
         function renderRooms($rooms){
