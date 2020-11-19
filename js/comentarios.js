@@ -1,8 +1,5 @@
 "use strict";
 
-let comentarios = []
-
-
 document.addEventListener("DOMContentLoaded", function(){
   getComments();
   document.getElementById("commentForm").addEventListener("submit", e => {
@@ -21,28 +18,44 @@ function getComments() {
 function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
   let peli_id = document.querySelector('#peli_id').value;
+  container.innerHTML = ' ';
   console.log(nickname)
   for (let comment of comments) {
+    console.log(comment);
     if (peli_id == comment.id_pelicula) {
+      /*let divContainer = document.createElement("div");
+      let divPuntaje = document.createElement("div");
+      let divComentario = document.createElement("div");
+      let spanNick = document.createElement("span");
+      let deleteButton = document.createElement("button");
+
+      divPuntaje.innerHTML = comment.puntaje;
+      divComentario.innerHTML = comment.comentario;
+      spanNick.innerHTML = comment.nickname;
+      divComentario.appendChild(spanNick);
+      deleteButton.innerHTML = 'X';
+
+      deleteButton.id = */
+
       container.innerHTML +=  `<div class="posteo">
-        <div>Puntaje: ${comment.puntaje}</div><div class="caja-comentario"> <span class="nick">${comment.nickname} dijo:</span> " 
-        ${comment.comentario}"</div>
-        </div>`;
+                                    <div>Puntaje: ${comment.puntaje}</div>
+                                    <div class="caja-comentario"> 
+                                       <span class="nick">${comment.nickname} dijo:</span> " 
+                                   ${comment.comentario}"</div>
+                                   <button id='borrar'>X</button>
+                                </div>`;
     }
   }
 }
 
 function addComent(){
-    const comentario = {
+    let comentario = {
       "comentario": document.getElementById("comment").value,
       "puntaje": document.querySelector("#puntaje").value,
       "usuario_id": document.querySelector("#usuario_id").value,
       "nickname": document.querySelector("#nickname").value,
       "pelicula_id": document.getElementById("pelicula_id").value
     }
-
-    console.log(comentario.usuario_id)
-    console.log(comentario.nickname)
 
     fetch('api/comentarios', {
       method: 'POST',
@@ -51,7 +64,7 @@ function addComent(){
     })
 
     .then(response => response.json())
-    .then(() => comentarios.push(comentario))
+    //.then(() => comentarios.push(comentario))
     .then(comentario => getComments())
     .catch(error => console.log(error));
 }
