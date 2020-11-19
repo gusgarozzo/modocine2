@@ -69,9 +69,9 @@
             header("Location: ".BASE_URL."home");
         }
 
-        function renderEditUser($users){
+        function renderEditUser($user){
             $this->smarty->assign('titulo', $this->title);
-            $this->smarty->assign('users', $users);
+            $this->smarty->assign('user', $user);
             $this->smarty->display('./templates/adminUserEdit.tpl');
         }
     
