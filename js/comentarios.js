@@ -20,6 +20,8 @@ function getComments() {
 function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
   let peli_id = document.querySelector('#peli_id').value;
+  let admin = document.querySelector("#admin").value;
+  console.log(admin);
   container.innerHTML = ' ';
   console.log(nickname)
   for (let comment of comments) {
@@ -39,20 +41,13 @@ function renderComments(comments){
       deleteButton.innerHTML = 'Borrar comentario';
       divContainer.appendChild(divPuntaje);
       divContainer.appendChild(divComentario);
-      divContainer.appendChild(deleteButton);
       divContainer.classList.add("posteo");
       container.appendChild(divContainer);
       let id = comment.id;
-
-      deleteButton.addEventListener("click", () => deleteComment(id));
-
-      /*container.innerHTML +=  `<div class="posteo">
-                                    <div>Puntaje: ${comment.puntaje}</div>
-                                    <div class="caja-comentario"> 
-                                       <span class="nick">${comment.nickname} dijo:</span> " 
-                                   ${comment.comentario}"</div>
-                                   <button id='borrar'>X</button>
-                                </div>`;*/
+      if (admin == 1) {
+        divContainer.appendChild(deleteButton);
+        deleteButton.addEventListener("click", () => deleteComment(id));
+      }
     }
   }
 }

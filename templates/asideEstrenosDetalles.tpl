@@ -28,6 +28,7 @@
                 <label for="nickname">Usuario</label>
                 <input type="text" name="nickname" id='nickname' value='{$usuario->nickname}' readonly>
                 <input type="hidden" name="usuario_id" id='usuario_id' value='{$usuario->id}'>
+                <input type="hidden" id="admin" value='{$usuario->admin}'>
             {/foreach}
             {/if}
             <label for="puntaje">Puntaje</label>
