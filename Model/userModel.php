@@ -24,9 +24,9 @@
             return $datos;
         }
 
-        function saveUserInDDBB($username, $hash){
+        function saveUserInDDBB($nickname, $username, $hash){
             $query = $this->db->prepare("INSERT INTO usuario(nickname, email, password) VALUES(?,?,?)");
-            $query->execute(array($username, $hash));
+            $query->execute(array($nickname, $username, $hash));
             return $query->rowCount();
         }
 
