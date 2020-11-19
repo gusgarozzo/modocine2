@@ -10,9 +10,9 @@ class CommentModel{
     }
 
     function getComments(){
-        $query=$this->db->prepare('SELECT comentario.id, comentario.id_usuario, comentario.id_pelicula,
-            comentario.puntaje, comentario.comentario, usuario.nickname, usuario.id FROM comentario INNER JOIN usuario
-            WHERE comentario.id_usuario = usuario.id');
+        $query=$this->db->prepare('SELECT usuario.nickname, usuario.id, comentario.id, comentario.id_usuario, comentario.id_pelicula,
+            comentario.puntaje, comentario.comentario FROM usuario INNER JOIN comentario
+            WHERE  usuario.id = comentario.id_usuario');
         $query->execute();
         $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
         return $comentarios;
