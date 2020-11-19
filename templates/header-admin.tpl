@@ -23,11 +23,10 @@
                                     <li><a href="home">HOME</a></li>
                                     <li><a href="cartelera">CARTELERA</a></li>
                                     <li><a href="contacto">CONTACTO</a></li>
-                                    
                                 </ul>
                         </nav>       
                         <div class="saludo">
                             <p>Bienvenido {$smarty.session.usuario}</p>
                             <a href="logout">LOGOUT</a>
-                        </div>             
+                        </div>      
                     </header> 

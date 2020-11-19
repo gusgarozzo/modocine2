@@ -1,4 +1,4 @@
-{include file="header-admin.tpl"}    
+{include file="header-admin.tpl"}
 <main class="main-admin">
     <div class="peliculas">
         <h1>Administra la Base de Datos</h1>
