@@ -21,9 +21,7 @@ function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
   let peli_id = document.querySelector('#peli_id').value;
   let admin = document.querySelector("#admin").value;
-  console.log(admin);
   container.innerHTML = ' ';
-  console.log(nickname)
   for (let comment of comments) {
     console.log(comment.id);
     if (peli_id == comment.id_pelicula) {
@@ -32,13 +30,18 @@ function renderComments(comments){
       let divComentario = document.createElement("div");
       let spanNick = document.createElement("span");
       let deleteButton = document.createElement("button");
+      let icono = document.createElement("i"); 
 
       divPuntaje.innerHTML = "Puntaje: " + comment.puntaje;
       spanNick.innerHTML = comment.nickname + " dijo: ";
       spanNick.classList.add("nick");
       divComentario.appendChild(spanNick);
       divComentario.innerHTML += comment.comentario;
-      deleteButton.innerHTML = 'Borrar comentario';
+      icono.classList.add("far");
+      icono.classList.add("fa-trash-alt");
+      icono.classList.add("fa-2x");
+      deleteButton.appendChild(icono);
+      
       divContainer.appendChild(divPuntaje);
       divContainer.appendChild(divComentario);
       divContainer.classList.add("posteo");
