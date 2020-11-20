@@ -561,6 +561,7 @@ main{
 .mainEstrenos{
     display: block;
     margin: auto;
+    height: max-content;
 }
 
 .mainEstrenos section{
@@ -969,15 +970,14 @@ header .adminMenu{
     padding: 5px;
 }
 
-.mainEstrenos{
+.box{
     margin-top: 20px;
-    height: 700px;
-    box-sizing: border-box;
-}
-
-.mainEstrenos .box{
     overflow: scroll;
     height: inherit;
+}
+
+.box h1{
+    text-align: center;
 }
 
 .busqueda{
