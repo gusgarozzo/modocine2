@@ -3,20 +3,21 @@
     require_once ('./View/publicView.php');
     require_once ('./Model/roomModel.php');
     require_once './Model/userModel.php';
+    require_once './helpers/authHelper.php';
 
     class publicController{
         private $movieModel;
         private $userModel;
         private $view;
         private $roomModel;
-        private $control;
+        private $helper;
 
         public function __construct(){
             $this->movieModel = new MovieModel();
             $this->roomModel = new RoomModel();
             $this->userModel = new userModel();
-            $this->control = new adminController(); // Una vez creado el helper, eliminar esto
             $this->view = new MovieView();
+            $this->helper = new AuthHelper();
         }
 
         function homeController(){
@@ -47,9 +48,10 @@
         }
 
         function movieDetailController($params = null){
-            $this->control->sessionController();
+            $this->helper->sessionController();
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
+                //$user = $this->helper->getLoggedUserName();
                 $user = $_SESSION['usuario'];
                 $usuario = $this->userModel->getUserInfo($user);
                 $movie = $this->movieModel->getMovieById($id); 
