@@ -969,8 +969,15 @@ header .adminMenu{
     padding: 5px;
 }
 
+.mainEstrenos{
+    margin-top: 20px;
+    height: 700px;
+    box-sizing: border-box;
+}
+
 .mainEstrenos .box{
-    margin-top: -590px;
+    overflow: scroll;
+    height: inherit;
 }
 
 .busqueda{
