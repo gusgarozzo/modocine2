@@ -832,7 +832,7 @@ footer i:hover{
 }
 
 .main-contacto{
-    height: auto;
+    height: max-content;
     padding: 20px 0;
     margin: 0;
     width: 100%;
@@ -1005,6 +1005,23 @@ header .adminMenu{
     font-size: 15px;
     background: lightgray;
     border: 1px solid grey;
+}
+
+.busqueda label{
+    text-align: center;
+}
+
+.busqueda select{
+    font-size: inherit;
+    font-family: inherit;
+    width: inherit;
+    margin: inherit;
+}
+
+.busqueda .option{
+    font-size: 15px;
+    font-family: inherit;
+    text-align: center;
 }
 
 .buscador{

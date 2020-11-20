@@ -20,7 +20,7 @@
             <button name="insert" type="submit">Agregar</button>
         </form>
     </div>
-     <div class="alta-baja-update">
+    <div class="alta-baja-update">
         <h3>Agregar salas</h3>
         <form action="insertRoom" method="POST" class="formulario">
             <label for="input_nombre">Sala:</label>

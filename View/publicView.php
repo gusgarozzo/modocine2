@@ -57,7 +57,12 @@
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('rooms', $rooms);
             $this->smarty->display('./templates/asideRoomDetalle.tpl');
+        }
 
+        function renderSearch($result){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('result', $result);
+            $this->smarty->display('./templates/asideSearch.tpl') // falta armar
         }
 
         function ShowHomeLocation(){

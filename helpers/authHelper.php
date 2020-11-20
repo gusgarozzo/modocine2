@@ -29,4 +29,5 @@ class AuthHelper {
             session_start();
         return $_SESSION['USERNAME'];
     }
+    
 }

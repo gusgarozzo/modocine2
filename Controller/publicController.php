@@ -74,10 +74,14 @@
         }
 
         function searchController($params=null){
-            if(isset($_POST['input-search'])){
+            if(isset($_POST['input-search']) && ($_POST['campo'])){
                 $search = $_POST['input-search'];
+                $option = $_POST['campo'];
+                $result = $this->movieModel->searchMovies($option, $search);
 
-                $result = $this->movieModel->searchMovies($search);
+                if($result){
+                    $this->view->renderSearch($result);
+                }
             }
         }
     }
