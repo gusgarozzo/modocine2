@@ -58,15 +58,5 @@ class AuthHelper {
             return true;
         }
     }
-<<<<<<< HEAD
    */
-=======
-
-    public function getLoggedUserName() {
-        if (session_status() != PHP_SESSION_ACTIVE)
-            session_start();
-        return $_SESSION['USERNAME'];
-    }
-    
->>>>>>> b530d9880f47a7466f014c8041a18011a868c4bd
 }
