@@ -7,6 +7,7 @@
             <input type="email" name="user" placeholder="hola@hola.com.ar">
             <label for="password">Contraseña:</label>
             <input type="password" name="password">
+            <a class="link-registro" href="registrar">No tenés cuenta? Registrate</a>
             <input type="submit" class="boton" value="Ingresar">
             <div class="error" role="alert">
                 {$mensaje}

@@ -1002,3 +1002,11 @@ header .adminMenu{
 .buscador{
     display: flex;
 }
+
+.link-registro{
+    color: white;
+}
+
+.link-registro:hover{
+    font-weight: bold;
+}
