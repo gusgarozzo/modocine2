@@ -23,7 +23,7 @@ body {
                         "main"
                         "aside"
                         "footer";
-    gap: 15px;
+    
 }
 
 /* CABECERA */
@@ -381,7 +381,6 @@ footer .social i {
             "main main main"
             "aside aside aside"
             "footer footer footer";
-    gap: 5px;
 }
 
 /* ESTILOS AL ENCABEZADO Y AL MENU */
@@ -425,6 +424,7 @@ main p{
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
+    
 }
 
 .main-contacto h1{
@@ -504,7 +504,6 @@ footer {
 @media only screen and (min-width: 900px){
 .contenedor {
         width: auto;
-        gap: 15px;
         grid-template-columns: 4fr, 1fr;
         grid-template-rows: 1fr, 4fr, 3fr, 1fr;
         grid-template-areas:
@@ -562,7 +561,6 @@ main{
 .mainEstrenos{
     display: block;
     margin: auto;
-    height: ;
 }
 
 .mainEstrenos section{
@@ -828,7 +826,16 @@ footer i:hover{
 
 .login{
     height: auto;
-    margin: 0px;
+    padding: 20px 0;
+    margin: 0;
+    width: 100%;
+}
+
+.main-contacto{
+    height: auto;
+    padding: 20px 0;
+    margin: 0;
+    width: 100%;
 }
 
 .login .formulario{
@@ -1005,11 +1012,8 @@ header .adminMenu{
 }
 
 .link-registro{
-    color: rgb(0, 0, 0);
-    background-color: white;
-    text-decoration: none;
-    border-radius: 46%;
-    padding: 5px;
+    text-decoration: underline;
+    color: white;
 }
 
 .link-registro:hover{

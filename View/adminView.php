@@ -5,7 +5,7 @@
     class AdminView{
 
         public function __construct(){
-            $this->title = "MODOCINE - Administrador";
+            $this->title = "MODOCINE";
             $this->smarty = new Smarty();
         }
 
