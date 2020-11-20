@@ -6,50 +6,27 @@
     require_once ('./View/adminView.php');
     require_once ('loginController.php');
     require_once './Model/userModel.php';
+    require_once './helpers/authHelper.php';
 
     class adminController{
         private $admView;
         private $roomModel;
         private $movieModel;
         private $userModel;
+        private $helper;
 
         public function __construct(){
             $this->roomModel = new RoomModel();
             $this->admView = new AdminView();
             $this->movieModel = new MovieModel();
             $this->userModel = new userModel();
-        }
-
-        // Controlador para verificar si el usuario continua logueado y activo
-        function sessionController(){
-            session_start();
-            if (!isset($_SESSION['usuario'])){
-                header("Location: ".BASE_URL."login");
-                die();
-            }else{
-                // Pasados los 2 minutos de inactividad, se cierra automaticamente la sesión
-                if(isset($_SESSION['timeout']) && (time()-$_SESSION['timeout'] > 800)){
-                    header("Location: ".BASE_URL."logout");  
-                    die();
-                }
-                // De lo contrario, se actualiza el temporizador
-                $_SESSION['timeout'] = time();
-            }
-        }
-
-        function isAdmin(){
-            if($_SESSION['admin'] === "1"){
-                return;
-            }
-            else {
-                header("Location: ".BASE_URL."home");
-            }
+            $this->helper = new AuthHelper();
         }
 
         // Muestra la pantalla de inicio de la seccion administrador
         function adminController(){
-            $this->sessionController();
-            $this->isAdmin();
+            $this->helper->sessionController();
+            $this->helper->isAdmin();
             $movies = $this->movieModel->getMovies();
             $rooms = $this->roomModel->getAllRooms();
             $users = $this->userModel->getAllUsers();
@@ -57,13 +34,13 @@
         }
 
         function adminInsert(){
-            $this->sessionController();
+            $this->helper->sessionController();
             $rooms = $this->roomModel->getAllRooms();
             $this->admView->renderInsertMovie($rooms);
         }
 
         function insertMovie(){
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && (isset($_POST['input_sinopsis']))
                 && (isset($_POST['input_puntaje'])) && (isset($_POST['input_id_sala']))){
                 $titulo = $_POST['input_nombre'];
@@ -77,14 +54,14 @@
         }
 
         function deleteMovie($params = null){
-            $this->sessionController();
+            $this->helper->sessionController();
             $movie_id = $params[':ID'];
             $this->movieModel->deleteMovieId($movie_id);
             $this->admView->ShowAdmin();
         }
 
         function editMovieMode($params = null){
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($params[':ID']))){
                 $movie_id = $params[':ID'];
                 $movie = $this->movieModel->getMovieByIdAdm($movie_id);
@@ -93,7 +70,7 @@
         }
 
         function editMovie($params = null){
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($params[':ID'])) && (isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && 
             (isset($_POST['input_sinopsis']))
                 && (isset($_POST['input_puntaje'])) && (isset($_POST['input_id_sala']))){
@@ -109,7 +86,7 @@
         }
 
         function editRoomMode($params=null){
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($params[':ID']))){
                 $room_id = $params[':ID'];
                 $room = $this->roomModel->getRoomInfoById($room_id);
@@ -118,7 +95,7 @@
         }
 
         function editRoom($params = null){
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($params[':ID'])) && (isset($_POST['input_sala'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']))){
                 $room_id = $params[':ID'];
                 $sala = $_POST['input_sala'];
@@ -130,7 +107,7 @@
         }
 
         function deleteRoom($params = null){
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($params[':ID']) && !is_null($params))){
                 $room_id = $params[':ID'];
 
@@ -150,7 +127,7 @@
         }
 
         function insertRoom(){
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($_POST['input_letra'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']) && 
             (isset($_POST['input_tipo'])) && (isset($_POST['input_info'])) )){
                 $sala= $_POST['input_letra'];
@@ -164,7 +141,7 @@
         }
 
         function editUserMode($params = null) {
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($params[':ID']))){
                 $user_id = $params[':ID'];
                 $user = $this->userModel->getUserById($user_id);
@@ -173,7 +150,7 @@
         }
     
         function editUser($params = null){
-            $this->sessionController();
+            $this->helper->sessionController();
             if((isset($params[':ID'])) && (isset($_POST['input_isAdmin']))){
                 $user_id = $params[':ID'];
                 $isAdmin = $_POST['input_isAdmin'];
