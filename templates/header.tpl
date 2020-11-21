@@ -17,7 +17,6 @@
             <body>
                 <div class="contenedor">
                     <header>
-                        <p>{$titulo|upper}</p>
                         <nav>
                             <i class="fas fa-bars" id="btn-abrir"></i>
                             <ul class="menu" id="menu">

@@ -30,19 +30,16 @@ body {
 header {
     width: 100%;
     grid-area: header;
-    background: yellow;
+    background-image: url(../images/banner.jpg);
+    background-size: auto;
+    background-repeat: no-repeat;
+    image-rendering: optimizeQuality;
+    padding-bottom: 30px;
 }
 
-header p {
-    text-align: center;
-    font-weight: bolder;
-    font-size: 40px;
-    text-shadow: 1px 1px 2px orange;
-    color: #000;
-}
 
 header nav {
-    margin: 0;
+    margin-top: 80px;
     z-index: 0;
 }
 
@@ -529,25 +526,26 @@ header nav{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background: gold;
+    background: inherit;
 }
 
 header nav .menu{
+    width: 100%;
     margin-left: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    background: inherit;
+    justify-content: flex-start;
+    background: black;
 }
 
 header nav .menu li a {
     padding: 0 5px;
-    color: inherit;
+    color: white;
     text-decoration: none;
 }
 
 header nav .menu li a:hover {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     font-weight: bold;
     text-shadow: 1px 2px 2px goldenrod;
 }
