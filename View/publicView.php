@@ -10,8 +10,10 @@
             $this->smarty = new Smarty();
         }
 
-        function renderHome(){
+        function renderHome($user = null, $mensaje = ''){
             $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('mensaje', $mensaje);
+            $this->smarty->assign('user', $user);
             $this->smarty->display('./templates/index.tpl');
         }
 
@@ -67,6 +69,13 @@
 
         function ShowHomeLocation(){
             header("Location: ".BASE_URL."home");
+        }
+
+        function renderAdmin($user = null, $mensaje = ''){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('mensaje', $mensaje);
+            $this->smarty->assign('user', $user);
+            $this->smarty->display('./templates/aIndex.tpl');
         }
 
     }

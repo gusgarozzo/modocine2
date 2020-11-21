@@ -26,4 +26,9 @@
                                 <li><a href="login">INICIAR SESIÓN</a></li>
                             </ul>
                         </nav>
+                          <!--{if $user != null}-->
+                            <div class="saludo">
+                                <a href="logout">LOGOUT</a>
+                            </div> 
+                        <!--{/if}-->
                     </header>
