@@ -6,7 +6,7 @@ class AuthHelper {
 
     public function isAdmin(){
         if($_SESSION['admin'] === "1"){
-            return;
+            return true;
         }
         else {
             header("Location: ".BASE_URL."home");
@@ -32,7 +32,17 @@ class AuthHelper {
     public function getLoggedUserName() {
         if (session_status() != PHP_SESSION_ACTIVE)
             session_start();
-        return $_SESSION['username'] = 'invitado';
+        return $_SESSION['usuario'];
+    }
+
+    static public function checkLoggedIn() {
+        session_start();
+        if (!isset($_SESSION['usuario'])) {
+            return false;
+        }       
+        else {
+            return true;
+        }
     }
 
 
@@ -48,14 +58,6 @@ class AuthHelper {
         session_destroy();
     }
 
- static public function checkLoggedIn() {
-        session_start();
-        if (!isset($_SESSION['usuario'])) {
-            return false;
-        }       
-        else {
-            return true;
-        }
-    }
+
    */
 }
