@@ -21,7 +21,20 @@
         }
 
         function homeController(){
-            $this->view->renderHome();
+            if ($this->helper->checkLoggedIn()) {
+                $user = $this->helper->getLoggedUserName();
+                if ($this->helper->isAdmin()) {
+                    $this->view->renderAdmin();
+                }
+                else {
+                    $this->view->renderHome($user);
+                    die();
+                }
+            }
+            else {
+                 $this->view->renderHome();
+            }
+           
         }
 
         function contactoController(){
