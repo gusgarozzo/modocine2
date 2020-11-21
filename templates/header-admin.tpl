@@ -23,6 +23,7 @@
                                     <li><a href="home">HOME</a></li>
                                     <li><a href="cartelera">CARTELERA</a></li>
                                     <li><a href="contacto">CONTACTO</a></li>
+                                    <li><a href="admin">ADMINISTRAR</a></li>
                                 </ul>
                         </nav>       
                         <div class="saludo">
