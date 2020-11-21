@@ -38,7 +38,14 @@ header {
     background-size: auto;
     background-repeat: no-repeat;
     image-rendering: optimizeQuality;
-    
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+header div{
+    height: 150px;
+    width: 100%;
 }
 
 

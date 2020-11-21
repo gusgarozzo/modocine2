@@ -17,6 +17,7 @@
             <body>
                 <div class="contenedor">
                     <header>
+                    <div></div>
                         <nav>
                             <i class="fas fa-bars" id="btn-abrir"></i>
                             <ul class="menu" id="menu">
