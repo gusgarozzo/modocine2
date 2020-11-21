@@ -13,7 +13,7 @@
                                 <li>Genero: {$result->genero}</li>
                                 <li>Puntaje IMDB: {$result->puntaje_imdb}/10</li>
                                 <li>Sinopsis: {$result->sinopsis}</li>
-
+                                
                                 <h3> Donde se proyecta? </h3>
                                 <li>Sala: {$result->letra}</li>
                                 <li>Capacidad: {$result->capacidad}</li>

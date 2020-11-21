@@ -676,6 +676,12 @@ footer i:hover{
     padding: 10px;
 }
 
+.datos-detalles h3{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid black;
+    text-shadow: 3px 5px 5px darkslategray;
+}
 
 .asideEstrenos .formulario textarea{
     font-family: inherit;
