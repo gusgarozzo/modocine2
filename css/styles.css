@@ -996,7 +996,7 @@ header .adminMenu{
 }
 
 .busqueda input{
-    width: 100%;
+    width: 200px;
     padding: 5px;
     margin: 5px;
 }
@@ -1014,7 +1014,7 @@ header .adminMenu{
 .busqueda select{
     font-size: inherit;
     font-family: inherit;
-    width: inherit;
+    width: 200px;
     margin: inherit;
 }
 

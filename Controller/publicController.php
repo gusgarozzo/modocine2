@@ -1,7 +1,7 @@
 <?php
-    require_once ('./Model/movieModel.php');
-    require_once ('./View/publicView.php');
-    require_once ('./Model/roomModel.php');
+    require_once './Model/movieModel.php';
+    require_once './View/publicView.php';
+    require_once './Model/roomModel.php';
     require_once './Model/userModel.php';
     require_once './helpers/authHelper.php';
 

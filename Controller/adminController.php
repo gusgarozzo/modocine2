@@ -1,10 +1,10 @@
 <?php
 
     // Controlador para aquellas funciones propias del administrador
-    require_once ('./Model/roomModel.php');
-    require_once ('./Model/movieModel.php');
-    require_once ('./View/adminView.php');
-    require_once ('loginController.php');
+    require_once './Model/roomModel.php';
+    require_once './Model/movieModel.php';
+    require_once './View/adminView.php';
+    require_once 'loginController.php';
     require_once './Model/userModel.php';
     require_once './helpers/authHelper.php';
 
@@ -24,7 +24,7 @@
         }
 
         // Muestra la pantalla de inicio de la seccion administrador
-        function adminController(){
+        function adminController(){ // TIENE EL MISMO NOMBRE QUE LA CLASE, CHEQUEAR PORQUE NOS PUEDEN LLAMAR LA ATENCIÓN
             $this->helper->sessionController();
             $this->helper->isAdmin();
             $movies = $this->movieModel->getMovies();

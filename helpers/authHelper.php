@@ -4,7 +4,7 @@ class AuthHelper {
 
     public function __construct() {}
 
-    function isAdmin(){
+    public function isAdmin(){
         if($_SESSION['admin'] === "1"){
             return;
         }
@@ -13,7 +13,7 @@ class AuthHelper {
         }
     }
 
-    function sessionController(){
+    public function sessionController(){
         session_start();
         if (!isset($_SESSION['usuario'])){
             header("Location: ".BASE_URL."login");
@@ -35,7 +35,6 @@ class AuthHelper {
         return $_SESSION['username'] = 'invitado';
     }
 
-   
 
     /*public function login($user) {
         // INICIO LA SESSION Y LOGUEO AL USUARIO

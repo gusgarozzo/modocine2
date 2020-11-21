@@ -1,8 +1,5 @@
 <?php 
 
-    require_once './Controller/publicController.php';
-    require_once './Controller/adminController.php';
-
     class MovieModel{
 
         private $db;
@@ -48,8 +45,8 @@
                 AND $option LIKE '%".$search."%'");
             $query->execute(array($option, $search));
             $result = $query->fetchAll(PDO::FETCH_OBJ);
-            var_dump($result);die();
             return $result;
+        }
         // *********************** ACA EMPIEZA LO DEL ADMIN ************************
 
         // Agregar pelicula
@@ -110,4 +107,3 @@
         }
    
     }
-?>
