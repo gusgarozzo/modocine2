@@ -7,10 +7,12 @@ require_once './Controller/adminController.php';
 class loginController{
     private $admView;
     private $userModel;
+    private $publicView;
 
     public function __construct(){
         $this->userModel = new userModel();
         $this->admView = new AdminView();
+        $this->publicView = new MovieView();
     }
 
 
@@ -21,7 +23,7 @@ class loginController{
                 header("Location: ".BASE_URL."admin");
                 die();
             }else{
-                $this->admView->renderError("Usted tiene una sesión activa");
+                $this->publicView->renderHome("Usted tiene una sesión activa");
                 die();
             }
         } else{
