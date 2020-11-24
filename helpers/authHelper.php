@@ -6,11 +6,13 @@ class AuthHelper {
 
     public function isAdmin(){
         session_start();
-        if($_SESSION['admin'] === "1"){
-            return true;
-        }
-        else {
-            return false;
+        if (isset($_SESSION['usuario'])){
+            if($_SESSION['admin'] === "1"){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 

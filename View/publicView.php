@@ -12,14 +12,20 @@
 
         function showNav($log, $rol){
             $this->smarty->assign('titulo', $this->title);
-            if($log === true){
-                if($rol === true){
-                    $this->smarty->display('./templates/nav-admin.tpl');
-                }elseif($rol===false){
-                    $this->smarty->display('./templates/nav-user.tpl');
-                }
-            }else{
+            switch ($log) {
+                case true:
+                    switch ($rol) {
+                        case true:
+                            $this->smarty->display('./templates/nav-admin.tpl');
+                        break;
+                        case false:
+                            $this->smarty->display('./templates/nav-user.tpl');
+                        break;
+                    };
+                    break;
+                case false:
                 $this->smarty->display('./templates/nav.tpl');
+                break;
             }
         }
 
