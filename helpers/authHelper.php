@@ -43,13 +43,15 @@ class AuthHelper {
     }
 
     static public function checkLoggedIn() {
-        session_status();
-        if (1) {
+        if (session_status() === PHP_SESSION_ACTIVE) {
+
             return true;
         }       
-        else {
+        else{
             return false;
         }
+
+        var_dump(session_status());die();
 
     }
 
