@@ -19,23 +19,7 @@ class loginController{
 
 
     function login(){
-<<<<<<< HEAD
-        session_start();
-        if (isset($_SESSION["usuario"])){
-            if($_SESSION['admin'] === "1"){
-                header("Location: ".BASE_URL."admin");
-                die();
-            }else{
-                $this->admView->ShowLogin();
-                //$this->publicView->renderHome("Usted tiene una sesión activa");
-                die();
-            }
-        } else{
-            $this->admView->ShowLogin();
-        }
-=======
         $this->admView->showLogin();
->>>>>>> c177ac685a3e6de7f42e6bcda262548d3d05d7a2
     }
 
     function logout(){
