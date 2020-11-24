@@ -30,9 +30,13 @@ class AuthHelper {
     }
 
     public function getLoggedUserName() {
-        if (session_status() != PHP_SESSION_ACTIVE)
+        if (session_status() != PHP_SESSION_ACTIVE){
             session_start();
-        return $_SESSION['usuario'];
+            return $_SESSION['usuario'];
+        }
+        else{
+            return false;
+        }
     }
 
     static public function checkLoggedIn() {

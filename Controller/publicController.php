@@ -23,6 +23,7 @@
         function homeController(){
             if ($this->helper->checkLoggedIn()) {
                 $user = $this->helper->getLoggedUserName();
+                $logged = $this->helper->checkLoggedIn();
                 if ($this->helper->isAdmin()) {
                     $this->view->renderHome($user);
                     die();
@@ -33,7 +34,8 @@
                 }
             }
             else {
-                 $this->view->renderHome();
+                $user = $this->helper->getLoggedUserName();
+                $this->view->renderHome($user);
             }
            
         }

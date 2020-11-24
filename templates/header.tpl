@@ -38,3 +38,4 @@
                             </div> 
                         <!--{/if}-->
                     </header>
+{debug}
