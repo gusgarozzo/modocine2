@@ -24,7 +24,12 @@
                                 <li><a href="home">HOME</a></li>
                                 <li><a href="cartelera">CARTELERA</a></li>
                                 <li><a href="contacto">CONTACTO</a></li>
+                                <!--{if $user == null}   no funca-->
                                 <li><a href="login">INICIAR SESIÓN</a></li>
+                                  <!--{/if}-->
+                                {if $user = admin}
+                                    <li><a href="admin">ADMINISTRAR</a></li>
+                                {/if}
                             </ul>
                         </nav>
                           <!--{if $user != null}-->

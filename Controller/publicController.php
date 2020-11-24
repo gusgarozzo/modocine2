@@ -24,7 +24,8 @@
             if ($this->helper->checkLoggedIn()) {
                 $user = $this->helper->getLoggedUserName();
                 if ($this->helper->isAdmin()) {
-                    $this->view->renderAdmin();
+                    $this->view->renderHome($user);
+                    die();
                 }
                 else {
                     $this->view->renderHome($user);
