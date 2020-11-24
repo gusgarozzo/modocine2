@@ -5,19 +5,21 @@ class AuthHelper {
     public function __construct() {}
 
     public function isAdmin(){
-        session_start();
-        if (isset($_SESSION['usuario'])){
-            if($_SESSION['admin'] === "1"){
-                return true;
-            }
-            else{
-                return false;
+        if(!isset($_SESSION)) { 
+        session_start(); 
+            if (isset($_SESSION['usuario'])){
+                if($_SESSION['admin'] === "1"){
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
         }
     }
 
     public function sessionController(){
-        session_start();
+        session_start(); 
         if (!isset($_SESSION['usuario'])){
             header("Location: ".BASE_URL."login");
             die();
@@ -33,7 +35,7 @@ class AuthHelper {
     }
 
     public function getLoggedUserName() {
-        if (session_status() != PHP_SESSION_ACTIVE){
+        if (session_status() == PHP_SESSION_ACTIVE){
             session_start();
             return $_SESSION['usuario'];
         }
@@ -43,14 +45,15 @@ class AuthHelper {
     }
 
     static public function checkLoggedIn() {
-        session_start();
-        if (isset($_SESSION['usuario'])) {
-            return true;
-        }       
-        else{
-            return false;
+        if(!isset($_SESSION)){ 
+        session_start(); 
+            if (isset($_SESSION['usuario'])) {
+                return true;
+            }       
+            else{
+                return false;
+            }
         }
-
     }
 
 

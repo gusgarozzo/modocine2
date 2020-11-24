@@ -29,7 +29,8 @@
             }
         }
 
-        function renderHome(){ 
+        function renderHome(/*$mensaje = ''*/){ 
+            //$this->smarty->assign('mensaje', $mensaje);
             $this->smarty->display('./templates/index.tpl');
         }
 

@@ -1,4 +1,9 @@
 <main class="mainIndex">
+<!--<div>
+    <p>
+        {$mensaje}
+    <p>
+</div>-->
             <section>
                 <h1>NOTICIAS DE CINE Y SERIES</h1>
                 <article>

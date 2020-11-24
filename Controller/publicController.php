@@ -27,8 +27,9 @@
             var_dump($log);
             $rol = $this->helper->isAdmin();
             var_dump($rol);
+            //$username = $this->helper->getLoggedUserName();
             $this->view->showNav($log, $rol);
-            $this->view->renderHome();
+            $this->view->renderHome(/*$username*/);
         }
 
         function contactoController(){
