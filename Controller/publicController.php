@@ -24,7 +24,9 @@
 
         function homeController(){
             $log = $this->helper->checkLoggedIn();
+            var_dump($log);
             $rol = $this->helper->isAdmin();
+            var_dump($rol);
             $this->view->showNav($log, $rol);
             $this->view->renderHome();
         }
