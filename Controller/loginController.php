@@ -23,7 +23,8 @@ class loginController{
                 header("Location: ".BASE_URL."admin");
                 die();
             }else{
-                $this->publicView->renderHome("Usted tiene una sesión activa");
+                $this->admView->ShowLogin();
+                //$this->publicView->renderHome("Usted tiene una sesión activa");
                 die();
             }
         } else{
