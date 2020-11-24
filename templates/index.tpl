@@ -1,10 +1,4 @@
-{include file="header.tpl"}
 <main class="mainIndex">
-{if $user != null} <!--no funciona este if-->
-    <div><p>Bienvenido {$user}</p><div>
-{/if}
-
-<div><p>{$mensaje}</p></div>
             <section>
                 <h1>NOTICIAS DE CINE Y SERIES</h1>
                 <article>

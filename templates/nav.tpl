@@ -1,6 +1,5 @@
 <!DOCTYPE html>
             <html lang="es">
-            
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,18 +23,7 @@
                                 <li><a href="home">HOME</a></li>
                                 <li><a href="cartelera">CARTELERA</a></li>
                                 <li><a href="contacto">CONTACTO</a></li>
-                                <!--{if $user == null}   no funca-->
                                 <li><a href="login">INICIAR SESIÓN</a></li>
-                                  <!--{/if}-->
-                                {if $user = admin}
-                                    <li><a href="admin">ADMINISTRAR</a></li>
-                                {/if}
                             </ul>
                         </nav>
-                          <!--{if $user != null}-->
-                            <div class="saludo">
-                                <a href="logout">LOGOUT</a>
-                            </div> 
-                        <!--{/if}-->
                     </header>
-{debug}

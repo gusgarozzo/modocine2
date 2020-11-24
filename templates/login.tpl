@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 {include file="header.tpl"}
 
+=======
+{include file="nav.tpl"}
+>>>>>>> c177ac685a3e6de7f42e6bcda262548d3d05d7a2
     <main class="main-contacto login signup">
     <div class="saludo">
     <a href="logout">LOGOUT</a>

@@ -8,15 +8,18 @@ class loginController{
     private $admView;
     private $userModel;
     private $publicView;
+    private $helper;
 
     public function __construct(){
         $this->userModel = new userModel();
         $this->admView = new AdminView();
         $this->publicView = new MovieView();
+        $this->helper = new AuthHelper();
     }
 
 
     function login(){
+<<<<<<< HEAD
         session_start();
         if (isset($_SESSION["usuario"])){
             if($_SESSION['admin'] === "1"){
@@ -30,6 +33,9 @@ class loginController{
         } else{
             $this->admView->ShowLogin();
         }
+=======
+        $this->admView->showLogin();
+>>>>>>> c177ac685a3e6de7f42e6bcda262548d3d05d7a2
     }
 
     function logout(){
