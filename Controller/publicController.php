@@ -68,16 +68,16 @@
         }
 
         function movieDetailController($params = null){
-            $this->helper->sessionController();
+            $log = $this->helper->checkLoggedIn();
+            $rol = $this->helper->isAdmin();
+            $this->view->showNav($log, $rol);
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 //$user = $this->helper->getLoggedUserName();
                 $user = $_SESSION['usuario'];
                 $usuario = $this->userModel->getUserInfo($user);
                 $movie = $this->movieModel->getMovieById($id); 
-                $log = $this->helper->checkLoggedIn();
-                $rol = $this->helper->isAdmin();
-                $this->view->showNav($log, $rol);
+                
                 $this->view->renderMovieById($movie, $usuario);
             }
         }
