@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="nav.tpl"}
     <main class="main-contacto login">
         <h1>Registro de usuario</h1>
         <p>Los campos con (*) son obligatorios</p>

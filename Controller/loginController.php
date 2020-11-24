@@ -8,27 +8,18 @@ class loginController{
     private $admView;
     private $userModel;
     private $publicView;
+    private $helper;
 
     public function __construct(){
         $this->userModel = new userModel();
         $this->admView = new AdminView();
         $this->publicView = new MovieView();
+        $this->helper = new AuthHelper();
     }
 
 
     function login(){
-        session_start();
-        if (isset($_SESSION["usuario"])){
-            if($_SESSION['admin'] === "1"){
-                header("Location: ".BASE_URL."admin");
-                die();
-            }else{
-                $this->publicView->renderHome("Usted tiene una sesión activa");
-                die();
-            }
-        } else{
-            $this->admView->ShowLogin();
-        }
+        $this->admView->showLogin();
     }
 
     function logout(){

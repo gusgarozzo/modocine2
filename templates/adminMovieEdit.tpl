@@ -1,4 +1,4 @@
-{include file="header-admin.tpl"}   
+{include file="nav-admin.tpl"}   
 <main class="main-admin">  
     <div class="alta-baja-update">
         <h3>Editar registro - Tabla "Pelicula"</h3>

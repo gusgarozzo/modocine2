@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+
 {include file="estrenos.tpl"}
 <aside class="asideEstrenos">
     <h2>Cartelera</h2>            

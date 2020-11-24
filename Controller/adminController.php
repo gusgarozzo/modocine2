@@ -10,6 +10,7 @@
 
     class adminController{
         private $admView;
+        private $publicView;
         private $roomModel;
         private $movieModel;
         private $userModel;
@@ -18,6 +19,7 @@
         public function __construct(){
             $this->roomModel = new RoomModel();
             $this->admView = new AdminView();
+            $this->publicView = new MovieView();
             $this->movieModel = new MovieModel();
             $this->userModel = new userModel();
             $this->helper = new AuthHelper();
@@ -25,11 +27,14 @@
 
         // Muestra la pantalla de inicio de la seccion administrador
         function adminController(){ // TIENE EL MISMO NOMBRE QUE LA CLASE, CHEQUEAR PORQUE NOS PUEDEN LLAMAR LA ATENCIÓN
-            $this->helper->sessionController();
-            $this->helper->isAdmin();
+            $log = $this->helper->checkLoggedIn();
+            $rol = $this->helper->isAdmin();
+
             $movies = $this->movieModel->getMovies();
             $rooms = $this->roomModel->getAllRooms();
             $users = $this->userModel->getAllUsers();
+            
+            $this->publicView->showNav($log, $rol);
             $this->admView->renderAdmin($movies, $rooms, $users);
         }
 

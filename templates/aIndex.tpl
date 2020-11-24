@@ -1,4 +1,4 @@
-{include file="header-admin.tpl"}
+
 <main class="mainIndex">
 {if $user != null} <!--no funciona este if-->
     <div><p>Bienvenido {$user}</p><div>

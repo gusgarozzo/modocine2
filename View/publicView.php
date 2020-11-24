@@ -10,19 +10,26 @@
             $this->smarty = new Smarty();
         }
 
-        function renderHome($user = null, $mensaje = ''){
+        function showNav($log, $rol){
             $this->smarty->assign('titulo', $this->title);
-            $this->smarty->assign('mensaje', $mensaje);
-            $this->smarty->assign('user', $user);
+            if($log === true){
+                if($rol === true){
+                    $this->smarty->display('./templates/nav-admin.tpl');
+                }elseif($rol===false){
+                    $this->smarty->display('./templates/nav-user.tpl');
+                }
+            }else{
+                $this->smarty->display('./templates/nav.tpl');
+            }
+        }
+
+        function renderHome(){ 
             $this->smarty->display('./templates/index.tpl');
         }
 
 
         function renderContacto(){
-            $this->smarty->assign('titulo', "Modocine");
-            $this->smarty->assign('inicio', "Inicio");
-            $this->smarty->assign('estrenos', "Estrenos");
-            $this->smarty->assign('contacto', "Contacto");
+            
             $this->smarty->display('./templates/contacto.tpl');     
         }
         

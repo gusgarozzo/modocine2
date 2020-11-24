@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+
 {include file="comentarios.tpl"}
 <aside class="asideEstrenos">
     <h2>Detalles de la película</h2>            

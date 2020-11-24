@@ -11,47 +11,45 @@
         private $view;
         private $roomModel;
         private $helper;
+        private $admView;
 
         public function __construct(){
             $this->movieModel = new MovieModel();
             $this->roomModel = new RoomModel();
             $this->userModel = new userModel();
             $this->view = new MovieView();
+            $this->admView = new AdminView();
             $this->helper = new AuthHelper();
         }
 
         function homeController(){
-            if ($this->helper->checkLoggedIn()) {
-                $user = $this->helper->getLoggedUserName();
-                $logged = $this->helper->checkLoggedIn();
-                if ($this->helper->isAdmin()) {
-                    $this->view->renderHome($user);
-                    die();
-                }
-                else {
-                    $this->view->renderHome($user);
-                    die();
-                }
-            }
-            else {
-                $user = $this->helper->getLoggedUserName();
-                $this->view->renderHome($user);
-            }
-           
+            $log = $this->helper->checkLoggedIn();
+            $rol = $this->helper->isAdmin();
+            $this->view->showNav($log, $rol);
+            $this->view->renderHome();
         }
 
         function contactoController(){
+            $log = $this->helper->checkLoggedIn();
+            $rol = $this->helper->isAdmin();
+            $this->view->showNav($log, $rol);
             $this->view->renderContacto();
         }
 
         function estrenosController(){
             $movies=$this->movieModel->getAllMoviesAndRooms();
             $rooms=$this->roomModel->getAllRooms();
+            $log = $this->helper->checkLoggedIn();
+            $rol = $this->helper->isAdmin();
+            $this->view->showNav($log, $rol);
             $this->view->renderEstrenos($movies, $rooms);
         }
 
         function roomController(){
             $room = $this->roomModel->getAllRooms();
+            $log = $this->helper->checkLoggedIn();
+            $rol = $this->helper->isAdmin();
+            $this->view->showNav($log, $rol);
             $this->view->renderRooms($room);
         }
 
@@ -59,6 +57,9 @@
             if((isset($params[':GEN']))){
                 $genre = $params[':GEN'];
                 $movies = $this->movieModel->getMoviesByGenre($genre);
+                $log = $this->helper->checkLoggedIn();
+                $rol = $this->helper->isAdmin();
+                $this->view->showNav($log, $rol);
                 $this->view->renderMoviesByGenre($movies);
             }
         }
@@ -71,6 +72,9 @@
                 $user = $_SESSION['usuario'];
                 $usuario = $this->userModel->getUserInfo($user);
                 $movie = $this->movieModel->getMovieById($id); 
+                $log = $this->helper->checkLoggedIn();
+                $rol = $this->helper->isAdmin();
+                $this->view->showNav($log, $rol);
                 $this->view->renderMovieById($movie, $usuario);
             }
         }
@@ -79,6 +83,9 @@
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 $room = $this->roomModel->getRoomById($id);
+                $log = $this->helper->checkLoggedIn();
+                $rol = $this->helper->isAdmin();
+                $this->view->showNav($log, $rol);
                 $this->view->renderRoomById($room);
             }
         }
@@ -87,19 +94,32 @@
             if(isset($params[':ROOM'])){
                 $room = $params[':ROOM'];
                 $movies = $this->movieModel->getMoviesByRoom($room);
+                $log = $this->helper->checkLoggedIn();
+                $rol = $this->helper->isAdmin();
+                $this->view->showNav($log, $rol);
                 $this->view->renderMoviesByRoom($movies);
             }
         }
 
         function searchController($params=null){
+            $log = $this->helper->checkLoggedIn();
+            $rol = $this->helper->isAdmin();
+            $this->view->showNav($log, $rol);
             if(isset($_POST['input-search']) && ($_POST['campo'])){
                 $search = $_POST['input-search'];
-                $option = $_POST['campo'];
-                $result = $this->movieModel->searchMovies($option, $search);
+                if (!empty($search)){
+                    $option = $_POST['campo'];
+                    $result = $this->movieModel->searchMovies($option, $search);
 
-                if($result){
-                    $this->view->renderSearch($result);
+                    if($result){
+                        $this->view->renderSearch($result);
+                    }else{
+                        $this->admView->renderError("La búsqueda no arrojó resultados");
+                    }
+                }else{
+                    $this->admView->renderError("No se admiten campos vacíos");
                 }
+                
             }
         }
     }

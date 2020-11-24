@@ -5,11 +5,12 @@ class AuthHelper {
     public function __construct() {}
 
     public function isAdmin(){
+        session_start();
         if($_SESSION['admin'] === "1"){
             return true;
         }
         else {
-            header("Location: ".BASE_URL."home");
+            return false;
         }
     }
 
@@ -40,13 +41,14 @@ class AuthHelper {
     }
 
     static public function checkLoggedIn() {
-        session_start();
-        if (!isset($_SESSION['usuario'])) {
-            return false;
+        session_status();
+        if (1) {
+            return true;
         }       
         else {
-            return true;
+            return false;
         }
+
     }
 
 
