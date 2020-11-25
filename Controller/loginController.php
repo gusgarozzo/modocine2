@@ -16,8 +16,8 @@ class loginController{
     }
 
 
-    function login(){
-        $this->admView->showLogin();
+    function showLogin(){
+        $this->admView->renderLogin();
     }
 
     function logout(){
@@ -49,10 +49,10 @@ class loginController{
                         die();
                     }
                 } else{
-                    $this->admView->ShowLogin("Contraseña incorrecta");
+                    $this->admView->renderLogin("Contraseña incorrecta");
                 }
             }else{
-                $this->admView->ShowLogin("Usuario incorrecto");
+                $this->admView->renderLogin("Usuario incorrecto");
             }
         }
     }

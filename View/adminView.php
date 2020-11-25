@@ -49,7 +49,7 @@
             $this->smarty->display('./templates/error.tpl');
         }
 
-        function showLogin($mensaje = ''){
+        function renderLogin($mensaje = ''){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('mensaje', $mensaje);
             $this->smarty->display('./templates/login.tpl');
