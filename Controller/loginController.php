@@ -8,13 +8,11 @@ class loginController{
     private $admView;
     private $userModel;
     private $publicView;
-    private $helper;
 
     public function __construct(){
         $this->userModel = new userModel();
         $this->admView = new AdminView();
         $this->publicView = new MovieView();
-        $this->helper = new AuthHelper();
     }
 
 
