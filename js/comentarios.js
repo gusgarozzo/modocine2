@@ -20,9 +20,9 @@ function getComments() {
 function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
   let peli_id = document.querySelector('#peli_id').value;
-  let admin = document.querySelector("#admin");
+  let admin = document.querySelector("#admin").value;
   let form = document.querySelector("#commentForm");
-
+  console.log(admin);
 
   container.innerHTML = ' ';
 
@@ -58,12 +58,14 @@ function renderComments(comments){
 
       let id = comment.id;
 
-      if (admin == 1) {
-        deleteButton.style.display = 'block'
-
-      }else if(admin == null){
-        // Si la variable admin llega como null, transforma su valor a 0 y se esconde el formulario
-        admin = 0;
+      if (admin == 1){
+        deleteButton.style.display = "block";
+      }
+      if (admin == 0){
+        deleteButton.style.display = "none";
+       
+      }
+      else{
         form.style.display = "none";
       }
     }
