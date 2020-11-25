@@ -20,10 +20,14 @@ function getComments() {
 function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
   let peli_id = document.querySelector('#peli_id').value;
-  let admin = document.querySelector("#admin").value;
+  let admin = document.querySelector("#admin");
+  let form = document.querySelector("#commentForm");
+
+
   container.innerHTML = ' ';
+
   for (let comment of comments) {
-    console.log(comment.id);
+
     if (peli_id == comment.id_pelicula) {
       let divContainer = document.createElement("div");
       let divPuntaje = document.createElement("div");
@@ -31,6 +35,12 @@ function renderComments(comments){
       let spanNick = document.createElement("span");
       let deleteButton = document.createElement("button");
       let icono = document.createElement("i"); 
+
+      // Boton para borrar comentario
+      divContainer.appendChild(deleteButton);
+      deleteButton.style.display = 'none';
+      // Asigno evento para borrar comentario
+      deleteButton.addEventListener("click", () => deleteComment(id));
 
       divPuntaje.innerHTML = "Puntaje: " + comment.puntaje;
       spanNick.innerHTML = comment.nickname + " dijo: ";
@@ -41,15 +51,20 @@ function renderComments(comments){
       icono.classList.add("fa-trash-alt");
       icono.classList.add("fa-2x");
       deleteButton.appendChild(icono);
-      
       divContainer.appendChild(divPuntaje);
       divContainer.appendChild(divComentario);
       divContainer.classList.add("posteo");
       container.appendChild(divContainer);
+
       let id = comment.id;
+
       if (admin == 1) {
-        divContainer.appendChild(deleteButton);
-        deleteButton.addEventListener("click", () => deleteComment(id));
+        deleteButton.style.display = 'block'
+
+      }else if(admin == null){
+        // Si la variable admin llega como null, transforma su valor a 0 y se esconde el formulario
+        admin = 0;
+        form.style.display = "none";
       }
     }
   }

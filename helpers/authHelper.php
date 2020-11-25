@@ -4,20 +4,6 @@ class AuthHelper {
 
     public function __construct() {}
 
-    public function isAdmin(){
-        if(!isset($_SESSION)) { 
-        session_start(); 
-            if (isset($_SESSION['usuario'])){
-                if($_SESSION['admin'] === "1"){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-            }
-        }
-    }
-
     public function sessionController(){
         session_start(); 
         if (!isset($_SESSION['usuario'])){
@@ -56,6 +42,16 @@ class AuthHelper {
         }
     }
 
+    public function isAdmin(){
+        if (isset($_SESSION['usuario'])){
+            if($_SESSION['admin'] === "1"){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+}
 
     /*public function login($user) {
         // INICIO LA SESSION Y LOGUEO AL USUARIO

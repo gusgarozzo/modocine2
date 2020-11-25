@@ -24,9 +24,7 @@
 
         function homeController(){
             $log = $this->helper->checkLoggedIn();
-            var_dump($log);
             $rol = $this->helper->isAdmin();
-            var_dump($rol);
             //$username = $this->helper->getLoggedUserName();
             $this->view->showNav($log, $rol);
             $this->view->renderHome(/*$username*/);
@@ -70,14 +68,18 @@
         function movieDetailController($params = null){
             $log = $this->helper->checkLoggedIn();
             $rol = $this->helper->isAdmin();
+
             $this->view->showNav($log, $rol);
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 //$user = $this->helper->getLoggedUserName();
-                $user = $_SESSION['usuario'];
-                $usuario = $this->userModel->getUserInfo($user);
                 $movie = $this->movieModel->getMovieById($id); 
-                
+                if($log == true){
+                    $user = $_SESSION['usuario'];
+                    $usuario = $this->userModel->getUserInfo($user);
+                }else{
+                    $usuario = empty($usuario);
+                }
                 $this->view->renderMovieById($movie, $usuario);
             }
         }

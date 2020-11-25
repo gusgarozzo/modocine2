@@ -36,7 +36,6 @@
 
 
         function renderContacto(){
-            
             $this->smarty->display('./templates/contacto.tpl');     
         }
         

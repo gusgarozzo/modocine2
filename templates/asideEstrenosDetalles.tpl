@@ -1,4 +1,3 @@
-
 {include file="comentarios.tpl"}
 <aside class="asideEstrenos">
     <h2>Detalles de la película</h2>            
@@ -39,5 +38,4 @@
         </form>
     </section>
 </aside>  
-
 {include file="footer.tpl"}
