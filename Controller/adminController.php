@@ -27,14 +27,9 @@
 
         // Muestra la pantalla de inicio de la seccion administrador
         function adminController(){ // TIENE EL MISMO NOMBRE QUE LA CLASE, CHEQUEAR PORQUE NOS PUEDEN LLAMAR LA ATENCIÓN
-            $log = $this->helper->checkLoggedIn();
-            $rol = $this->helper->isAdmin();
-
             $movies = $this->movieModel->getMovies();
             $rooms = $this->roomModel->getAllRooms();
             $users = $this->userModel->getAllUsers();
-            
-            $this->publicView->showNav($log, $rol);
             $this->admView->renderAdmin($movies, $rooms, $users);
         }
 

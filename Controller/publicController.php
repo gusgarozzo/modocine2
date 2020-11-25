@@ -20,37 +20,26 @@
             $this->view = new MovieView();
             $this->admView = new AdminView();
             $this->helper = new AuthHelper();
+
         }
 
         function homeController(){
-            $log = $this->helper->checkLoggedIn();
-            $rol = $this->helper->isAdmin();
             //$username = $this->helper->getLoggedUserName();
-            $this->view->showNav($log, $rol);
             $this->view->renderHome(/*$username*/);
         }
 
         function contactoController(){
-            $log = $this->helper->checkLoggedIn();
-            $rol = $this->helper->isAdmin();
-            $this->view->showNav($log, $rol);
             $this->view->renderContacto();
         }
 
         function estrenosController(){
             $movies=$this->movieModel->getAllMoviesAndRooms();
             $rooms=$this->roomModel->getAllRooms();
-            $log = $this->helper->checkLoggedIn();
-            $rol = $this->helper->isAdmin();
-            $this->view->showNav($log, $rol);
             $this->view->renderEstrenos($movies, $rooms);
         }
 
         function roomController(){
             $room = $this->roomModel->getAllRooms();
-            $log = $this->helper->checkLoggedIn();
-            $rol = $this->helper->isAdmin();
-            $this->view->showNav($log, $rol);
             $this->view->renderRooms($room);
         }
 
@@ -58,18 +47,12 @@
             if((isset($params[':GEN']))){
                 $genre = $params[':GEN'];
                 $movies = $this->movieModel->getMoviesByGenre($genre);
-                $log = $this->helper->checkLoggedIn();
-                $rol = $this->helper->isAdmin();
-                $this->view->showNav($log, $rol);
                 $this->view->renderMoviesByGenre($movies);
             }
         }
 
         function movieDetailController($params = null){
             $log = $this->helper->checkLoggedIn();
-            $rol = $this->helper->isAdmin();
-
-            $this->view->showNav($log, $rol);
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 //$user = $this->helper->getLoggedUserName();
@@ -88,9 +71,6 @@
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 $room = $this->roomModel->getRoomById($id);
-                $log = $this->helper->checkLoggedIn();
-                $rol = $this->helper->isAdmin();
-                $this->view->showNav($log, $rol);
                 $this->view->renderRoomById($room);
             }
         }
@@ -99,17 +79,11 @@
             if(isset($params[':ROOM'])){
                 $room = $params[':ROOM'];
                 $movies = $this->movieModel->getMoviesByRoom($room);
-                $log = $this->helper->checkLoggedIn();
-                $rol = $this->helper->isAdmin();
-                $this->view->showNav($log, $rol);
                 $this->view->renderMoviesByRoom($movies);
             }
         }
 
         function searchController($params=null){
-            $log = $this->helper->checkLoggedIn();
-            $rol = $this->helper->isAdmin();
-            $this->view->showNav($log, $rol);
             if(isset($_POST['input-search']) && ($_POST['campo'])){
                 $search = $_POST['input-search'];
                 if (!empty($search)){

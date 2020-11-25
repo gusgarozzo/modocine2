@@ -1,12 +1,19 @@
 <?php
 
     require_once './libs/smarty/Smarty.class.php';
+    require_once './helpers/authHelper.php';
 
     class AdminView{
+
+        private $log;
+        private $rol;
 
         public function __construct(){
             $this->title = "MODOCINE";
             $this->smarty = new Smarty();
+            $this->helper = new AuthHelper();
+            $this->log = $this->helper->checkLoggedIn();
+            $this->rol = $this->helper->isAdmin();
         }
 
         function renderAdmin($movies, $rooms, $users){
@@ -14,6 +21,7 @@
             $this->smarty->assign('movies', $movies);
             $this->smarty->assign('rooms', $rooms);
             $this->smarty->assign('users', $users);
+            $this->showNav();
             $this->smarty->display('./templates/admin.tpl');
         }
 
@@ -73,6 +81,25 @@
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('user', $user);
             $this->smarty->display('./templates/adminUserEdit.tpl');
+        }
+
+        function showNav(){
+            $this->smarty->assign('titulo', $this->title);
+            switch ($this->log) {
+                case true:
+                    switch ($this->rol) {
+                        case true:
+                            $this->smarty->display('./templates/nav-admin.tpl');
+                        break;
+                        case false:
+                            $this->smarty->display('./templates/nav-user.tpl');
+                        break;
+                    };
+                    break;
+                case false:
+                $this->smarty->display('./templates/nav.tpl');
+                break;
+            }
         }
     
     }
