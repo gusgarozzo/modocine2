@@ -21,6 +21,21 @@
         </form>
     </div>
     <div class="alta-baja-update">
+        <h3>Agregar imagen a pelicula</h3>
+        <form action="insertPhoto" method="POST" class="formulario" enctype="multipart/form-data">
+            <label for="imagen">Seleccionar imagen</label>
+            <input type="file" name="imagen" required>
+
+            <label for="imagen">Seleccionar pelicula</label>
+            <select name="select_movie" id="">
+            {foreach from=$movies item=singleMovie}
+                <option class="option" value="{$singleMovie->id}">{$singleMovie->nombre}</option>
+            {/foreach}
+            </select>
+            <button name="guardar" type="submit">Enviar</button>
+        </form>
+    </div>
+    <div class="alta-baja-update">
         <h3>Agregar salas</h3>
         <form action="insertRoom" method="POST" class="formulario">
             <label for="input_nombre">Sala:</label>

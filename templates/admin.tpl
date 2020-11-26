@@ -12,6 +12,7 @@
                         <th>Genero</th>
                         <th>Sinopsis</th>
                         <th>Puntaje IMDB</th>
+                        <th>Imagen</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
@@ -19,11 +20,12 @@
                 {foreach from=$movies item=movie}
                     <tr id="tabla">
                         <td>{$movie->id}</td>
-                         <td>{$movie->id_sala}</td>
+                        <td>{$movie->id_sala}</td>
                         <td>{$movie->nombre}</td>
                         <td>{$movie->genero}</td>
                         <td>{$movie->sinopsis}</td>
                         <td>{$movie->puntaje_imdb}</td>
+                        <td>Aca iria la img</td>
                         <td>
                            <div>
                                 <a class="edit" href='editMovie/{$movie->id}'>Edit</a>
@@ -36,6 +38,11 @@
                 {/foreach}
                 </tbody>
             </table>
+            <p> 
+                {foreach from=$img item=image}
+                    {$image->imagen}
+                {/foreach}
+            </p>
     </div>
     <div class="sala">
         <h3>Base de Datos: Sala</h3>

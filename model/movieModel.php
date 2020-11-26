@@ -47,6 +47,13 @@
             $result = $query->fetchAll(PDO::FETCH_OBJ);
             return $result;
         }
+
+        function getIdAndNameMovies(){
+            $query = $this->db->prepare("SELECT pelicula.nombre, pelicula.id FROM pelicula");
+            $query->execute();
+            $movies = $query->fetchAll(PDO::FETCH_OBJ);
+            return $movies;
+        }
         // *********************** ACA EMPIEZA LO DEL ADMIN ************************
 
         // Agregar pelicula
@@ -95,7 +102,14 @@
             $query=$this->db->prepare('SELECT * FROM pelicula');
             $query->execute();
             $allMovies=$query->fetchAll(PDO::FETCH_OBJ);
-            return $allMovies;    
+            return $allMovies;
+        }
+
+        function getMoviePhotos(){
+            $query=$this->db->prepare('SELECT * FROM pelicula INNER JOIN imagen WHERE pelicula.id = imagen.id_pelicula');
+            $query->execute();
+            $moviePhoto = $query->fetchAll(PDO::FETCH_OBJ);
+            return $moviePhoto;
         }
 
         // Borrar sala desde su id

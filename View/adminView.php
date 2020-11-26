@@ -16,18 +16,20 @@
             $this->rol = $this->helper->isAdmin();
         }
 
-        function renderAdmin($movies, $rooms, $users){
+        function renderAdmin($movies, $rooms, $users, $img){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movies);
             $this->smarty->assign('rooms', $rooms);
             $this->smarty->assign('users', $users);
+            $this->smarty->assign('img', $img);
             $this->showNav();
             $this->smarty->display('./templates/admin.tpl');
         }
 
-        function renderInsertMovie($rooms){
+        function renderInsertMovie($movies, $rooms){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('rooms', $rooms);
+            $this->smarty->assign('movies', $movies);
             $this->smarty->display('./templates/adminInsert.tpl');
         }
 
