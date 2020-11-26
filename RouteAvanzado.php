@@ -35,6 +35,7 @@
     $r->addRoute("editarSala/:ID", "POST", "adminController", "editRoom"); // edita sala
     $r->addRoute("editUser/:ID", "GET", "adminController", "editUserMode"); // muestra form para editar usuario
     $r->addRoute("editarUsuario/:ID", "POST", "adminController", "editUser"); // edita usuario
+    $r->addRoute("insertPhoto", "POST", "adminController", "insertPhoto"); // agrega foto a pelicula
 
 
     // LOGIN
