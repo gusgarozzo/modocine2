@@ -28,6 +28,7 @@
                 <input type="text" name="nickname" id='nickname' value='{$usuario->nickname}' readonly>
                 <input type="hidden" name="usuario_id" id='usuario_id' value='{$usuario->id}'>
                 <input type="hidden" id="admin" value='{$usuario->admin}'>
+                <input type="hidden" id="sesion" value={$smarty.session.usuario}>
             {/foreach}
             {/if}
             {if (!isset($smarty.session.usuario))}

@@ -32,9 +32,16 @@ class AuthHelper {
         }
     }
 
-    static public function checkLoggedIn() {
-        if(!isset($_SESSION)){ 
-        session_start(); 
+    static public function checkLoggedIn() { 
+        if (!isset($_SESSION)){
+            session_start();
+            if (isset($_SESSION['usuario'])) {
+                return true;
+            }       
+            else{
+                return false;
+            }
+        }else{
             if (isset($_SESSION['usuario'])) {
                 return true;
             }       
@@ -53,7 +60,7 @@ class AuthHelper {
                 return false;
             }
         }
-}
+    }
 
     /*public function login($user) {
         // INICIO LA SESSION Y LOGUEO AL USUARIO

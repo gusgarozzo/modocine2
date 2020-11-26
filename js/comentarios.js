@@ -22,7 +22,9 @@ function renderComments(comments){
   let peli_id = document.querySelector('#peli_id').value;
   let admin = document.querySelector("#admin").value;
   let form = document.querySelector("#commentForm");
-  console.log(admin);
+  let sesion = document.querySelector("#sesion")
+  console.log("sesion:")
+  console.log(sesion);
 
   container.innerHTML = ' ';
 
@@ -58,15 +60,13 @@ function renderComments(comments){
 
       let id = comment.id;
 
+      if(sesion === null){
+        form.style.display = "none";
+      }
       if (admin == 1){
         deleteButton.style.display = "block";
-      }
-      if (admin == 0){
-        deleteButton.style.display = "none";
-       
-      }
-      else{
-        form.style.display = "none";
+      }else if (admin == 0){
+        deleteButton.style.display = "none"; 
       }
     }
   }
