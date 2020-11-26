@@ -7,6 +7,7 @@
     require_once 'loginController.php';
     require_once './Model/userModel.php';
     require_once './helpers/authHelper.php';
+    require_once './Model/photoModel.php';
 
     class adminController{
         private $admView;
@@ -15,6 +16,7 @@
         private $movieModel;
         private $userModel;
         private $helper;
+        private $photoModel;
 
         public function __construct(){
             $this->roomModel = new RoomModel();
@@ -23,20 +25,23 @@
             $this->movieModel = new MovieModel();
             $this->userModel = new userModel();
             $this->helper = new AuthHelper();
+            $this->photoModel = new PhotoModel();
         }
 
         // Muestra la pantalla de inicio de la seccion administrador
         function adminController(){ // TIENE EL MISMO NOMBRE QUE LA CLASE, CHEQUEAR PORQUE NOS PUEDEN LLAMAR LA ATENCIÓN
             $movies = $this->movieModel->getMovies();
+            $img = $this->movieModel->getMoviePhotos();
             $rooms = $this->roomModel->getAllRooms();
             $users = $this->userModel->getAllUsers();
-            $this->admView->renderAdmin($movies, $rooms, $users);
+            $this->admView->renderAdmin($movies, $rooms, $users, $img);
         }
 
         function adminInsert(){
             $this->helper->sessionController();
             $rooms = $this->roomModel->getAllRooms();
-            $this->admView->renderInsertMovie($rooms);
+            $movies = $this->movieModel->getIdAndNameMovies();
+            $this->admView->renderInsertMovie($movies, $rooms);
         }
 
         function insertMovie(){
@@ -156,6 +161,21 @@
                 $isAdmin = $_POST['input_isAdmin'];
                 if ($isAdmin == 0 || $isAdmin == 1 ) {
                     $this->userModel->editPermission($user_id, $isAdmin);
+                    $this->admView->ShowAdmin();
+                }
+            }
+        }
+
+        function insertPhoto(){
+            if (isset($_POST['guardar'])) {
+                if (isset($_FILES['imagen']['name']) && (isset($_POST['select_movie']))){
+                    $id_pelicula = $_POST['select_movie'];
+                    $tipoArchivo = $_FILES['imagen']['type'];
+                    $nombreArchivo = $_FILES['imagen']['name'];
+                    $tamanoArchivo = $_FILES['imagen']['size'];
+                    $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
+                    $binariosImagen = fread($imagenSubida, $tamanoArchivo);
+                    $this->photoModel->insertPhoto($binariosImagen, $nombreArchivo, $tipoArchivo, $id_pelicula);
                     $this->admView->ShowAdmin();
                 }
             }
