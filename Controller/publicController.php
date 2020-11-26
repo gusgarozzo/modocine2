@@ -12,7 +12,6 @@
         private $roomModel;
         private $helper;
         private $admView;
-        private $log;
 
         public function __construct(){
             $this->movieModel = new MovieModel();
@@ -21,7 +20,6 @@
             $this->view = new MovieView();
             $this->admView = new AdminView();
             $this->helper = new AuthHelper();
-            $this->log = $this->helper->checkLoggedIn();
         }
 
         function homeController(){
@@ -53,12 +51,13 @@
         }
 
         function movieDetailController($params = null){
-            $this->log;
+            $log = $this->helper->checkLoggedIn();
+            var_dump($log);
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 //$user = $this->helper->getLoggedUserName();
                 $movie = $this->movieModel->getMovieById($id); 
-                if($this->log == true){
+                if($log == true){
                     $user = $_SESSION['usuario'];
                     $usuario = $this->userModel->getUserInfo($user);
                 }else{
