@@ -44,10 +44,11 @@
             $this->renderEstrenos($movies);
         }
 
-        function renderMovieById($movie, $usuario){ 
+        function renderMovieById($movie, $usuario, $image){ 
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('movies', $movie);
             $this->smarty->assign('usuario', $usuario);
+            $this->smarty->assign('image', $image);
             $this->showNav();
             $this->smarty->display('./templates/asideEstrenosDetalles.tpl');
         }

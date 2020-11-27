@@ -12,6 +12,13 @@
                                 <li>{$mov->sinopsis}</li>
                                 <li>Genero: {$mov->genero}</li>
                                 <li>Puntaje IMDB: {$mov->puntaje_imdb}/10</li>
+                                {foreach from=$image item=img}
+                                    {if $mov->id == $img->id_pelicula}
+                                        <li>
+                                            <img width="300px" src='data:{$img->tipo};base64, {base64_encode({$img->imagen})}'>
+                                        </li>
+                                    {/if}
+                                {/foreach}
                             </ul>
                     </ul>
             {/if}
