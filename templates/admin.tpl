@@ -16,7 +16,7 @@
                         <th>Accion</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>{foreach from=$img item=image}{/foreach}
                 {foreach from=$movies item=movie}
                     <tr id="tabla">
                         <td>{$movie->id}</td>
@@ -25,7 +25,12 @@
                         <td>{$movie->genero}</td>
                         <td>{$movie->sinopsis}</td>
                         <td>{$movie->puntaje_imdb}</td>
-                        <td>Aca iria la img</td>
+                        {if $movie->id == $image->id_pelicula}
+                                <td><img src='data:{$image->tipo};base64, {base64_encode({$image->imagen})}'></td>
+                        {/if}
+                        {if $movie->id != $image->id_pelicula}
+                            <td>Sin imagen</td>
+                        {/if}         
                         <td>
                            <div>
                                 <a class="edit" href='editMovie/{$movie->id}'>Edit</a>
@@ -38,11 +43,6 @@
                 {/foreach}
                 </tbody>
             </table>
-            <p> 
-                {foreach from=$img item=image}
-                    {$image->imagen}
-                {/foreach}
-            </p>
     </div>
     <div class="sala">
         <h3>Base de Datos: Sala</h3>
