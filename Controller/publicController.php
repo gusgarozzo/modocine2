@@ -4,6 +4,7 @@
     require_once './Model/roomModel.php';
     require_once './Model/userModel.php';
     require_once './helpers/authHelper.php';
+    require_once './Model/photoModel.php';
 
     class publicController{
         private $movieModel;
@@ -12,6 +13,7 @@
         private $roomModel;
         private $helper;
         private $admView;
+        private $photoModel;
 
         public function __construct(){
             $this->movieModel = new MovieModel();
@@ -20,6 +22,7 @@
             $this->view = new MovieView();
             $this->admView = new AdminView();
             $this->helper = new AuthHelper();
+            $this->photoModel = new PhotoModel();
         }
 
         function homeController(){
@@ -63,7 +66,8 @@
                 }else{
                     $usuario = empty($usuario);
                 }
-                $this->view->renderMovieById($movie, $usuario);
+                $image = $this->photoModel->getMoviePhotos();
+                $this->view->renderMovieById($movie, $usuario, $image);
             }
         }
 
