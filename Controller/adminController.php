@@ -171,14 +171,29 @@
                 if (isset($_FILES['imagen']['name']) && (isset($_POST['select_movie']))){
                     $id_pelicula = $_POST['select_movie'];
                     $tipoArchivo = $_FILES['imagen']['type'];
-                    $nombreArchivo = $_FILES['imagen']['name'];
-                    $tamanoArchivo = $_FILES['imagen']['size'];
-                    $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
-                    $binariosImagen = fread($imagenSubida, $tamanoArchivo);
-                    $this->photoModel->insertPhoto($binariosImagen, $nombreArchivo, $tipoArchivo, $id_pelicula);
-                    $this->admView->ShowAdmin();
+                    $permitido = array("image/png", "image/jpeg", "image/x-icon");
+                    if ( in_array($tipoArchivo,$permitido) == false ) {
+                        $this->admView->renderError('Este tipo de archivo no es permitido, pruebe con .png / .jpeg / .x-ico');
+                        die();
+                    }
+                    else {
+                        $nombreArchivo = $_FILES['imagen']['name'];
+                        $tamanoArchivo = $_FILES['imagen']['size'];
+                        $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
+                        $binariosImagen = fread($imagenSubida, $tamanoArchivo);
+                        $this->photoModel->insertPhoto($binariosImagen, $nombreArchivo, $tipoArchivo, $id_pelicula);
+                        $this->admView->showAdmin();
+                    }
                 }
             }
         }
 
+        function deletePhoto($params = null){
+            $this->helper->sessionController();
+            if((isset($params[':ID']))){
+                $img_id = $params[':ID'];
+                $this->photoModel->deleteImg($img_id);
+                $this->admView->showAdmin();
+            }
+        }
     }
