@@ -48,6 +48,7 @@
         function renderError($mensaje = ''){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('mensaje', $mensaje);
+            $this->showNav();
             $this->smarty->display('./templates/error.tpl');
         }
 
