@@ -23,7 +23,7 @@
     $r->addRoute("buscador", "POST", "publicController", "searchController"); // buscador
 
     // ADMIN CONTROLLER
-    $r->addRoute("admin", "GET", "adminController", "adminController");
+    $r->addRoute("admin", "GET", "adminController", "showAdminView");
     $r->addRoute("adminInsert", "GET", "adminController", "adminInsert"); // muestra form para agregar peli y sala
     $r->addRoute("insertMovie", "POST", "adminController", "insertMovie"); // agrega peli
     $r->addRoute("insertRoom", "POST", "adminController", "insertRoom"); // agrega sala

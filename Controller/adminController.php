@@ -28,8 +28,7 @@
             $this->photoModel = new PhotoModel();
         }
 
-        // Muestra la pantalla de inicio de la seccion administrador
-        function adminController(){ // TIENE EL MISMO NOMBRE QUE LA CLASE, CHEQUEAR PORQUE NOS PUEDEN LLAMAR LA ATENCIÓN
+        function showAdminView(){
             $movies = $this->movieModel->getMovies();
             $img = $this->movieModel->getMoviePhotos();
             $rooms = $this->roomModel->getAllRooms();
