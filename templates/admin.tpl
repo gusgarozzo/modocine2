@@ -12,8 +12,8 @@
                         <th>Genero</th>
                         <th>Sinopsis</th>
                         <th>Puntaje IMDB</th>
+                        <th>Accion (pelicula)</th>
                         <th>Imagen</th>
-                        <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>{foreach from=$img item=image}{/foreach}
@@ -25,12 +25,6 @@
                         <td>{$movie->genero}</td>
                         <td>{$movie->sinopsis}</td>
                         <td>{$movie->puntaje_imdb}</td>
-                        {if $movie->id == $image->id_pelicula}
-                                <td><img src='data:{$image->tipo};base64, {base64_encode({$image->imagen})}'></td>
-                        {/if}
-                        {if $movie->id != $image->id_pelicula}
-                            <td>Sin imagen</td>
-                        {/if}         
                         <td>
                            <div>
                                 <a class="edit" href='editMovie/{$movie->id}'>Edit</a>
@@ -39,6 +33,16 @@
                                 <a class="delete" href='deleteMovie/{$movie->id}'> Delete</a>
                             </div>
                         </td>
+                        {foreach from=$img item=image}
+                            {if $movie->id == $image->id_pelicula}
+                                <td>
+                                    <img width="300px" src='data:{$image->tipo};base64, {base64_encode({$image->imagen})}'>
+                                </td>
+                                <td>
+                                    <a class="delete" href='deletePhoto/{$image->id}'>Delete img</a>
+                                </td>
+                            {/if}
+                        {/foreach}
                     </tr>
                 {/foreach}
                 </tbody>
