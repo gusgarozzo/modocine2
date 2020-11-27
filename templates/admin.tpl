@@ -16,7 +16,7 @@
                         <th>Imagen</th>
                     </tr>
                 </thead>
-                <tbody>{foreach from=$img item=image}{/foreach}
+                <tbody>
                 {foreach from=$movies item=movie}
                     <tr id="tabla">
                         <td>{$movie->id}</td>
