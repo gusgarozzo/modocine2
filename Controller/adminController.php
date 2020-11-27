@@ -30,7 +30,7 @@
 
         function showAdminView(){
             $movies = $this->movieModel->getMovies();
-            $img = $this->movieModel->getMoviePhotos();
+            $img = $this->photoModel->getMoviePhotos();
             $rooms = $this->roomModel->getAllRooms();
             $users = $this->userModel->getAllUsers();
             $this->admView->renderAdmin($movies, $rooms, $users, $img);
