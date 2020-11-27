@@ -60,9 +60,11 @@
 
         function deleteMovie($params = null){
             $this->helper->sessionController();
-            $movie_id = $params[':ID'];
-            $this->movieModel->deleteMovieId($movie_id);
-            $this->admView->ShowAdmin();
+            if((isset($params[':ID']))){
+                $movie_id = $params[':ID'];
+                $this->movieModel->deleteMovieId($movie_id);
+                $this->admView->ShowAdmin();
+            }
         }
 
         function editMovieMode($params = null){
@@ -134,7 +136,7 @@
         function insertRoom(){
             $this->helper->sessionController();
             if((isset($_POST['input_letra'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']) && 
-            (isset($_POST['input_tipo'])) && (isset($_POST['input_info'])) )){
+                (isset($_POST['input_tipo'])) && (isset($_POST['input_info'])) )){
                 $sala= $_POST['input_letra'];
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
