@@ -25,27 +25,32 @@
             $this->photoModel = new PhotoModel();
         }
 
-        function homeController(){
-            //$username = $this->helper->getLoggedUserName();
-            $this->view->renderHome(/*$username*/);
+        function showHome(){
+            if ($this->helper->checkLoggedIn()) {
+                $username = $this->helper->getLoggedUserName();
+                $this->view->renderHome($username);
+            }
+            else{
+                $this->view->renderHome();
+            }
         }
 
-        function contactoController(){
+        function showContacto(){
             $this->view->renderContacto();
         }
 
-        function estrenosController(){
+        function showCartelera(){
             $movies=$this->movieModel->getAllMoviesAndRooms();
             $rooms=$this->roomModel->getAllRooms();
             $this->view->renderEstrenos($movies, $rooms);
         }
 
-        function roomController(){
+        function showRooms(){
             $room = $this->roomModel->getAllRooms();
             $this->view->renderRooms($room);
         }
 
-        function genreController($params = null){
+        function showMovieByGenre($params = null){
             if((isset($params[':GEN']))){
                 $genre = $params[':GEN'];
                 $movies = $this->movieModel->getMoviesByGenre($genre);
@@ -53,11 +58,10 @@
             }
         }
 
-        function movieDetailController($params = null){
+        function showMovieDetail($params = null){
             $log = $this->helper->checkLoggedIn();
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
-                //$user = $this->helper->getLoggedUserName();
                 $movie = $this->movieModel->getMovieById($id); 
                 if($log == true){
                     $user = $_SESSION['usuario'];
@@ -70,7 +74,7 @@
             }
         }
 
-        function roomDetailController($params = null){
+        function showRoomDetail($params = null){
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 $room = $this->roomModel->getRoomById($id);
@@ -78,7 +82,7 @@
             }
         }
 
-        function moviesByRoomController($params = null){
+        function showMoviesByRoom($params = null){
             if(isset($params[':ROOM'])){
                 $room = $params[':ROOM'];
                 $movies = $this->movieModel->getMoviesByRoom($room);
@@ -86,15 +90,14 @@
             }
         }
 
-        function searchController($params=null){
+        function showSearchResult($params=null){
             if(isset($_POST['input-search']) && ($_POST['campo'])){
                 $search = $_POST['input-search'];
+                $option = $_POST['campo'];
                 if (!empty($search)){
-                    $option = $_POST['campo'];
                     $result = $this->movieModel->searchMovies($option, $search);
-
                     if($result){
-                        $this->view->renderSearch($result);
+                        $this->view->renderSearchResult($result);
                     }else{
                         $this->admView->renderError("La búsqueda no arrojó resultados");
                     }
