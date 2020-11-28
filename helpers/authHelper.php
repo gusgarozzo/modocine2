@@ -23,12 +23,21 @@ class AuthHelper {
     }
 
     public function getLoggedUserName() {
-        if (session_status() == PHP_SESSION_ACTIVE){
+        if (!isset($_SESSION)){
             session_start();
-            return $_SESSION['usuario'];
-        }
-        else{
-            return false;
+            if (session_status() == PHP_SESSION_ACTIVE){
+                return $_SESSION['usuario'];
+            }
+            else{
+                return false;
+            }
+        }else{
+            if (session_status() == PHP_SESSION_ACTIVE){
+                return $_SESSION['usuario'];
+            }
+            else{
+                return false;
+            }
         }
     }
 
@@ -52,12 +61,24 @@ class AuthHelper {
     }
 
     public function isAdmin(){
-        if (isset($_SESSION['usuario'])){
-            if($_SESSION['admin'] === "1"){
-                return true;
+        if (!isset($_SESSION)){
+            session_start();
+            if (isset($_SESSION['usuario'])){
+                if($_SESSION['admin'] === "1"){
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
-            else{
-                return false;
+        }else{
+            if (isset($_SESSION['usuario'])){
+                if($_SESSION['admin'] === "1"){
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
         }
     }
