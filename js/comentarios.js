@@ -25,11 +25,14 @@ function renderComments(comments){
   let sesion = document.querySelector("#sesion")
   console.log("sesion:")
   console.log(sesion);
+  if (admin==3) {
+    form.style.display = "none";
+  }
 
   container.innerHTML = ' ';
 
   for (let comment of comments) {
-
+    console.log(admin);
     if (peli_id == comment.id_pelicula) {
       let divContainer = document.createElement("div");
       let divPuntaje = document.createElement("div");
@@ -60,13 +63,15 @@ function renderComments(comments){
 
       let id = comment.id;
 
-      if(sesion === null){
+      if(sesion == null){
         form.style.display = "none";
       }
       if (admin == 1){
         deleteButton.style.display = "block";
+        console.log('admin')
       }else if (admin == 0){
-        deleteButton.style.display = "none"; 
+        deleteButton.style.display = "none";
+        console.log('usuario')
       }
     }
   }

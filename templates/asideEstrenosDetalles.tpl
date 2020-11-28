@@ -41,7 +41,7 @@
             {/foreach}
             {/if}
             {if (!isset($smarty.session.usuario))}
-                <input type="hidden" id="admin" value='0'>
+                <input type="hidden" id="admin" value='3'>
             {/if}
             <label for="puntaje">Puntaje</label>
             <input type="number" name="puntaje" min="1" max="5" id="puntaje">
