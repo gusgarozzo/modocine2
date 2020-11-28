@@ -1,10 +1,8 @@
 <?php 
-
     require_once './libs/smarty/Smarty.class.php';
     require_once './helpers/authHelper.php';
 
     class MovieView{
-
         private $log;
         private $rol;
 
@@ -16,18 +14,16 @@
             $this->rol = $this->helper->isAdmin();
         }
 
-        function renderHome(/*$mensaje = ''*/){ 
-            //$this->smarty->assign('mensaje', $mensaje);
+        function renderHome($mensaje = ''){ 
+            $this->smarty->assign('mensaje', $mensaje);
             $this->showNav();
             $this->smarty->display('./templates/index.tpl');
         }
-
 
         function renderContacto(){
             $this->showNav();
             $this->smarty->display('./templates/contacto.tpl');     
         }
-        
 
         function renderEstrenos($movies){
             $this->smarty->assign('titulo', $this->title);
@@ -68,7 +64,7 @@
             $this->smarty->display('./templates/asideRoomDetalle.tpl');
         }
 
-        function renderSearch($results){
+        function renderSearchResult($results){
             $this->smarty->assign('titulo', $this->title);
             $this->smarty->assign('results', $results);
             $this->showNav();
@@ -93,17 +89,15 @@
                     switch ($this->rol) {
                         case true:
                             $this->smarty->display('./templates/nav-admin.tpl');
-                        break;
+                            break;
                         case false:
                             $this->smarty->display('./templates/nav-user.tpl');
-                        break;
+                            break;
                     };
                     break;
                 case false:
-                $this->smarty->display('./templates/nav.tpl');
-                break;
+                    $this->smarty->display('./templates/nav.tpl');
+                    break;
             }
         }
-
-
     }

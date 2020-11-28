@@ -1,9 +1,15 @@
 <main class="mainIndex">
-<!--<div>
-    <p>
-        {$mensaje}
-    <p>
-</div>-->
+<div>
+    {if $mensaje != null}
+        <p>
+            Logueado como: {$mensaje}
+        <p>
+        {else}
+        <p>
+            Invitado
+        <p>
+    {/if}
+</div>
             <section>
                 <h1>NOTICIAS DE CINE Y SERIES</h1>
                 <article>
