@@ -27,7 +27,7 @@
                         <td>{$movie->sinopsis}</td>
                         <td>{$movie->puntaje_imdb}</td>
                         <td>
-                           <div>
+                            <div>
                                 <a class="edit" href='editMovie/{$movie->id}'>Edit</a>
                             </div>
                             <div>

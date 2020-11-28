@@ -11,7 +11,6 @@
 
     class adminController{
         private $admView;
-        private $publicView;
         private $roomModel;
         private $movieModel;
         private $userModel;
@@ -21,29 +20,49 @@
         public function __construct(){
             $this->roomModel = new RoomModel();
             $this->admView = new AdminView();
-            $this->publicView = new MovieView();
             $this->movieModel = new MovieModel();
             $this->userModel = new userModel();
             $this->helper = new AuthHelper();
             $this->photoModel = new PhotoModel();
         }
 
+        // Carga la vista del administrador
         function showAdminView(){
+            // Trae todas las peliculas
             $movies = $this->movieModel->getMovies();
+
+            // Trae las imágenes
             $img = $this->photoModel->getMoviePhotos();
+
+            // Trae todas las salas
             $rooms = $this->roomModel->getAllRooms();
+
+            // Trae los datos de todos los usuarios
             $users = $this->userModel->getAllUsers();
+
+            // Envía toda la info al view
             $this->admView->renderAdmin($movies, $rooms, $users, $img);
         }
 
+        // Carga la vista para insertar pelicula en la base de datos
         function adminInsert(){
+            // Controla que el administrador se encuentre logueado
             $this->helper->sessionController();
+
+            // Trae la información de todas las salas
             $rooms = $this->roomModel->getAllRooms();
+
+            // Trae info de peliculas
             $movies = $this->movieModel->getIdAndNameMovies();
+
+            // Envia la info a la vista del admin
             $this->admView->renderInsertMovie($movies, $rooms);
         }
 
+
+        // Inserta pelicula en la base de datos
         function insertMovie(){
+            // Controla que el administrador se encuentre logueado
             $this->helper->sessionController();
             if((isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && (isset($_POST['input_sinopsis']))
                 && (isset($_POST['input_puntaje'])) && (isset($_POST['input_id_sala']))){
@@ -52,29 +71,55 @@
                 $sinopsis = $_POST['input_sinopsis'];
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
-                $this->movieModel->insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala);
-                $this->admView->ShowAdmin();
+                $action=$this->movieModel->insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala);
+                
+                if($action){
+                    $this->admView->ShowAdmin();
+                }else{
+                    $this->admView->renderError("No pudo insertarse la pelicula. Reintente");
+                }
+                
+            }else{
+                $this->admView->renderError("Hubo un error. Revise los campos y reintente");
             }
         }
 
+        // Borra película
         function deleteMovie($params = null){
             $this->helper->sessionController();
             if((isset($params[':ID']))){
                 $movie_id = $params[':ID'];
-                $this->movieModel->deleteMovieId($movie_id);
-                $this->admView->ShowAdmin();
+                $action=$this->movieModel->deleteMovieId($movie_id);
+
+                if($action){
+                    $this->admView->ShowAdmin();
+                }else{
+                    $this->admView->renderError("Hubo un error. Revise y reintente");
+                }
+                
+            }else{
+                $this->admView->renderError("Hubo un error. Reintente");
             }
         }
 
+        // Trae los datos de pelicula solicitada para su posterior edición
         function editMovieMode($params = null){
             $this->helper->sessionController();
             if((isset($params[':ID']))){
                 $movie_id = $params[':ID'];
-                $movie = $this->movieModel->getMovieByIdAdm($movie_id);
-                $this->admView->renderEditMovie($movie);
+                $action=$movie = $this->movieModel->getMovieByIdAdm($movie_id);
+                if ($action){
+                    $this->admView->renderEditMovie($movie);
+                }else{
+                    $this->admView->renderError("Hubo un error. Revise y reintente");
+                }
+                
+            }else{
+                $this->admView->renderError("Hubo un error. Reintente");
             }
         }
 
+        // Edita película
         function editMovie($params = null){
             $this->helper->sessionController();
             if((isset($params[':ID'])) && (isset($_POST['input_nombre'])) && (isset($_POST['input_genero'])) && 
@@ -86,8 +131,15 @@
                 $sinopsis = $_POST['input_sinopsis'];
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
-                $this->movieModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $movie_id);
-                $this->admView->ShowAdmin();
+                $action=$this->movieModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $movie_id);
+                if ($action){
+                    $this->admView->ShowAdmin();
+                }else{
+                    $this->admView->renderError("Hubo un error. Revise y reintente");
+                }
+                
+            }else{
+                $this->admView->renderError("Hubo un error. Reintente");
             }
         }
 
