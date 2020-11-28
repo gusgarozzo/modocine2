@@ -88,6 +88,7 @@ function addComent(){
     })
 
     .then(response => response.json())
+    .then(document.querySelector("#commentForm").reset())
     .then(comentario => getComments())
     .catch(error => console.log(error));
 }

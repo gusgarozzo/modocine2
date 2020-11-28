@@ -55,7 +55,6 @@
 
         function movieDetailController($params = null){
             $log = $this->helper->checkLoggedIn();
-            var_dump($log);
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 //$user = $this->helper->getLoggedUserName();

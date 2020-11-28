@@ -685,6 +685,10 @@ footer i:hover{
     padding: 10px;
 }
 
+.datos-detalles{
+    display: block;
+}
+
 .datos-detalles h3{
     margin-left: 10px;
     margin-right: 10px;
@@ -1054,4 +1058,21 @@ header .adminMenu{
 
 .span-registro{
     color: white;
+}
+
+.box-detalles{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.imgbox{
+    display: block;
+    margin-left: 15px;
+    padding-right: 5px;
+}
+
+.dbimage{
+    width: 200px;
+    height: auto;
 }

@@ -14,6 +14,7 @@
                         <th>Puntaje IMDB</th>
                         <th>Accion (pelicula)</th>
                         <th>Imagen</th>
+                        <th>Accion (imagen)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,9 +35,9 @@
                             </div>
                         </td>
                         {foreach from=$img item=image}
-                            {if $movie->id == $image->id_pelicula}
+                            {if $movie->id == $image->id_pelicula}                                
                                 <td>
-                                    <img width="300px" src='data:{$image->tipo};base64, {base64_encode({$image->imagen})}'>
+                                    <img class="dbimage" src='data:{$image->tipo};base64, {base64_encode({$image->imagen})}'>
                                 </td>
                                 <td>
                                     <a class="delete" href='deletePhoto/{$image->id}'>Delete img</a>
