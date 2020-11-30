@@ -249,4 +249,47 @@
                 $this->admView->showAdmin();
             }
         }
+
+        function editPhotoMode($params=null){
+            $this->helper->sessionController();
+            if((isset($params[':ID']))){
+                $img_id = $params[':ID'];
+
+                $image = $this->photoModel->getPhotoById($img_id);
+                if($image){
+                    $this->admView->renderEditPhoto($image);
+                }else{
+                    $this->admView->renderError("Ocurrió un error, reintente nuevamente");
+                }
+            }
+
+        }
+
+        function editPhoto(){
+            if (isset($_POST['guardar'])) {
+                if (isset($_FILES['imagen']['name'])){
+                    $tipoArchivo = $_FILES['imagen']['type'];
+                    $permitido = array("image/png", "image/jpeg", "image/x-icon");
+                    if ( in_array($tipoArchivo,$permitido) == false ) {
+                        $this->admView->renderError('Este tipo de archivo no es permitido, pruebe con .png / .jpeg / .x-ico');
+                        die();
+                    }
+                    else {
+                        $nombreArchivo = $_FILES['imagen']['name'];
+                        $tamanoArchivo = $_FILES['imagen']['size'];
+                        $id_pelicula = $_POST['id_pelicula'];
+                        
+                        $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
+                        $binariosImagen = fread($imagenSubida, $tamanoArchivo);
+                        $action=$this->photoModel->editPhoto($binariosImagen, $nombreArchivo, $tipoArchivo, $id_pelicula);
+                        if ($action > 0){
+                            $this->admView->showAdmin();
+                        }else{
+                            $this->admView->renderError("Ocurrió un error. Revise los campos y reintente");
+                        }
+                        
+                    }
+                }
+            }
+        }
     }

@@ -28,10 +28,10 @@
                         <td>{$movie->puntaje_imdb}</td>
                         <td>
                             <div>
-                                <a class="edit" href='editMovie/{$movie->id}'>Edit</a>
+                                <a class="edit" href='editMovie/{$movie->id}'>Editar</a>
                             </div>
                             <div>
-                                <a class="delete" onclick="return confirmDelete()" href='deleteMovie/{$movie->id}'> Delete</a>
+                                <a class="delete" onclick="return confirmDelete()" href='deleteMovie/{$movie->id}'>Borrar</a>
                             </div>
                         </td>
                         {foreach from=$img item=image}
@@ -40,7 +40,8 @@
                                     <img class="dbimage" src='data:{$image->tipo};base64, {base64_encode({$image->imagen})}'>
                                 </td>
                                 <td>
-                                    <a class="delete" onclick="return confirmDelete()" href='deletePhoto/{$image->id}'>Delete img</a>
+                                    <a class="delete" onclick="return confirmDelete()" href='deletePhoto/{$image->id}'>Borrar</a>
+                                    <a class="edit" href='editPhoto/{$image->id}'>Editar</a>
                                 </td>
                             {/if}
                         {/foreach}
@@ -74,10 +75,10 @@
                         <td>{$room->info_butaca}</td>
                         <td>
                             <div>
-                                <a class="edit" href='editRoom/{$room->id}'>Edit</a>
+                                <a class="edit" href='editRoom/{$room->id}'>Editar</a>
                             </div>
                             <div>
-                                <a class="delete" onclick="return confirmDelete()" href='deleteRoom/{$room->id}'> Delete</a>
+                                <a class="delete" onclick="return confirmDelete()" href='deleteRoom/{$room->id}'>Borrar</a>
                             </div>
                         </td>
                     </tr>
@@ -102,10 +103,10 @@
                         <td>{$user->admin}</td>
                         <td>
                             <div>
-                                <a class="edit" href='editUser/{$user->id}'>Edit</a>
+                                <a class="edit" href='editUser/{$user->id}'>Editar</a>
                             </div>
                             <div>
-                                <a class="delete" onclick="return confirmDelete()" href='deleteUser/{$user->id}'>Delete</a>
+                                <a class="delete" onclick="return confirmDelete()" href='deleteUser/{$user->id}'>Borrar</a>
                             </div>
                         </td>
                     </tr>

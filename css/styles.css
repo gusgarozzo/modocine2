@@ -1094,3 +1094,44 @@ header .adminMenu{
     font-weight: normal;
 }
 
+.editPhoto{
+    display: flex;
+    justify-content: center;
+    height: 330px;
+    font-size: inherit;
+}
+
+.editPhotoForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.editPhotoForm div{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50%;
+    padding-bottom: 20px;
+}
+
+.imagebox{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.imagebox p{
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+.imagebox img{
+    height: 400px;
+    width: 300px;
+}

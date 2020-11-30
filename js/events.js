@@ -9,13 +9,3 @@ function confirmDelete() {
         return false;
     }
 }
-
-function confirmEdit(){
-    let response = confirm("Desea confirmar los cambios realizados?");
-
-    if (response == true){
-        return true;
-    }else{
-        return false;
-    }
-}

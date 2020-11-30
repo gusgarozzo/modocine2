@@ -86,6 +86,12 @@
             $this->smarty->display('./templates/adminUserEdit.tpl');
         }
 
+        function renderEditPhoto($image){
+            $this->smarty->assign('titulo', $this->title);
+            $this->smarty->assign('image', $image);
+            $this->smarty->display('./templates/adminEditPhoto.tpl');
+        }
+
         function showNav(){
             $this->smarty->assign('titulo', $this->title);
             switch ($this->log) {
