@@ -40,6 +40,7 @@ class loginController{
                     //$_SESSION['loggedInUser'];
                     $_SESSION['timeout'] = time();
                     $_SESSION['admin'] = $usuario->admin;
+                    $_SESSION['nickname'] = $usuario->nickname;
 
                     if($_SESSION['admin']=== "1"){
                         header("Location: ".BASE_URL."admin");
@@ -75,9 +76,11 @@ class loginController{
                         $hash = password_hash($password, PASSWORD_DEFAULT);
                         $user = $this->userModel->saveUserInDDBB($nickname, $username, $hash);
                         if($user>0){
-                            session_start();
+                            $info=$this->userModel->getUserInfo($user);
                             $_SESSION["usuario"] = $username; 
                             $_SESSION['timeout'] = time();
+                            $_SESSION['admin'] = $info->admin;
+                            $_SESSION['nickname'] = $info->nickname;
                             header("Location: ".BASE_URL."home");
                         }else{
                             $this->admView->renderError("Registro inválido. Reintente");

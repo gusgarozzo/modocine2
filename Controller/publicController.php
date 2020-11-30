@@ -26,6 +26,7 @@
         }
 
         function showHome(){
+            
             if ($this->helper->checkLoggedIn()) {
                 $username = $this->helper->getLoggedUserName();
                 $this->view->renderHome($username);

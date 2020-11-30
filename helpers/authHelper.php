@@ -26,14 +26,14 @@ class AuthHelper {
         if (!isset($_SESSION)){
             session_start();
             if (session_status() == PHP_SESSION_ACTIVE){
-                return $_SESSION['usuario'];
+                return $_SESSION['nickname'];
             }
             else{
                 return false;
             }
         }else{
             if (session_status() == PHP_SESSION_ACTIVE){
-                return $_SESSION['usuario'];
+                return $_SESSION['nickname'];
             }
             else{
                 return false;

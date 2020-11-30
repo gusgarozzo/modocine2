@@ -1076,3 +1076,21 @@ header .adminMenu{
     width: 200px;
     height: auto;
 }
+
+.boxMessage{
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    padding-left: 10px;
+    
+}
+
+.logMessage{
+    color: black;
+    font-weight: bold;
+}
+
+.spanMessage{
+    font-style: italic;
+    font-weight: normal;
+}
+

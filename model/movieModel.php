@@ -60,12 +60,14 @@
         function insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala){
             $query = $this->db->prepare("INSERT INTO pelicula(nombre, genero, sinopsis, puntaje_imdb, id_sala) VALUES(?,?,?,?,?)");
             $query->execute(array($titulo, $genero, $sinopsis, $puntaje, $sala));
+            return $query->rowCount();
         }
 
         // Agregar Sala
         function insertNewRoom($sala, $capacidad, $formato, $tipo, $info){
             $query = $this->db->prepare("INSERT INTO sala(letra, capacidad, formato, butaca, info_butaca) VALUES(?,?,?,?,?)");
             $query->execute(array($sala, $capacidad, $formato, $tipo, $info));
+            return $query->rowCount();
         }
 
         // Borrar pelicula
@@ -88,6 +90,7 @@
             $query = $this->db->prepare('UPDATE pelicula SET nombre=?, genero=?, sinopsis=?,
             puntaje_imdb=?, id_sala=? WHERE pelicula.id=?');
             $query->execute(array($titulo, $genero, $sinopsis, $puntaje, $sala, $id));
+            return $query->rowCount();
         }
 
         // Actualizar tabla salas
@@ -95,6 +98,7 @@
             $query = $this->db->prepare('UPDATE sala SET letra=?, capacidad=?, formato=?
             WHERE sala.id=?');
             $query->execute(array($sala, $capacidad, $formato, $id));
+            return $query->rowCount();;
         }
 
         // Trae todos los elementos de la tabla pelicula para ser mostrada en la vista del admin

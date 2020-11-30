@@ -73,7 +73,7 @@
                 $sala = $_POST['input_id_sala'];
                 $action=$this->movieModel->insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala);
                 
-                if($action){
+                if($action > 0){
                     $this->admView->ShowAdmin();
                 }else{
                     $this->admView->renderError("No pudo insertarse la pelicula. Reintente");
@@ -108,7 +108,7 @@
             if((isset($params[':ID']))){
                 $movie_id = $params[':ID'];
                 $action=$movie = $this->movieModel->getMovieByIdAdm($movie_id);
-                if ($action){
+                if ($action>0){
                     $this->admView->renderEditMovie($movie);
                 }else{
                     $this->admView->renderError("Hubo un error. Revise y reintente");
@@ -132,7 +132,7 @@
                 $puntaje = $_POST['input_puntaje'];
                 $sala = $_POST['input_id_sala'];
                 $action=$this->movieModel->updateValues($titulo, $genero, $sinopsis, $puntaje, $sala, $movie_id);
-                if ($action){
+                if ($action>0){
                     $this->admView->ShowAdmin();
                 }else{
                     $this->admView->renderError("Hubo un error. Revise y reintente");
@@ -148,7 +148,7 @@
             if((isset($params[':ID']))){
                 $room_id = $params[':ID'];
                 $room = $this->roomModel->getRoomInfoById($room_id);
-                $this->admView->renderEditRoom($room);
+                $action=$this->admView->renderEditRoom($room);
             }
         }
 

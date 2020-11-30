@@ -31,7 +31,7 @@
                                 <a class="edit" href='editMovie/{$movie->id}'>Edit</a>
                             </div>
                             <div>
-                                <a class="delete" href='deleteMovie/{$movie->id}'> Delete</a>
+                                <a class="delete" onclick="return confirmDelete()" href='deleteMovie/{$movie->id}'> Delete</a>
                             </div>
                         </td>
                         {foreach from=$img item=image}
@@ -40,7 +40,7 @@
                                     <img class="dbimage" src='data:{$image->tipo};base64, {base64_encode({$image->imagen})}'>
                                 </td>
                                 <td>
-                                    <a class="delete" href='deletePhoto/{$image->id}'>Delete img</a>
+                                    <a class="delete" onclick="return confirmDelete()" href='deletePhoto/{$image->id}'>Delete img</a>
                                 </td>
                             {/if}
                         {/foreach}
@@ -77,7 +77,7 @@
                                 <a class="edit" href='editRoom/{$room->id}'>Edit</a>
                             </div>
                             <div>
-                                <a class="delete" href='deleteRoom/{$room->id}'> Delete</a>
+                                <a class="delete" onclick="return confirmDelete()" href='deleteRoom/{$room->id}'> Delete</a>
                             </div>
                         </td>
                     </tr>
@@ -105,7 +105,7 @@
                                 <a class="edit" href='editUser/{$user->id}'>Edit</a>
                             </div>
                             <div>
-                                <a class="delete" href='deleteUser/{$user->id}'>Delete</a>
+                                <a class="delete" onclick="return confirmDelete()" href='deleteUser/{$user->id}'>Delete</a>
                             </div>
                         </td>
                     </tr>

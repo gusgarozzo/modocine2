@@ -1,12 +1,12 @@
 <main class="mainIndex">
-<div>
+<div class="boxMessage">
     {if $mensaje != null}
-        <p>
-            Logueado como: {$mensaje}
+        <p class="logMessage">
+            Usuario: <span class="spanMessage">{$mensaje}</span>
         <p>
         {else}
-        <p>
-            Invitado
+        <p class="logMessage">
+            Usuario: <span class="spanMessage">"Invitado"</span>
         <p>
     {/if}
 </div>
