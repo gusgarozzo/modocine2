@@ -973,6 +973,15 @@ header .adminMenu{
     border-radius: 5px;
 }
 
+.div-comentarios i{
+    padding: 2px;
+}
+
+.div-comentarios i:hover{
+    background: red;
+    color: white;
+}
+
 .caja-comentario{
     width: 100%;
     font-style: italic;
