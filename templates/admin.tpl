@@ -118,4 +118,3 @@
         <a href="adminInsert">Agregar registro a la base de datos</a>
     </div>
 </main>
-{include file="footer.tpl"}

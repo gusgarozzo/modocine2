@@ -23,8 +23,6 @@ function renderComments(comments){
   let admin = document.querySelector("#admin").value;
   let form = document.querySelector("#commentForm");
   let sesion = document.querySelector("#sesion")
-  console.log("sesion:")
-  console.log(sesion);
   if (admin==3) {
     form.style.display = "none";
   }
@@ -32,7 +30,21 @@ function renderComments(comments){
   container.innerHTML = ' ';
 
   for (let comment of comments) {
-    console.log(admin);
+
+    // Transforma el valor numerico en estrellas
+    if (comment.puntaje == 1){
+      comment.puntaje = "★";
+    }else if(comment.puntaje == 2){
+      comment.puntaje = "★★";
+    }else if(comment.puntaje == 3){
+      comment.puntaje = "★★★";
+    }else if(comment.puntaje == 4){
+      comment.puntaje = "★★★★";
+    }else if(comment.puntaje == 5){
+      comment.puntaje = "★★★★★";
+    }
+
+
     if (peli_id == comment.id_pelicula) {
       let divContainer = document.createElement("div");
       let divPuntaje = document.createElement("div");
@@ -47,7 +59,7 @@ function renderComments(comments){
       // Asigno evento para borrar comentario
       deleteButton.addEventListener("click", () => deleteComment(id));
 
-      divPuntaje.innerHTML = "Puntaje: " + comment.puntaje;
+      divPuntaje.innerHTML = "Clasificación: " + comment.puntaje;
       spanNick.innerHTML = comment.nickname + " dijo: ";
       spanNick.classList.add("nick");
       divComentario.appendChild(spanNick);
@@ -78,14 +90,29 @@ function renderComments(comments){
 }
 
 function addComent(){
+  // Tomo los input radio del formulario
+  let radios = document.getElementsByName("estrellas");
+  // Asigno una variable vacía
+  let puntaje;
+  // Recorro todos los input radio con el nombre "estrellas"
+  for (let i=0; i<radios.length; i++){
+    // Me detengo en aquel que esté checked
+    if (radios[i].checked){
+      // A la variable declarada antes del for le asigno el valor del radio seleccionado
+      puntaje = radios[i].value;
+    }
+  }
+
     let comentario = {
       "comentario": document.getElementById("comment").value,
-      "puntaje": document.querySelector("#puntaje").value,
+      "puntaje": puntaje,
       "usuario_id": document.querySelector("#usuario_id").value,
       "nickname": document.querySelector("#nickname").value,
       "pelicula_id": document.getElementById("pelicula_id").value
     }
 
+    
+    
     fetch(baseURL, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },

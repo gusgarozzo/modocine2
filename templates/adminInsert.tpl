@@ -55,4 +55,3 @@
         <a href="admin">Volver</a>
     </div>
 </main>
-{include file="footer.tpl"}

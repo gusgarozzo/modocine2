@@ -148,7 +148,14 @@
             if((isset($params[':ID']))){
                 $room_id = $params[':ID'];
                 $room = $this->roomModel->getRoomInfoById($room_id);
-                $action=$this->admView->renderEditRoom($room);
+                
+                if(count($room)>0){
+                    $this->admView->renderEditRoom($room);
+                }else{
+                    $this->admView->renderError("No hay salas relacionadas con el ID $room_id");
+                }
+            }else{
+                $this->admView->renderError("Hubo un error. Revise los campos y reintente");
             }
         }
 

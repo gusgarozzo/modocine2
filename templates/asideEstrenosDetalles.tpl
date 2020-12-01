@@ -29,8 +29,7 @@
         <input type="hidden" name="pelicula" id="peli_id" value='{$mov->id}'>
         <form class="formulario" id="commentForm" method="POST" action="comentarios">
             <h2>Danos tu opinión sobre {$mov->nombre}</h2>
-            <label for="pelicula_id">ID</label>
-            <input type="text" name="pelicula_id" id='pelicula_id' value='{$mov->id}' data='{$mov->id}' readonly>
+            <input type="hidden" name="pelicula_id" id='pelicula_id' value='{$mov->id}' data='{$mov->id}' readonly>
             {if (isset($smarty.session.usuario))}  
             {foreach from=usuario item=user}
                 <label for="nickname">Usuario</label>
@@ -43,8 +42,20 @@
             {if (!isset($smarty.session.usuario))}
                 <input type="hidden" id="admin" value='3'>
             {/if}
-            <label for="puntaje">Puntaje</label>
-            <input type="number" name="puntaje" min="1" max="5" id="puntaje">
+            <p>Puntaje</p>
+            <p class="clasificacion">
+                <input id="radio1" type="radio" name="estrellas" value="5">
+                <label class="puntaje" for="radio1">★</label>
+                <input id="radio2" type="radio" name="estrellas" value="4">
+                <label class="puntaje" for="radio2">★</label>
+                <input id="radio3" type="radio" name="estrellas" value="3">
+                <label class="puntaje" for="radio3">★</label>
+                <input id="radio4" type="radio" name="estrellas" value="2">
+                <label class="puntaje" for="radio4">★</label>
+                <input id="radio5" type="radio" name="estrellas" value="1">
+                <label class="puntaje" for="radio5">★</label>
+            </p>
+            <!--<input type="number" name="puntaje" min="1" max="5" id="puntaje">-->
             <label for="comentario">Comentario</label>
             <textarea name="comentario" id="comment" cols="60" rows="10"></textarea>
             <input type="submit" id="btn-send">

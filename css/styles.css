@@ -9,17 +9,19 @@ a{
     cursor: pointer;
 }
 
-body {
+html, body {
     background: #f2f2f2;
     font-family: "Poppins", sans-serif;
     color: black;
     display: flex;
+    height: 100%;
     flex-direction: column;
 }
 
 .contenedor {
     display: grid;
     width: 100%;
+    min-height: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr, 3fr, 1fr;
     grid-template-areas:
@@ -727,7 +729,9 @@ footer i:hover{
 
 /* ESTILOS ADMIN */
 .main-admin{
+    padding-bottom: 30px;
     width: 100%;
+    min-height: 100%;
     padding: 10px;
     margin: auto;
     background: #f2f2f2;
@@ -1124,6 +1128,7 @@ header .adminMenu{
     display: flex;
     justify-content: space-evenly;
     padding: 15px;
+    height: 100%;
 }
 
 .imagebox p{
@@ -1134,4 +1139,29 @@ header .adminMenu{
 .imagebox img{
     height: 400px;
     width: 300px;
+}
+
+.puntaje{
+    color: grey;
+}
+
+input[type = "radio"]{
+    display: none;
+}
+
+.clasificacion{
+    direction: rtl; /*Direccion right to left (derecha a izquierda */
+    unicode-bidi: bidi-override; /* bidi de bidireccional */
+}
+
+.puntaje:hover{
+    color:orange;
+}
+
+.puntaje:hover ~ .puntaje{
+    color:orange;
+}
+
+input[type = "radio"]:checked ~ .puntaje{
+    color:orange;
 }
