@@ -20,6 +20,7 @@
             $this->smarty->display('./templates/index.tpl');
         }
 
+
         function renderContacto(){
             $this->showNav();
             $this->smarty->display('./templates/contacto.tpl');     
@@ -46,6 +47,7 @@
             $this->smarty->assign('usuario', $usuario);
             $this->smarty->assign('image', $image);
             $this->showNav();
+            $this->smarty->display('./templates/comentarios.tpl');
             $this->smarty->display('./templates/asideEstrenosDetalles.tpl');
         }
 
