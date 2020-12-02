@@ -61,7 +61,7 @@ class ApiComentController extends ApiController {
 
         $response = $this->commentModel->addCommentModel($idUsuario, $idPelicula, $puntaje, $comentario);
         if (!empty($response)) {
-            $this->view->response($this->commentModel->getComments(), 200);
+            $this->view->response($this->commentModel->getComments(), 201);
             die();
         }else{
             $this->view->response("El comentario no se pudo insertar", 404);
