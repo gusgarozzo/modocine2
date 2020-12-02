@@ -86,9 +86,6 @@ function renderComments(comments){
         deleteButton.addEventListener("click", () => deleteComment(id));
         deleteButton.style.display = "block";
         console.log('admin')
-      }else if (admin == 0){
-        deleteButton.style.display = "none";
-        console.log('usuario')
       }
     }
   }
