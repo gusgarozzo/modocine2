@@ -54,7 +54,8 @@
             $movies = $query->fetchAll(PDO::FETCH_OBJ);
             return $movies;
         }
-        // *********************** ACA EMPIEZA LO DEL ADMIN ************************
+
+        // **************** ACA EMPIEZA LO DEL ADMIN *****************
 
         // Agregar pelicula
         function insertNewMovie($titulo, $genero, $sinopsis, $puntaje, $sala){
@@ -86,8 +87,6 @@
             return $query->rowCount();
         }
 
-        
-
         // Trae todos los elementos de la tabla pelicula para ser mostrada en la vista del admin
         function getMovies(){
             $query=$this->db->prepare('SELECT * FROM pelicula');
@@ -96,13 +95,11 @@
             return $allMovies;
         }
 
+        // Trae la/s imagen/es de las peliculas
         function getMoviePhotos(){
             $query=$this->db->prepare('SELECT * FROM pelicula INNER JOIN imagen WHERE pelicula.id = imagen.id_pelicula');
             $query->execute();
             $moviePhoto = $query->fetchAll(PDO::FETCH_OBJ);
             return $moviePhoto;
         }
-
-        
-   
     }
