@@ -1,7 +1,5 @@
 <?php 
 
-    require_once './Controller/publicController.php';
-
     class RoomModel{
 
         private $db;
@@ -31,6 +29,8 @@
             return $room;
         }
 
+        // ***************** ADMIN ******************
+
         // Agregar Sala
         function insertNewRoom($sala, $capacidad, $formato, $tipo, $info){
             $query = $this->db->prepare("INSERT INTO sala(letra, capacidad, formato, butaca, info_butaca) VALUES(?,?,?,?,?)");
@@ -53,7 +53,5 @@
 
             return $action;
         }
-
     }
-
 ?>

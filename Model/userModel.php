@@ -1,7 +1,5 @@
 <?php 
 
-    require_once './Controller/loginController.php';
-
     class userModel{
 
         private $db;
@@ -49,5 +47,4 @@
             $datos=$query->fetch(PDO::FETCH_OBJ);
             return $datos;
         }
-    
     }
