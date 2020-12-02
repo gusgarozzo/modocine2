@@ -26,7 +26,6 @@
             {/if}
         {/foreach}
         {include file="filtro.tpl"}
-        {if isset($smarty.session.usuario)}
                 <input type="hidden" name="pelicula" id="peli_id" value='{$mov->id}'>
             <form class="formulario" id="commentForm" method="POST" action="comentarios">
                 <h2>Danos tu opinión sobre {$mov->nombre}</h2>
@@ -61,7 +60,6 @@
                 <textarea name="comentario" id="comment" cols="60" rows="10"></textarea>
                 <input type="submit" id="btn-send">
             </form>
-        {/if}
         
     </section>
 </aside>  

@@ -76,7 +76,6 @@ function renderComments(comments){
         form.style.display = "none";
       }
       if (admin == 1){
-
         // Creo el boton para eliminar comentario
         icono.classList.add("far");
         icono.classList.add("fa-trash-alt");
