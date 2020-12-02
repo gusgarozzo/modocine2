@@ -22,6 +22,7 @@
             $this->smarty->assign('rooms', $rooms);
             $this->smarty->assign('users', $users);
             $this->smarty->assign('img', $img);
+            
             $this->showNav();
             $this->smarty->display('./templates/admin.tpl');
         }

@@ -31,6 +31,29 @@
             return $room;
         }
 
+        // Agregar Sala
+        function insertNewRoom($sala, $capacidad, $formato, $tipo, $info){
+            $query = $this->db->prepare("INSERT INTO sala(letra, capacidad, formato, butaca, info_butaca) VALUES(?,?,?,?,?)");
+            $query->execute(array($sala, $capacidad, $formato, $tipo, $info));
+            return $query->rowCount();
+        }
+
+        // Actualizar tabla salas
+        function updateRooms($sala, $capacidad, $formato, $id){
+            $query = $this->db->prepare('UPDATE sala SET letra=?, capacidad=?, formato=?
+            WHERE sala.id=?');
+            $query->execute(array($sala, $capacidad, $formato, $id));
+            return $query->rowCount();;
+        }
+
+        // Borrar sala desde su id
+        function deleteRoomId($id){
+            $query = $this->db->prepare("DELETE FROM sala WHERE id=?");
+            $action=$query->execute(array($id));
+
+            return $action;
+        }
+
     }
 
 ?>

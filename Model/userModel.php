@@ -40,6 +40,7 @@
         function editPermission($user_id, $isAdmin){
             $query = $this->db->prepare('UPDATE usuario SET admin=? WHERE id=?');
             $query->execute(array($isAdmin, $user_id));
+            return $query->rowCount();
         }
 
         function getUsersRol($email){

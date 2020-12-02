@@ -54,8 +54,13 @@
         function showMovieByGenre($params = null){
             if((isset($params[':GEN']))){
                 $genre = $params[':GEN'];
-                $movies = $this->movieModel->getMoviesByGenre($genre);
-                $this->view->renderMoviesByGenre($movies);
+                $action=$movies = $this->movieModel->getMoviesByGenre($genre);
+
+                if($action){
+                    $this->view->renderMoviesByGenre($movies);
+                }else{
+                    $this->admView->renderError("No hay peliculas asociadas al genero $genre");
+                }
             }
         }
 
@@ -63,15 +68,19 @@
             $log = $this->helper->checkLoggedIn();
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
-                $movie = $this->movieModel->getMovieById($id); 
-                if($log == true){
-                    $user = $_SESSION['usuario'];
-                    $usuario = $this->userModel->getUserInfo($user);
+                $movie = $this->movieModel->getMovieById($id);
+                if (count($movie)>0){
+                    if($log == true){
+                        $user = $_SESSION['usuario'];
+                        $usuario = $this->userModel->getUserInfo($user);
+                    }else{
+                        $usuario = empty($usuario);
+                    }
+                    $image = $this->photoModel->getMoviePhotos();
+                    $this->view->renderMovieById($movie, $usuario, $image);
                 }else{
-                    $usuario = empty($usuario);
+                    $this->admView->renderError("No hay peliculas disponibles con el id=$id");
                 }
-                $image = $this->photoModel->getMoviePhotos();
-                $this->view->renderMovieById($movie, $usuario, $image);
             }
         }
 
@@ -79,7 +88,12 @@
             if((isset($params[':ID']))){
                 $id = $params[':ID'];
                 $room = $this->roomModel->getRoomById($id);
-                $this->view->renderRoomById($room);
+                if(count($room)>0){
+                    $this->view->renderRoomById($room);
+                }else{
+                    $this->admView->renderError("No hay salas disponibles con el id=$id");
+                }
+                
             }
         }
 

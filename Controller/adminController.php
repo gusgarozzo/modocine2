@@ -143,6 +143,7 @@
             }
         }
 
+        // Imprime el formulario para editar imagen
         function editRoomMode($params=null){
             $this->helper->sessionController();
             if((isset($params[':ID']))){
@@ -159,6 +160,7 @@
             }
         }
 
+        
         function editRoom($params = null){
             $this->helper->sessionController();
             if((isset($params[':ID'])) && (isset($_POST['input_sala'])) && (isset($_POST['input_capacidad'])) && (isset($_POST['input_formato']))){
@@ -166,7 +168,7 @@
                 $sala = $_POST['input_sala'];
                 $capacidad = $_POST['input_capacidad'];
                 $formato = $_POST['input_formato'];
-                $this->movieModel->updateRooms($sala, $capacidad, $formato, $room_id);
+                $this->roomModel->updateRooms($sala, $capacidad, $formato, $room_id);
                 $this->admView->ShowAdmin();
             }
         }
@@ -177,18 +179,16 @@
                 $room_id = $params[':ID'];
 
                 $action = null;
-                $action = $this->movieModel->deleteRoomId($room_id);    
+                $action = $this->roomModel->deleteRoomId($room_id);    
                 
-                switch($action){
-                    case true:
-                        $this->admView->ShowAdmin();
-                    break;
-                    case false:
-                        $this->admView->renderError("Disculpe! Para eliminar la sala, primero debe eliminar 
-                        todos las peliculas asociadas a la misma");
-                    break;
-                }
-            } 
+                if($action>0){
+                    $this->admView->ShowAdmin();
+                }else{
+                    $this->admView->renderError("Disculpe! No se puede eliminar la imagen");
+                }   
+            } else{ 
+                $this->admView->renderError("Para borrar la sala, primero debe eliminar una película");
+            }
         }
 
         function insertRoom(){
@@ -200,8 +200,15 @@
                 $formato = $_POST['input_formato'];
                 $tipo = $_POST['input_tipo'];
                 $info = $_POST['input_info'];
-                $this->adminModel->insertNewRoom($sala, $capacidad, $formato, $tipo, $info);
-                $this->admView->ShowAdmin();
+                $action = $this->roomModel->insertNewRoom($sala, $capacidad, $formato, $tipo, $info);
+                if($action > 0){
+                    $this->admView->ShowAdmin();
+                }else{
+                    $this->admView->renderError("Disculpe! Revise bien los campos ingresados y reintente");
+                }
+                
+            }else{
+                $this->admView->renderError("No se admiten campos vacíos");
             }
         }
 
@@ -210,7 +217,13 @@
             if((isset($params[':ID']))){
                 $user_id = $params[':ID'];
                 $user = $this->userModel->getUserById($user_id);
-                $this->admView->renderEditUser($user);
+                if ($user){
+                    $this->admView->renderEditUser($user);
+                }else{
+                    $this->admView->renderError("No hay usuarios relacionados con el ID= $user_id");
+                } 
+            }else{
+                $this->admView->renderError("Ocurrió un error, revise y reintente");
             }
         }
     
@@ -220,8 +233,14 @@
                 $user_id = $params[':ID'];
                 $isAdmin = $_POST['input_isAdmin'];
                 if ($isAdmin == 0 || $isAdmin == 1 ) {
-                    $this->userModel->editPermission($user_id, $isAdmin);
-                    $this->admView->ShowAdmin();
+                    $action=$this->userModel->editPermission($user_id, $isAdmin);
+                    if($action > 0){
+                        $this->admView->ShowAdmin();
+                    }else{
+                        $this->admView->renderError("No se pudo editar los permisos del usuario con id=$user_id. Revise y reintente");
+                    }
+                }else{
+                    $this->admView->renderError("Ocurrió un error, revise y reintente");
                 }
             }
         }
@@ -241,9 +260,16 @@
                         $tamanoArchivo = $_FILES['imagen']['size'];
                         $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
                         $binariosImagen = fread($imagenSubida, $tamanoArchivo);
-                        $this->photoModel->insertPhoto($binariosImagen, $nombreArchivo, $tipoArchivo, $id_pelicula);
-                        $this->admView->showAdmin();
+                        $action=$this->photoModel->insertPhoto($binariosImagen, $nombreArchivo, $tipoArchivo, $id_pelicula);
+                        if($action > 0){
+                            $this->admView->showAdmin();
+                        }else{
+                            $this->admView->renderError("No se pudo insertar la imagen");
+                        }
+                        
                     }
+                }else{
+                    $this->admView->renderError("Ocurrió un error, revise y reintente");
                 }
             }
         }
@@ -252,8 +278,15 @@
             $this->helper->sessionController();
             if((isset($params[':ID']))){
                 $img_id = $params[':ID'];
-                $this->photoModel->deleteImg($img_id);
-                $this->admView->showAdmin();
+                $action=$this->photoModel->deleteImg($img_id);
+                if($action>0){
+                    $this->admView->showAdmin();
+                }else{
+                    $this->admView->renderError("No se pudo eliminar la imagen con id=$img_id");
+                }
+                
+            }else{
+                $this->admView->renderError("Ocurrió un error. Reintente");
             }
         }
 

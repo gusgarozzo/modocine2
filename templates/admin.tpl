@@ -35,15 +35,15 @@
                             </div>
                         </td>
                         {foreach from=$img item=image}
-                            {if $movie->id == $image->id_pelicula}                                
-                                <td>
+                            {if $movie->id == $image->id_pelicula}  
+                                <td>                  
                                     <img class="dbimage" src='data:{$image->tipo};base64, {base64_encode({$image->imagen})}'>
                                 </td>
                                 <td>
                                     <a class="delete" onclick="return confirmDelete()" href='deletePhoto/{$image->id}'>Borrar</a>
                                     <a class="edit" href='editPhoto/{$image->id}'>Editar</a>
                                 </td>
-                            {/if}
+                            {/if} 
                         {/foreach}
                     </tr>
                 {/foreach}
