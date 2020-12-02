@@ -2,6 +2,7 @@
 
 require_once './Model/userModel.php';
 require_once './View/adminView.php';
+require_once './View/publicView.php';
 require_once './Controller/adminController.php';
 
 class loginController{
@@ -76,12 +77,11 @@ class loginController{
                         $hash = password_hash($password, PASSWORD_DEFAULT);
                         $user = $this->userModel->saveUserInDDBB($nickname, $username, $hash);
                         if($user>0){
-                            $info=$this->userModel->getUserInfo($user);
                             $_SESSION["usuario"] = $username; 
                             $_SESSION['timeout'] = time();
-                            $_SESSION['admin'] = $info->admin;
-                            $_SESSION['nickname'] = $info->nickname;
-                            header("Location: ".BASE_URL."home");
+                            $_SESSION['admin'] = 0;
+                            $_SESSION['nickname'] = $nickname;
+                            $this->publicView->renderHome($username);
                         }else{
                             $this->admView->renderError("Registro inválido. Reintente");
                         }
