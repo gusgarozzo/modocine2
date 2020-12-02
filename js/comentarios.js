@@ -54,20 +54,17 @@ function renderComments(comments){
       let icono = document.createElement("i"); 
 
       // Boton para borrar comentario
-      divContainer.appendChild(deleteButton);
+      
       deleteButton.style.display = 'none';
       // Asigno evento para borrar comentario
-      deleteButton.addEventListener("click", () => deleteComment(id));
+      
 
       divPuntaje.innerHTML = "Clasificación: " + comment.puntaje;
       spanNick.innerHTML = comment.nickname + " dijo: ";
       spanNick.classList.add("nick");
       divComentario.appendChild(spanNick);
       divComentario.innerHTML += comment.comentario;
-      icono.classList.add("far");
-      icono.classList.add("fa-trash-alt");
-      icono.classList.add("fa-2x");
-      deleteButton.appendChild(icono);
+
       divContainer.appendChild(divPuntaje);
       divContainer.appendChild(divComentario);
       divContainer.classList.add("posteo");
@@ -79,6 +76,14 @@ function renderComments(comments){
         form.style.display = "none";
       }
       if (admin == 1){
+
+        // Creo el boton para eliminar comentario
+        icono.classList.add("far");
+        icono.classList.add("fa-trash-alt");
+        icono.classList.add("fa-2x");
+        deleteButton.appendChild(icono);
+        divContainer.appendChild(deleteButton);
+        deleteButton.addEventListener("click", () => deleteComment(id));
         deleteButton.style.display = "block";
         console.log('admin')
       }else if (admin == 0){
@@ -112,7 +117,6 @@ function addComent(){
     }
 
     
-    
     fetch(baseURL, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
@@ -124,6 +128,7 @@ function addComent(){
     .then(comentario => getComments())
     .catch(error => console.log(error));
 }
+
 
 function deleteComment(id){
   fetch(baseURL+"/"+id, {
