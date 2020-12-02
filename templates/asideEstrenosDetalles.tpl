@@ -26,10 +26,7 @@
             {/if}
         {/foreach}
         {include file="filtro.tpl"}
-        
-        {if isset($smarty.session.usuario)}
-            {include file="commentForm.tpl"}
-        {/if}
+        {include file="commentForm.tpl"}
         
     </section>
 </aside>  

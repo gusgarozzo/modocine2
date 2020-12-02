@@ -21,7 +21,7 @@ function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
   let peli_id = document.querySelector('#peli_id').value;
   let admin = document.querySelector("#admin").value;
-  let form = document.querySelector("#commentForm");
+  let form = document.querySelector("#commentBox");
   let sesion = document.querySelector("#sesion")
   if (admin==3) {
     form.style.display = "none";
