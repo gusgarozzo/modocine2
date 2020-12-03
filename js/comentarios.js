@@ -21,10 +21,13 @@ function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
   let peli_id = document.querySelector('#peli_id').value;
   let admin = document.querySelector("#admin").value;
-  let form = document.querySelector("#commentBox");
+  let commentBox = document.querySelector("#commentBox");
+  let form = document.querySelector("#commentForm");
   let sesion = document.querySelector("#sesion")
   if (admin==3) {
-    form.style.display = "none";
+    commentBox.removeChild(form);
+  }else{
+    commentBox.appendChild(form);
   }
 
   container.innerHTML = ' ';
@@ -73,8 +76,11 @@ function renderComments(comments){
       let id = comment.id;
 
       if(sesion == null){
-        form.style.display = "none";
+        commentBox.removeChild(form);
+      }else{
+        commentBox.appendChild(form);
       }
+
       if (admin == 1){
         // Creo el boton para eliminar comentario
         icono.classList.add("far");
