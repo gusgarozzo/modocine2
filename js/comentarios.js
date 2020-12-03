@@ -19,11 +19,11 @@ function getComments() {
 
 function renderComments(comments){
   let container = document.querySelector('#div-comentarios');
-  let peli_id = document.querySelector('#peli_id').value;
+  let peli_id = document.querySelector('#pelicula_id').value;
   let admin = document.querySelector("#admin").value;
   let commentBox = document.querySelector("#commentBox");
   let form = document.querySelector("#commentForm");
-  let sesion = document.querySelector("#sesion")
+  let sesion = document.querySelector("#sesion");
   if (admin==3) {
     commentBox.removeChild(form);
   }else{
@@ -33,7 +33,6 @@ function renderComments(comments){
   container.innerHTML = ' ';
 
   for (let comment of comments) {
-
     // Transforma el valor numerico en estrellas
     if (comment.puntaje == 1){
       comment.puntaje = "★";
@@ -47,33 +46,21 @@ function renderComments(comments){
       comment.puntaje = "★★★★★";
     }
 
-
     if (peli_id == comment.id_pelicula) {
       let divContainer = document.createElement("div");
       let divPuntaje = document.createElement("div");
       let divComentario = document.createElement("div");
       let spanNick = document.createElement("span");
-      let deleteButton = document.createElement("button");
-      let icono = document.createElement("i"); 
-
-      // Boton para borrar comentario
-      
-      deleteButton.style.display = 'none';
-      // Asigno evento para borrar comentario
-      
 
       divPuntaje.innerHTML = "Clasificación: " + comment.puntaje;
       spanNick.innerHTML = comment.nickname + " dijo: ";
       spanNick.classList.add("nick");
       divComentario.appendChild(spanNick);
       divComentario.innerHTML += comment.comentario;
-
       divContainer.appendChild(divPuntaje);
       divContainer.appendChild(divComentario);
       divContainer.classList.add("posteo");
       container.appendChild(divContainer);
-
-      let id = comment.id;
 
       if(sesion == null){
         commentBox.removeChild(form);
@@ -82,15 +69,15 @@ function renderComments(comments){
       }
 
       if (admin == 1){
-        // Creo el boton para eliminar comentario
+        let id = comment.id;
+        let deleteButton = document.createElement("button");
+        let icono = document.createElement("i"); 
         icono.classList.add("far");
         icono.classList.add("fa-trash-alt");
         icono.classList.add("fa-2x");
         deleteButton.appendChild(icono);
         divContainer.appendChild(deleteButton);
         deleteButton.addEventListener("click", () => deleteComment(id));
-        deleteButton.style.display = "block";
-        console.log('admin')
       }
     }
   }
